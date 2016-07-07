@@ -1,0 +1,202 @@
+var _user$project$Piece$darkBrown = 'saddlebrown';
+var _user$project$Piece$edgeThickness = 3;
+var _user$project$Piece$renderPiece = function (model) {
+	var _p0 = model.location;
+	var locX = _p0._0;
+	var locY = _p0._1;
+	var sideSize = model.sideSize;
+	var edgeRatio = (_user$project$Piece$edgeThickness * sideSize) / 100;
+	var plusIndent = _elm_lang$core$Basics$toString(edgeRatio);
+	var minusIndent = _elm_lang$core$Basics$toString(sideSize - edgeRatio);
+	var whole = _elm_lang$core$Basics$toString(sideSize);
+	var half = _elm_lang$core$Basics$toString(sideSize / 2.0);
+	var polyPoints = A2(
+		_elm_lang$core$Basics_ops['++'],
+		half,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			' ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				plusIndent,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					', ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						minusIndent,
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' ',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								half,
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									', ',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										half,
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											' ',
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												minusIndent,
+												A2(
+													_elm_lang$core$Basics_ops['++'],
+													', ',
+													A2(
+														_elm_lang$core$Basics_ops['++'],
+														plusIndent,
+														A2(_elm_lang$core$Basics_ops['++'], ' ', half))))))))))))));
+	var polys = A2(
+		_elm_lang$svg$Svg$polygon,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$fill('white'),
+				_elm_lang$svg$Svg_Attributes$points(polyPoints),
+				_elm_lang$svg$Svg_Attributes$stroke('indianred'),
+				_elm_lang$svg$Svg_Attributes$strokeWidth(
+				_elm_lang$core$Basics$toString(edgeRatio))
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+	var narrow = _elm_lang$core$Basics$toString(sideSize / 10.0);
+	var textDownMore = _elm_lang$core$Basics$toString(sideSize / 1.8);
+	var myText = A2(
+		_elm_lang$svg$Svg$text$,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$x(half),
+				_elm_lang$svg$Svg_Attributes$y(textDownMore),
+				_elm_lang$svg$Svg_Attributes$fill('black'),
+				_elm_lang$svg$Svg_Attributes$fontSize('20'),
+				_elm_lang$svg$Svg_Attributes$alignmentBaseline('middle'),
+				_elm_lang$svg$Svg_Attributes$textAnchor('middle')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg$text(
+				_elm_lang$core$Basics$toString(model.pieceNumber))
+			]));
+	return A2(
+		_elm_lang$svg$Svg$svg,
+		_mdgriffith$elm_style_animation$Style$renderAttr(model.svgStyle),
+		_elm_lang$core$Native_List.fromArray(
+			[polys, myText]));
+};
+var _user$project$Piece$view = function (model) {
+	return _user$project$Piece$renderPiece(model);
+};
+var _user$project$Piece$getSvgValues = function (model) {
+	var _p1 = model.location;
+	var xloc = _p1._0;
+	var yloc = _p1._1;
+	var pixelsX = model.sideSize * _elm_lang$core$Basics$toFloat(xloc);
+	var pixelsY = model.sideSize * _elm_lang$core$Basics$toFloat(yloc);
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			_mdgriffith$elm_style_animation$Style_Properties$X(pixelsX),
+			_mdgriffith$elm_style_animation$Style_Properties$Y(pixelsY)
+		]);
+};
+var _user$project$Piece$setSvgStyle = function (model) {
+	return _mdgriffith$elm_style_animation$Style$init(
+		_user$project$Piece$getSvgValues(model));
+};
+var _user$project$Piece$moveLoc = F2(
+	function (delta, model) {
+		var _p2 = model.location;
+		var x = _p2._0;
+		var y = _p2._1;
+		var _p3 = delta;
+		var dx = _p3._0;
+		var dy = _p3._1;
+		var newLocation = {ctor: '_Tuple2', _0: x + dx, _1: y + dy};
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{location: newLocation});
+	});
+var _user$project$Piece$update = F2(
+	function (msg, model) {
+		var _p4 = msg;
+		switch (_p4.ctor) {
+			case 'Show':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Animate':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							svgStyle: A2(_mdgriffith$elm_style_animation$Style$tick, _p4._0, model.svgStyle)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var newModel = A2(_user$project$Piece$moveLoc, _p4._0, model);
+				var newModel2 = _elm_lang$core$Native_Utils.update(
+					newModel,
+					{
+						svgStyle: A2(
+							_mdgriffith$elm_style_animation$Style$on,
+							_user$project$Piece$setSvgStyle(model),
+							A2(
+								_mdgriffith$elm_style_animation$Style$to,
+								_user$project$Piece$getSvgValues(newModel),
+								_mdgriffith$elm_style_animation$Style$animate))
+					});
+				return {ctor: '_Tuple2', _0: newModel2, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _user$project$Piece$Model = F5(
+	function (a, b, c, d, e) {
+		return {role: a, location: b, pieceNumber: c, sideSize: d, svgStyle: e};
+	});
+var _user$project$Piece$Unassigned = {ctor: 'Unassigned'};
+var _user$project$Piece$init = {
+	ctor: '_Tuple2',
+	_0: {
+		role: _user$project$Piece$Unassigned,
+		location: {ctor: '_Tuple2', _0: 1, _1: 1},
+		pieceNumber: 1,
+		sideSize: 44,
+		svgStyle: _mdgriffith$elm_style_animation$Style$init(
+			_elm_lang$core$Native_List.fromArray(
+				[]))
+	},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Piece$initWithInfo = F3(
+	function (pieceNumber, sideSize, location) {
+		var m = {
+			role: _user$project$Piece$Unassigned,
+			location: location,
+			pieceNumber: pieceNumber,
+			sideSize: sideSize,
+			svgStyle: _mdgriffith$elm_style_animation$Style$init(
+				_elm_lang$core$Native_List.fromArray(
+					[]))
+		};
+		var model = _elm_lang$core$Native_Utils.update(
+			m,
+			{
+				svgStyle: _user$project$Piece$setSvgStyle(m)
+			});
+		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$Piece$Tail = {ctor: 'Tail'};
+var _user$project$Piece$Middle = {ctor: 'Middle'};
+var _user$project$Piece$Head = {ctor: 'Head'};
+var _user$project$Piece$Move = function (a) {
+	return {ctor: 'Move', _0: a};
+};
+var _user$project$Piece$Animate = function (a) {
+	return {ctor: 'Animate', _0: a};
+};
+var _user$project$Piece$subscriptions = function (model) {
+	var dummy = A2(_elm_lang$core$Debug$log, 'subscriptions', model.location);
+	return _elm_lang$animation_frame$AnimationFrame$times(_user$project$Piece$Animate);
+};
+var _user$project$Piece$Show = {ctor: 'Show'};

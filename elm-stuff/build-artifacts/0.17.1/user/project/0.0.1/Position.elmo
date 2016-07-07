@@ -1,0 +1,110 @@
+var _user$project$Position$blink = F2(
+	function (newBlinkState, model) {
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{blinkState: newBlinkState});
+	});
+var _user$project$Position$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'MarkVisited':
+				var newModel = _elm_lang$core$Native_Utils.update(
+					model,
+					{visited: true});
+				return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Tick':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _user$project$Position$borderColor = 'saddlebrown';
+var _user$project$Position$visitedColor = 'navajowhite';
+var _user$project$Position$blinkTrueColor = 'lightcyan';
+var _user$project$Position$blinkFalseColor = 'lightgoldenrodyellow';
+var _user$project$Position$gridFillColor = 'peru';
+var _user$project$Position$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {location: a, maxPosLength: b, sideSize: c, positionType: d, visited: e, blinkState: f};
+	});
+var _user$project$Position$Grid = {ctor: 'Grid'};
+var _user$project$Position$init = function () {
+	var model = {
+		positionType: _user$project$Position$Grid,
+		maxPosLength: 11,
+		location: {ctor: '_Tuple2', _0: 1, _1: 1},
+		sideSize: 50,
+		visited: false,
+		blinkState: false
+	};
+	return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+}();
+var _user$project$Position$initWithInfo = F4(
+	function (positionType, maxPosLength, sideSize, location) {
+		var _p1 = _user$project$Position$init;
+		var model = _p1._0;
+		var cmd = _p1._1;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{positionType: positionType, maxPosLength: maxPosLength, sideSize: sideSize, location: location}),
+			_1: cmd
+		};
+	});
+var _user$project$Position$calcFillColor = function (model) {
+	return _elm_lang$core$Native_Utils.eq(model.positionType, _user$project$Position$Grid) ? _user$project$Position$gridFillColor : (model.visited ? _user$project$Position$visitedColor : (model.blinkState ? _user$project$Position$blinkTrueColor : _user$project$Position$blinkFalseColor));
+};
+var _user$project$Position$Perimeter = {ctor: 'Perimeter'};
+var _user$project$Position$isPerimeter = function (model) {
+	return _elm_lang$core$Native_Utils.eq(model.positionType, _user$project$Position$Perimeter);
+};
+var _user$project$Position$Nothing = {ctor: 'Nothing'};
+var _user$project$Position$renderEmptySquare = function (model) {
+	var whole = _elm_lang$core$Basics$toString(model.sideSize);
+	var _p2 = model.location;
+	var locX = _p2._0;
+	var locY = _p2._1;
+	var boardSize = _elm_lang$core$Basics$toFloat(model.maxPosLength) * model.sideSize;
+	var myStrokeWidth = _elm_lang$core$Basics$toString(model.sideSize / 10);
+	var fillColor = _user$project$Position$calcFillColor(model);
+	var rectangle = A2(
+		_elm_lang$svg$Svg$rect,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$width(whole),
+				_elm_lang$svg$Svg_Attributes$height(whole),
+				_elm_lang$svg$Svg_Attributes$fill(fillColor),
+				_elm_lang$svg$Svg_Attributes$stroke(_user$project$Position$borderColor),
+				_elm_lang$svg$Svg_Attributes$strokeWidth(myStrokeWidth)
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+	var role = _user$project$Position$Nothing;
+	var sideSize = model.sideSize;
+	var pixelsX = _elm_lang$core$Basics$toString(
+		sideSize * _elm_lang$core$Basics$toFloat(locX));
+	var pixelsY = _elm_lang$core$Basics$toString(
+		sideSize * _elm_lang$core$Basics$toFloat(locY));
+	return A2(
+		_elm_lang$svg$Svg$svg,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$version('1.1'),
+				_elm_lang$svg$Svg_Attributes$x(pixelsX),
+				_elm_lang$svg$Svg_Attributes$y(pixelsY)
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[rectangle]));
+};
+var _user$project$Position$view = function (model) {
+	return _user$project$Position$renderEmptySquare(model);
+};
+var _user$project$Position$Tick = function (a) {
+	return {ctor: 'Tick', _0: a};
+};
+var _user$project$Position$subscriptions = function (model) {
+	return A2(_elm_lang$core$Time$every, _elm_lang$core$Time$second, _user$project$Position$Tick);
+};
+var _user$project$Position$MarkVisited = {ctor: 'MarkVisited'};

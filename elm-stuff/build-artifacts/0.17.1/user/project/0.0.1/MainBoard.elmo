@@ -1,0 +1,4 @@
+var _user$project$MainBoard$main = {
+	main: _elm_lang$html$Html_App$program(
+		{init: _user$project$Board$init, view: _user$project$Board$view, update: _user$project$Board$update, subscriptions: _user$project$Board$subscriptions})
+};

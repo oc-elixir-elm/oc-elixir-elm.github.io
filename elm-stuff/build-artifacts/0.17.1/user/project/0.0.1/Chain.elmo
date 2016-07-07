@@ -1,0 +1,188 @@
+var _user$project$Chain$changeLocForPiece = F2(
+	function (delta, piece) {
+		var msg = _user$project$Piece$Move(delta);
+		var _p0 = A2(_user$project$Piece$update, msg, piece);
+		var changedPiece = _p0._0;
+		return changedPiece;
+	});
+var _user$project$Chain$calculateDelta = F2(
+	function (thisLocation, nextLocation) {
+		var _p1 = nextLocation;
+		var nextX = _p1._0;
+		var nextY = _p1._1;
+		var _p2 = thisLocation;
+		var thisX = _p2._0;
+		var thisY = _p2._1;
+		var dx = nextX - thisX;
+		var dy = nextY - thisY;
+		return {ctor: '_Tuple2', _0: dx, _1: dy};
+	});
+var _user$project$Chain$moveCurrentPiece = F3(
+	function (piece, delta, doneChain) {
+		var updatedPiece = A2(_user$project$Chain$changeLocForPiece, delta, piece);
+		return A2(_elm_lang$core$List_ops['::'], updatedPiece, doneChain);
+	});
+var _user$project$Chain$moveChain = F4(
+	function (delta, headPiece, tailChain, doneChain) {
+		return A3(
+			_user$project$Chain$moveNextPiece,
+			tailChain,
+			headPiece,
+			A3(_user$project$Chain$moveCurrentPiece, headPiece, delta, doneChain));
+	});
+var _user$project$Chain$moveNextPiece = F3(
+	function (tailChain, headPiece, doneChain) {
+		var _p3 = _elm_lang$core$List$head(tailChain);
+		if (_p3.ctor === 'Nothing') {
+			return _elm_lang$core$List$reverse(doneChain);
+		} else {
+			var _p5 = _p3._0;
+			var delta = A2(_user$project$Chain$calculateDelta, _p5.location, headPiece.location);
+			var _p4 = _elm_lang$core$List$tail(tailChain);
+			if (_p4.ctor === 'Nothing') {
+				return _elm_lang$core$List$reverse(doneChain);
+			} else {
+				return A4(_user$project$Chain$moveChain, delta, _p5, _p4._0, doneChain);
+			}
+		}
+	});
+var _user$project$Chain$sameLocation = F2(
+	function (oldLocation, newLocation) {
+		var _p6 = newLocation;
+		var newX = _p6._0;
+		var newY = _p6._1;
+		var _p7 = oldLocation;
+		var oldX = _p7._0;
+		var oldY = _p7._1;
+		return _elm_lang$core$Native_Utils.eq(oldX, newX) && _elm_lang$core$Native_Utils.eq(oldY, newY);
+	});
+var _user$project$Chain$newLocation = F2(
+	function (delta, headLocation) {
+		var _p8 = delta;
+		var dx = _p8._0;
+		var dy = _p8._1;
+		var _p9 = headLocation;
+		var x = _p9._0;
+		var y = _p9._1;
+		return {ctor: '_Tuple2', _0: x + dx, _1: y + dy};
+	});
+var _user$project$Chain$collideWithPiece = F2(
+	function (proposedLocation, piece) {
+		var _p10 = piece.location;
+		var px = _p10._0;
+		var py = _p10._1;
+		var _p11 = proposedLocation;
+		var nx = _p11._0;
+		var ny = _p11._1;
+		return _elm_lang$core$Native_Utils.eq(nx, px) && _elm_lang$core$Native_Utils.eq(ny, py);
+	});
+var _user$project$Chain$illegalCollideWithPiece = F2(
+	function (proposedLocation, chain) {
+		var _p12 = _elm_lang$core$List$tail(chain);
+		if (_p12.ctor === 'Nothing') {
+			return false;
+		} else {
+			return A2(
+				_elm_lang$core$List$any,
+				function (piece) {
+					return A2(_user$project$Chain$collideWithPiece, proposedLocation, piece);
+				},
+				_p12._0);
+		}
+	});
+var _user$project$Chain$illegalMoveOffBoard = function (proposedLocation) {
+	var _p13 = proposedLocation;
+	var testX = _p13._0;
+	var testY = _p13._1;
+	return (_elm_lang$core$Native_Utils.cmp(testX, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(testY, 0) < 0) || ((_elm_lang$core$Native_Utils.cmp(testX, 11) > -1) || (_elm_lang$core$Native_Utils.cmp(testY, 11) > -1)));
+};
+var _user$project$Chain$illegalMove = F2(
+	function (proposedLocation, chain) {
+		return _user$project$Chain$illegalMoveOffBoard(proposedLocation) || A2(_user$project$Chain$illegalCollideWithPiece, proposedLocation, chain);
+	});
+var _user$project$Chain$moveChainStartingAtHead = F2(
+	function (headDelta, chain) {
+		var _p14 = _elm_lang$core$List$head(chain);
+		if (_p14.ctor === 'Nothing') {
+			return chain;
+		} else {
+			var _p16 = _p14._0;
+			var proposedLocation = A2(_user$project$Chain$newLocation, headDelta, _p16.location);
+			if (A2(_user$project$Chain$illegalMove, proposedLocation, chain)) {
+				return chain;
+			} else {
+				var _p15 = _elm_lang$core$List$tail(chain);
+				if (_p15.ctor === 'Nothing') {
+					return chain;
+				} else {
+					return A4(
+						_user$project$Chain$moveChain,
+						headDelta,
+						_p16,
+						_p15._0,
+						_elm_lang$core$Native_List.fromArray(
+							[]));
+				}
+			}
+		}
+	});
+var _user$project$Chain$keyDown = F2(
+	function (keyCode, chain) {
+		var _p17 = _user$project$Key$fromCode(keyCode);
+		switch (_p17.ctor) {
+			case 'ArrowLeft':
+				return A2(
+					_user$project$Chain$moveChainStartingAtHead,
+					{ctor: '_Tuple2', _0: -1, _1: 0},
+					chain);
+			case 'ArrowUp':
+				return A2(
+					_user$project$Chain$moveChainStartingAtHead,
+					{ctor: '_Tuple2', _0: 0, _1: -1},
+					chain);
+			case 'ArrowRight':
+				return A2(
+					_user$project$Chain$moveChainStartingAtHead,
+					{ctor: '_Tuple2', _0: 1, _1: 0},
+					chain);
+			case 'ArrowDown':
+				return A2(
+					_user$project$Chain$moveChainStartingAtHead,
+					{ctor: '_Tuple2', _0: 0, _1: 1},
+					chain);
+			default:
+				return chain;
+		}
+	});
+var _user$project$Chain$update = F2(
+	function (msg, model) {
+		var updatedModel = function () {
+			var _p18 = msg;
+			if (_p18.ctor === 'KeyDown') {
+				return A2(_user$project$Chain$keyDown, _p18._0, model);
+			} else {
+				return model;
+			}
+		}();
+		return {ctor: '_Tuple2', _0: updatedModel, _1: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$Chain$init = {
+	ctor: '_Tuple2',
+	_0: _elm_lang$core$Native_List.fromArray(
+		[]),
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Chain$KeyDown = function (a) {
+	return {ctor: 'KeyDown', _0: a};
+};
+var _user$project$Chain$Animate = function (a) {
+	return {ctor: 'Animate', _0: a};
+};
+var _user$project$Chain$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$animation_frame$AnimationFrame$times(_user$project$Chain$Animate),
+				_elm_lang$keyboard$Keyboard$downs(_user$project$Chain$KeyDown)
+			]));
+};

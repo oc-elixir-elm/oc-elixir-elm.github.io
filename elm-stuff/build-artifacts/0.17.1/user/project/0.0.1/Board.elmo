@@ -1,0 +1,306 @@
+var _user$project$Board$renderMoveCount = function (moveCount) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'Moves thus far: ',
+		_elm_lang$core$Basics$toString(moveCount));
+};
+var _user$project$Board$borderThickness = 10;
+var _user$project$Board$fillColor = _elm_lang$core$Color$lightBrown;
+var _user$project$Board$borderColor = _elm_lang$core$Color$darkBrown;
+var _user$project$Board$blinkPosition = F2(
+	function (newBlinkState, position) {
+		return _user$project$Position$isPerimeter(position) ? A2(_user$project$Position$blink, newBlinkState, position) : position;
+	});
+var _user$project$Board$blinkPerimeterPositions = F2(
+	function (newBlinkState, board) {
+		return A2(
+			_chendrix$elm_matrix$Matrix$map,
+			function (position) {
+				return A2(_user$project$Board$blinkPosition, newBlinkState, position);
+			},
+			board);
+	});
+var _user$project$Board$blinkUnvisitedPerimeterPositions = function (model) {
+	var newBlinkState = _elm_lang$core$Basics$not(model.blinkState);
+	var newBoard = A2(_user$project$Board$blinkPerimeterPositions, newBlinkState, model.board);
+	var newModel = _elm_lang$core$Native_Utils.update(
+		model,
+		{blinkState: newBlinkState, board: newBoard});
+	return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
+};
+var _user$project$Board$addVisited = F2(
+	function (location, board) {
+		var _p0 = A2(_chendrix$elm_matrix$Matrix$get, location, board);
+		if (_p0.ctor === 'Nothing') {
+			return board;
+		} else {
+			var _p1 = A2(_user$project$Position$update, _user$project$Position$MarkVisited, _p0._0);
+			var newPosition = _p1._0;
+			return A3(_chendrix$elm_matrix$Matrix$set, newPosition.location, newPosition, board);
+		}
+	});
+var _user$project$Board$noMove = function (model) {
+	return {ctor: '_Tuple2', _0: model.moveCount, _1: _elm_lang$core$Maybe$Nothing};
+};
+var _user$project$Board$updateMoveCount = F2(
+	function (model, oldChain) {
+		var _p2 = _elm_lang$core$List$head(oldChain);
+		if (_p2.ctor === 'Nothing') {
+			return _user$project$Board$noMove(model);
+		} else {
+			var _p3 = _elm_lang$core$List$head(model.chain);
+			if (_p3.ctor === 'Nothing') {
+				return _user$project$Board$noMove(model);
+			} else {
+				var _p4 = _p3._0;
+				return A2(_user$project$Chain$sameLocation, _p4.location, _p2._0.location) ? _user$project$Board$noMove(model) : {
+					ctor: '_Tuple2',
+					_0: 1 + model.moveCount,
+					_1: _elm_lang$core$Maybe$Just(_p4.location)
+				};
+			}
+		}
+	});
+var _user$project$Board$manageKeyDown = F2(
+	function (model, keyCode) {
+		var oldChain = model.chain;
+		var chainMsg = _user$project$Chain$KeyDown(keyCode);
+		var _p5 = A2(_user$project$Chain$update, chainMsg, oldChain);
+		var newChain = _p5._0;
+		var updatedModelForChain = _elm_lang$core$Native_Utils.update(
+			model,
+			{chain: newChain});
+		var _p6 = A2(_user$project$Board$updateMoveCount, updatedModelForChain, oldChain);
+		var newMoveCount = _p6._0;
+		var newLocation = _p6._1;
+		var _p7 = newLocation;
+		if (_p7.ctor === 'Nothing') {
+			return {ctor: '_Tuple2', _0: updatedModelForChain, _1: _elm_lang$core$Platform_Cmd$none};
+		} else {
+			var updatedBoard = A2(_user$project$Board$addVisited, _p7._0, model.board);
+			var updatedModel = _elm_lang$core$Native_Utils.update(
+				updatedModelForChain,
+				{moveCount: newMoveCount, board: updatedBoard});
+			return {ctor: '_Tuple2', _0: updatedModel, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _user$project$Board$animatePiece = F2(
+	function (piece, time) {
+		var msg = _user$project$Piece$Animate(time);
+		var _p8 = A2(_user$project$Piece$update, msg, piece);
+		var newPiece = _p8._0;
+		return newPiece;
+	});
+var _user$project$Board$update = F2(
+	function (msg, model) {
+		var _p9 = msg;
+		switch (_p9.ctor) {
+			case 'ModifyPosition':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'ModifyPiece':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'KeyDown':
+				return A2(_user$project$Board$manageKeyDown, model, _p9._0);
+			case 'Blink':
+				return _user$project$Board$blinkUnvisitedPerimeterPositions(model);
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							chain: A2(
+								_elm_lang$core$List$map,
+								function (piece) {
+									return A2(_user$project$Board$animatePiece, piece, _p9._0);
+								},
+								model.chain)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});
+var _user$project$Board$yForPos = function (position) {
+	return 1 + ((position / 9) | 0);
+};
+var _user$project$Board$xForPos = function (position) {
+	var rightToLeft = 8 - A2(_elm_lang$core$Basics_ops['%'], position, 9);
+	var leftToRight = A2(_elm_lang$core$Basics_ops['%'], position, 9);
+	var roundTrip = A2(_elm_lang$core$Basics_ops['%'], position, 18);
+	var twoRows = (roundTrip / 9) | 0;
+	var _p10 = twoRows;
+	switch (_p10) {
+		case 0:
+			return 1 + leftToRight;
+		case 1:
+			return 1 + rightToLeft;
+		default:
+			return 1;
+	}
+};
+var _user$project$Board$boardSideInPixels = 400;
+var _user$project$Board$maxPosLength = 11;
+var _user$project$Board$sideSize = _elm_lang$core$Basics$toFloat(_user$project$Board$boardSideInPixels) / _elm_lang$core$Basics$toFloat(_user$project$Board$maxPosLength);
+var _user$project$Board$initPiece = function (tuple) {
+	var _p11 = tuple;
+	var pieceNumber = _p11._0;
+	var x = _p11._1;
+	var y = _p11._2;
+	var _p12 = A3(
+		_user$project$Piece$initWithInfo,
+		pieceNumber,
+		_user$project$Board$sideSize,
+		{ctor: '_Tuple2', _0: x, _1: y});
+	var piece = _p12._0;
+	return piece;
+};
+var _user$project$Board$createPieceForPos = function (position) {
+	var y = _user$project$Board$yForPos(position);
+	var x = _user$project$Board$xForPos(position);
+	var tuple = {ctor: '_Tuple3', _0: position + 1, _1: x, _2: y};
+	return _user$project$Board$initPiece(tuple);
+};
+var _user$project$Board$create81Pieces = A2(
+	_elm_lang$core$List$map,
+	function (pos) {
+		return _user$project$Board$createPieceForPos(pos);
+	},
+	_elm_lang$core$Native_List.range(0, 80));
+var _user$project$Board$squareType = function (location) {
+	var maxPos = _user$project$Board$maxPosLength - 1;
+	var _p13 = location;
+	var x = _p13._0;
+	var y = _p13._1;
+	return (_elm_lang$core$Native_Utils.eq(x, 0) || (_elm_lang$core$Native_Utils.eq(x, maxPos) || (_elm_lang$core$Native_Utils.eq(y, 0) || _elm_lang$core$Native_Utils.eq(y, maxPos)))) ? _user$project$Position$Perimeter : _user$project$Position$Grid;
+};
+var _user$project$Board$positionFromInit = function (location) {
+	var _p14 = A4(
+		_user$project$Position$initWithInfo,
+		_user$project$Board$squareType(location),
+		_user$project$Board$maxPosLength,
+		_user$project$Board$sideSize,
+		location);
+	var position = _p14._0;
+	var msg = _p14._1;
+	return position;
+};
+var _user$project$Board$createMatrix = function (posCount) {
+	return A2(
+		_chendrix$elm_matrix$Matrix$square,
+		posCount,
+		function (location) {
+			return _user$project$Board$positionFromInit(location);
+		});
+};
+var _user$project$Board$init = function () {
+	var blinkState = false;
+	var moveCount = 0;
+	var pieces = _user$project$Board$create81Pieces;
+	var chain = pieces;
+	var board = _user$project$Board$createMatrix(_user$project$Board$maxPosLength);
+	return {
+		ctor: '_Tuple2',
+		_0: {board: board, pieces: pieces, chain: chain, moveCount: moveCount, blinkState: blinkState},
+		_1: _elm_lang$core$Platform_Cmd$none
+	};
+}();
+var _user$project$Board$Model = F5(
+	function (a, b, c, d, e) {
+		return {board: a, pieces: b, chain: c, moveCount: d, blinkState: e};
+	});
+var _user$project$Board$PositionLocator = F2(
+	function (a, b) {
+		return {location: a, model: b};
+	});
+var _user$project$Board$Blink = function (a) {
+	return {ctor: 'Blink', _0: a};
+};
+var _user$project$Board$Animate = function (a) {
+	return {ctor: 'Animate', _0: a};
+};
+var _user$project$Board$KeyDown = function (a) {
+	return {ctor: 'KeyDown', _0: a};
+};
+var _user$project$Board$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$keyboard$Keyboard$downs(_user$project$Board$KeyDown),
+				_elm_lang$animation_frame$AnimationFrame$times(_user$project$Board$Animate),
+				A2(_elm_lang$core$Time$every, 700 * _elm_lang$core$Time$millisecond, _user$project$Board$Blink)
+			]));
+};
+var _user$project$Board$ModifyPiece = F2(
+	function (a, b) {
+		return {ctor: 'ModifyPiece', _0: a, _1: b};
+	});
+var _user$project$Board$renderPiece = function (piece) {
+	return A2(
+		_elm_lang$html$Html_App$map,
+		_user$project$Board$ModifyPiece(piece.location),
+		_user$project$Piece$view(piece));
+};
+var _user$project$Board$ModifyPosition = F2(
+	function (a, b) {
+		return {ctor: 'ModifyPosition', _0: a, _1: b};
+	});
+var _user$project$Board$renderPosition = function (position) {
+	return A2(
+		_elm_lang$html$Html_App$map,
+		_user$project$Board$ModifyPosition(position.location),
+		_user$project$Position$view(position));
+};
+var _user$project$Board$view = function (model) {
+	var chain = model.chain;
+	var pieces = model.pieces;
+	var positions = _chendrix$elm_matrix$Matrix$flatten(model.board);
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$svg$Svg$svg,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$svg$Svg_Attributes$version('1.1'),
+						_elm_lang$svg$Svg_Attributes$x('0'),
+						_elm_lang$svg$Svg_Attributes$y('0'),
+						_elm_lang$svg$Svg_Attributes$viewBox('0 0 750 410')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$svg$Svg$rect,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$svg$Svg_Attributes$stroke('blue'),
+								_elm_lang$svg$Svg_Attributes$fill('white'),
+								_elm_lang$svg$Svg_Attributes$width('400'),
+								_elm_lang$svg$Svg_Attributes$height('400')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$svg$Svg$svg,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						A2(_elm_lang$core$List$map, _user$project$Board$renderPosition, positions)),
+						A2(
+						_elm_lang$svg$Svg$svg,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						A2(_elm_lang$core$List$map, _user$project$Board$renderPiece, chain))
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$svg$Svg$text(
+						_user$project$Board$renderMoveCount(model.moveCount))
+					]))
+			]));
+};
