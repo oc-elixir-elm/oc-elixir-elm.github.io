@@ -1,0 +1,8 @@
+var _mdgriffith$elm_style_animation$Style_Spring_Presets$stiff = {stiffness: 210, damping: 20};
+var _mdgriffith$elm_style_animation$Style_Spring_Presets$wobbly = {stiffness: 180, damping: 12};
+var _mdgriffith$elm_style_animation$Style_Spring_Presets$gentle = {stiffness: 120, damping: 14};
+var _mdgriffith$elm_style_animation$Style_Spring_Presets$noWobble = {stiffness: 170, damping: 26};
+var _mdgriffith$elm_style_animation$Style_Spring_Presets$SpringProps = F2(
+	function (a, b) {
+		return {stiffness: a, damping: b};
+	});

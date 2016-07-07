@@ -1,0 +1,5281 @@
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points = F4(
+	function (fn, points, points2, points3) {
+		return A4(
+			_elm_lang$core$List$map3,
+			F3(
+				function (_p2, _p1, _p0) {
+					var _p3 = _p2;
+					var _p4 = _p1;
+					var _p5 = _p0;
+					return {
+						ctor: '_Tuple2',
+						_0: A3(fn, _p3._0, _p4._0, _p5._0),
+						_1: A3(fn, _p3._1, _p4._1, _p5._1)
+					};
+				}),
+			points,
+			points2,
+			points3);
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Cmd = F4(
+	function (fn, cmd, cmd2, cmd3) {
+		var _p6 = cmd;
+		switch (_p6.ctor) {
+			case 'Move':
+				var _p7 = cmd2;
+				if (_p7.ctor === 'Move') {
+					var _p8 = cmd3;
+					if (_p8.ctor === 'Move') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Move,
+							A3(fn, _p6._0, _p7._0, _p8._0),
+							A3(fn, _p6._1, _p7._1, _p8._1));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'MoveTo':
+				var _p9 = cmd2;
+				if (_p9.ctor === 'MoveTo') {
+					var _p10 = cmd3;
+					if (_p10.ctor === 'MoveTo') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MoveTo,
+							A3(fn, _p6._0, _p9._0, _p10._0),
+							A3(fn, _p6._1, _p9._1, _p10._1));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Line':
+				var _p11 = cmd2;
+				if (_p11.ctor === 'Line') {
+					var _p12 = cmd3;
+					if (_p12.ctor === 'Line') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Line,
+							A3(fn, _p6._0, _p11._0, _p12._0),
+							A3(fn, _p6._1, _p11._1, _p12._1));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'LineTo':
+				var _p13 = cmd2;
+				if (_p13.ctor === 'LineTo') {
+					var _p14 = cmd3;
+					if (_p14.ctor === 'LineTo') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$LineTo,
+							A3(fn, _p6._0, _p13._0, _p14._0),
+							A3(fn, _p6._1, _p13._1, _p14._1));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Horizontal':
+				var _p15 = cmd2;
+				if (_p15.ctor === 'Horizontal') {
+					var _p16 = cmd3;
+					if (_p16.ctor === 'Horizontal') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Horizontal(
+							A3(fn, _p6._0, _p15._0, _p16._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'HorizontalTo':
+				var _p17 = cmd2;
+				if (_p17.ctor === 'HorizontalTo') {
+					var _p18 = cmd3;
+					if (_p18.ctor === 'HorizontalTo') {
+						return _mdgriffith$elm_style_animation$Style_Properties$HorizontalTo(
+							A3(fn, _p6._0, _p17._0, _p18._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Vertical':
+				var _p19 = cmd2;
+				if (_p19.ctor === 'Vertical') {
+					var _p20 = cmd3;
+					if (_p20.ctor === 'Vertical') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Vertical(
+							A3(fn, _p6._0, _p19._0, _p20._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'VerticalTo':
+				var _p21 = cmd2;
+				if (_p21.ctor === 'VerticalTo') {
+					var _p22 = cmd3;
+					if (_p22.ctor === 'VerticalTo') {
+						return _mdgriffith$elm_style_animation$Style_Properties$VerticalTo(
+							A3(fn, _p6._0, _p21._0, _p22._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Curve':
+				var _p23 = cmd2;
+				if (_p23.ctor === 'Curve') {
+					var _p24 = cmd3;
+					if (_p24.ctor === 'Curve') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Curve(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p23._0, _p24._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'CurveTo':
+				var _p25 = cmd2;
+				if (_p25.ctor === 'CurveTo') {
+					var _p26 = cmd3;
+					if (_p26.ctor === 'CurveTo') {
+						return _mdgriffith$elm_style_animation$Style_Properties$CurveTo(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p25._0, _p26._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Quadratic':
+				var _p27 = cmd2;
+				if (_p27.ctor === 'Quadratic') {
+					var _p28 = cmd3;
+					if (_p28.ctor === 'Quadratic') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Quadratic(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p27._0, _p28._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'QuadraticTo':
+				var _p29 = cmd2;
+				if (_p29.ctor === 'QuadraticTo') {
+					var _p30 = cmd3;
+					if (_p30.ctor === 'QuadraticTo') {
+						return _mdgriffith$elm_style_animation$Style_Properties$QuadraticTo(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p29._0, _p30._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'SmoothQuadratic':
+				var _p31 = cmd2;
+				if (_p31.ctor === 'SmoothQuadratic') {
+					var _p32 = cmd3;
+					if (_p32.ctor === 'SmoothQuadratic') {
+						return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadratic(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p31._0, _p32._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'SmoothQuadraticTo':
+				var _p33 = cmd2;
+				if (_p33.ctor === 'SmoothQuadraticTo') {
+					var _p34 = cmd3;
+					if (_p34.ctor === 'SmoothQuadraticTo') {
+						return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadraticTo(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p33._0, _p34._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Smooth':
+				var _p35 = cmd2;
+				if (_p35.ctor === 'Smooth') {
+					var _p36 = cmd3;
+					if (_p36.ctor === 'Smooth') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Smooth(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p35._0, _p36._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'SmoothTo':
+				var _p37 = cmd2;
+				if (_p37.ctor === 'SmoothTo') {
+					var _p38 = cmd3;
+					if (_p38.ctor === 'SmoothTo') {
+						return _mdgriffith$elm_style_animation$Style_Properties$SmoothTo(
+							A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Points, fn, _p6._0, _p37._0, _p38._0));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'Arc':
+				var _p39 = cmd2;
+				if (_p39.ctor === 'Arc') {
+					var _p40 = cmd3;
+					if (_p40.ctor === 'Arc') {
+						return A4(
+							_mdgriffith$elm_style_animation$Style_Properties$Arc,
+							A3(fn, _p6._0, _p39._0, _p40._0),
+							A3(fn, _p6._1, _p39._1, _p40._1),
+							A3(fn, _p6._2, _p39._2, _p40._2),
+							A3(fn, _p6._3, _p39._3, _p40._3));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'ArcTo':
+				var _p41 = cmd2;
+				if (_p41.ctor === 'ArcTo') {
+					var _p42 = cmd3;
+					if (_p42.ctor === 'ArcTo') {
+						return A4(
+							_mdgriffith$elm_style_animation$Style_Properties$ArcTo,
+							A3(fn, _p6._0, _p41._0, _p42._0),
+							A3(fn, _p6._1, _p41._1, _p42._1),
+							A3(fn, _p6._2, _p41._2, _p42._2),
+							A3(fn, _p6._3, _p41._3, _p42._3));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'LargeArc':
+				var _p43 = cmd2;
+				if (_p43.ctor === 'LargeArc') {
+					var _p44 = cmd3;
+					if (_p44.ctor === 'LargeArc') {
+						return A4(
+							_mdgriffith$elm_style_animation$Style_Properties$LargeArc,
+							A3(fn, _p6._0, _p43._0, _p44._0),
+							A3(fn, _p6._1, _p43._1, _p44._1),
+							A3(fn, _p6._2, _p43._2, _p44._2),
+							A3(fn, _p6._3, _p43._3, _p44._3));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			case 'LargeArcTo':
+				var _p45 = cmd2;
+				if (_p45.ctor === 'LargeArcTo') {
+					var _p46 = cmd3;
+					if (_p46.ctor === 'LargeArcTo') {
+						return A4(
+							_mdgriffith$elm_style_animation$Style_Properties$LargeArcTo,
+							A3(fn, _p6._0, _p45._0, _p46._0),
+							A3(fn, _p6._1, _p45._1, _p46._1),
+							A3(fn, _p6._2, _p45._2, _p46._2),
+							A3(fn, _p6._3, _p45._3, _p46._3));
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+			default:
+				var _p47 = cmd2;
+				if (_p47.ctor === 'Close') {
+					var _p48 = cmd3;
+					if (_p48.ctor === 'Close') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Close;
+					} else {
+						return cmd3;
+					}
+				} else {
+					return cmd3;
+				}
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map3 = F5(
+	function (fn, colorFn, target, prev, prop) {
+		var _p49 = target;
+		switch (_p49.ctor) {
+			case 'Display':
+				return prop;
+			case 'Opacity':
+				var _p50 = prev;
+				if (_p50.ctor === 'Opacity') {
+					var _p51 = prop;
+					if (_p51.ctor === 'Opacity') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Opacity(
+							A3(fn, _p49._0, _p50._0, _p51._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Height':
+				var _p52 = prev;
+				if (_p52.ctor === 'Height') {
+					var _p53 = prop;
+					if (_p53.ctor === 'Height') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Height,
+							A3(fn, _p49._0, _p52._0, _p53._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Width':
+				var _p54 = prev;
+				if (_p54.ctor === 'Width') {
+					var _p55 = prop;
+					if (_p55.ctor === 'Width') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Width,
+							A3(fn, _p49._0, _p54._0, _p55._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Left':
+				var _p56 = prev;
+				if (_p56.ctor === 'Left') {
+					var _p57 = prop;
+					if (_p57.ctor === 'Left') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Left,
+							A3(fn, _p49._0, _p56._0, _p57._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Top':
+				var _p58 = prev;
+				if (_p58.ctor === 'Top') {
+					var _p59 = prop;
+					if (_p59.ctor === 'Top') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Top,
+							A3(fn, _p49._0, _p58._0, _p59._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Right':
+				var _p60 = prev;
+				if (_p60.ctor === 'Right') {
+					var _p61 = prop;
+					if (_p61.ctor === 'Right') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Right,
+							A3(fn, _p49._0, _p60._0, _p61._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Bottom':
+				var _p62 = prev;
+				if (_p62.ctor === 'Bottom') {
+					var _p63 = prop;
+					if (_p63.ctor === 'Bottom') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Bottom,
+							A3(fn, _p49._0, _p62._0, _p63._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MaxHeight':
+				var _p64 = prev;
+				if (_p64.ctor === 'MaxHeight') {
+					var _p65 = prop;
+					if (_p65.ctor === 'MaxHeight') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MaxHeight,
+							A3(fn, _p49._0, _p64._0, _p65._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MaxWidth':
+				var _p66 = prev;
+				if (_p66.ctor === 'MaxWidth') {
+					var _p67 = prop;
+					if (_p67.ctor === 'MaxWidth') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MaxWidth,
+							A3(fn, _p49._0, _p66._0, _p67._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MinHeight':
+				var _p68 = prev;
+				if (_p68.ctor === 'MinHeight') {
+					var _p69 = prop;
+					if (_p69.ctor === 'MinHeight') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MinHeight,
+							A3(fn, _p49._0, _p68._0, _p69._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MinWidth':
+				var _p70 = prev;
+				if (_p70.ctor === 'MinWidth') {
+					var _p71 = prop;
+					if (_p71.ctor === 'MinWidth') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MinWidth,
+							A3(fn, _p49._0, _p70._0, _p71._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Padding':
+				var _p72 = prev;
+				if (_p72.ctor === 'Padding') {
+					var _p73 = prop;
+					if (_p73.ctor === 'Padding') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Padding,
+							A3(fn, _p49._0, _p72._0, _p73._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'PaddingLeft':
+				var _p74 = prev;
+				if (_p74.ctor === 'PaddingLeft') {
+					var _p75 = prop;
+					if (_p75.ctor === 'PaddingLeft') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$PaddingLeft,
+							A3(fn, _p49._0, _p74._0, _p75._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'PaddingRight':
+				var _p76 = prev;
+				if (_p76.ctor === 'PaddingRight') {
+					var _p77 = prop;
+					if (_p77.ctor === 'PaddingRight') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$PaddingRight,
+							A3(fn, _p49._0, _p76._0, _p77._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'PaddingTop':
+				var _p78 = prev;
+				if (_p78.ctor === 'PaddingTop') {
+					var _p79 = prop;
+					if (_p79.ctor === 'PaddingTop') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$PaddingTop,
+							A3(fn, _p49._0, _p78._0, _p79._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'PaddingBottom':
+				var _p80 = prev;
+				if (_p80.ctor === 'PaddingBottom') {
+					var _p81 = prop;
+					if (_p81.ctor === 'PaddingBottom') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$PaddingBottom,
+							A3(fn, _p49._0, _p80._0, _p81._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Margin':
+				var _p82 = prev;
+				if (_p82.ctor === 'Margin') {
+					var _p83 = prop;
+					if (_p83.ctor === 'Margin') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Margin,
+							A3(fn, _p49._0, _p82._0, _p83._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MarginLeft':
+				var _p84 = prev;
+				if (_p84.ctor === 'MarginLeft') {
+					var _p85 = prop;
+					if (_p85.ctor === 'MarginLeft') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MarginLeft,
+							A3(fn, _p49._0, _p84._0, _p85._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MarginRight':
+				var _p86 = prev;
+				if (_p86.ctor === 'MarginRight') {
+					var _p87 = prop;
+					if (_p87.ctor === 'MarginRight') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MarginRight,
+							A3(fn, _p49._0, _p86._0, _p87._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MarginTop':
+				var _p88 = prev;
+				if (_p88.ctor === 'MarginTop') {
+					var _p89 = prop;
+					if (_p89.ctor === 'MarginTop') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MarginTop,
+							A3(fn, _p49._0, _p88._0, _p89._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'MarginBottom':
+				var _p90 = prev;
+				if (_p90.ctor === 'MarginBottom') {
+					var _p91 = prop;
+					if (_p91.ctor === 'MarginBottom') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$MarginBottom,
+							A3(fn, _p49._0, _p90._0, _p91._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderWidth':
+				var _p92 = prev;
+				if (_p92.ctor === 'BorderWidth') {
+					var _p93 = prop;
+					if (_p93.ctor === 'BorderWidth') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$BorderWidth,
+							A3(fn, _p49._0, _p92._0, _p93._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderRadius':
+				var _p94 = prev;
+				if (_p94.ctor === 'BorderRadius') {
+					var _p95 = prop;
+					if (_p95.ctor === 'BorderRadius') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$BorderRadius,
+							A3(fn, _p49._0, _p94._0, _p95._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderTopLeftRadius':
+				var _p96 = prev;
+				if (_p96.ctor === 'BorderTopLeftRadius') {
+					var _p97 = prop;
+					if (_p97.ctor === 'BorderTopLeftRadius') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$BorderTopLeftRadius,
+							A3(fn, _p49._0, _p96._0, _p97._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderTopRightRadius':
+				var _p98 = prev;
+				if (_p98.ctor === 'BorderTopRightRadius') {
+					var _p99 = prop;
+					if (_p99.ctor === 'BorderTopRightRadius') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$BorderTopRightRadius,
+							A3(fn, _p49._0, _p98._0, _p99._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderBottomLeftRadius':
+				var _p100 = prev;
+				if (_p100.ctor === 'BorderBottomLeftRadius') {
+					var _p101 = prop;
+					if (_p101.ctor === 'BorderBottomLeftRadius') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$BorderBottomLeftRadius,
+							A3(fn, _p49._0, _p100._0, _p101._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderBottomRightRadius':
+				var _p102 = prev;
+				if (_p102.ctor === 'BorderBottomRightRadius') {
+					var _p103 = prop;
+					if (_p103.ctor === 'BorderBottomRightRadius') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$BorderBottomRightRadius,
+							A3(fn, _p49._0, _p102._0, _p103._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'LetterSpacing':
+				var _p104 = prev;
+				if (_p104.ctor === 'LetterSpacing') {
+					var _p105 = prop;
+					if (_p105.ctor === 'LetterSpacing') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$LetterSpacing,
+							A3(fn, _p49._0, _p104._0, _p105._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'LineHeight':
+				var _p106 = prev;
+				if (_p106.ctor === 'LineHeight') {
+					var _p107 = prop;
+					if (_p107.ctor === 'LineHeight') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$LineHeight,
+							A3(fn, _p49._0, _p106._0, _p107._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BackgroundPosition':
+				var _p108 = prev;
+				if (_p108.ctor === 'BackgroundPosition') {
+					var _p109 = prop;
+					if (_p109.ctor === 'BackgroundPosition') {
+						return A3(
+							_mdgriffith$elm_style_animation$Style_Properties$BackgroundPosition,
+							A3(fn, _p49._0, _p108._0, _p109._0),
+							A3(fn, _p49._1, _p108._1, _p109._1),
+							_p49._2);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Color':
+				var _p110 = prev;
+				if (_p110.ctor === 'Color') {
+					var _p111 = prop;
+					if (_p111.ctor === 'Color') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Color(
+							A3(colorFn, _p49._0, _p110._0, _p111._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BackgroundColor':
+				var _p112 = prev;
+				if (_p112.ctor === 'BackgroundColor') {
+					var _p113 = prop;
+					if (_p113.ctor === 'BackgroundColor') {
+						return _mdgriffith$elm_style_animation$Style_Properties$BackgroundColor(
+							A3(colorFn, _p49._0, _p112._0, _p113._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'BorderColor':
+				var _p114 = prev;
+				if (_p114.ctor === 'BorderColor') {
+					var _p115 = prop;
+					if (_p115.ctor === 'BorderColor') {
+						return _mdgriffith$elm_style_animation$Style_Properties$BorderColor(
+							A3(colorFn, _p49._0, _p114._0, _p115._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'TransformOrigin':
+				var _p116 = prev;
+				if (_p116.ctor === 'TransformOrigin') {
+					var _p117 = prop;
+					if (_p117.ctor === 'TransformOrigin') {
+						return A4(
+							_mdgriffith$elm_style_animation$Style_Properties$TransformOrigin,
+							A3(fn, _p49._0, _p116._0, _p117._0),
+							A3(fn, _p49._1, _p116._1, _p117._1),
+							A3(fn, _p49._2, _p116._2, _p117._2),
+							_p49._3);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Matrix':
+				var _p118 = prev;
+				if (_p118.ctor === 'Matrix') {
+					var _p119 = prop;
+					if (_p119.ctor === 'Matrix') {
+						return A6(
+							_mdgriffith$elm_style_animation$Style_Properties$Matrix,
+							A3(fn, _p49._0, _p118._0, _p119._0),
+							A3(fn, _p49._1, _p118._1, _p119._1),
+							A3(fn, _p49._2, _p118._2, _p119._2),
+							A3(fn, _p49._3, _p118._3, _p119._3),
+							A3(fn, _p49._4, _p118._4, _p119._4),
+							A3(fn, _p49._5, _p118._5, _p119._5));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Matrix3d':
+				var _p120 = prev;
+				if (_p120.ctor === 'Matrix3d') {
+					var _p121 = prop;
+					if (_p121.ctor === 'Matrix3d') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Matrix3d(
+							A3(fn, _p49._0, _p120._0, _p121._0))(
+							A3(fn, _p49._1, _p120._1, _p121._1))(
+							A3(fn, _p49._2, _p120._2, _p121._2))(
+							A3(fn, _p49._3, _p120._3, _p121._3))(
+							A3(fn, _p49._4, _p120._4, _p121._4))(
+							A3(fn, _p49._5, _p120._5, _p121._5))(
+							A3(fn, _p49._6, _p120._6, _p121._6))(
+							A3(fn, _p49._7, _p120._7, _p121._7))(
+							A3(fn, _p49._8, _p120._8, _p121._8))(
+							A3(fn, _p49._9, _p120._9, _p121._9))(
+							A3(fn, _p49._10, _p120._10, _p121._10))(
+							A3(fn, _p49._11, _p120._11, _p121._11))(
+							A3(fn, _p49._12, _p120._12, _p121._12))(
+							A3(fn, _p49._13, _p120._13, _p121._13))(
+							A3(fn, _p49._14, _p120._14, _p121._14))(
+							A3(fn, _p49._15, _p120._15, _p121._15));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Translate':
+				var _p122 = prev;
+				if (_p122.ctor === 'Translate') {
+					var _p123 = prop;
+					if (_p123.ctor === 'Translate') {
+						return A3(
+							_mdgriffith$elm_style_animation$Style_Properties$Translate,
+							A3(fn, _p49._0, _p122._0, _p123._0),
+							A3(fn, _p49._1, _p122._1, _p123._1),
+							_p49._2);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Translate3d':
+				var _p124 = prev;
+				if (_p124.ctor === 'Translate3d') {
+					var _p125 = prop;
+					if (_p125.ctor === 'Translate3d') {
+						return A4(
+							_mdgriffith$elm_style_animation$Style_Properties$Translate3d,
+							A3(fn, _p49._0, _p124._0, _p125._0),
+							A3(fn, _p49._1, _p124._1, _p125._1),
+							A3(fn, _p49._2, _p124._2, _p125._2),
+							_p49._3);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'TranslateX':
+				var _p126 = prev;
+				if (_p126.ctor === 'TranslateX') {
+					var _p127 = prop;
+					if (_p127.ctor === 'TranslateX') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$TranslateX,
+							A3(fn, _p49._0, _p126._0, _p127._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'TranslateY':
+				var _p128 = prev;
+				if (_p128.ctor === 'TranslateY') {
+					var _p129 = prop;
+					if (_p129.ctor === 'TranslateY') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$TranslateY,
+							A3(fn, _p49._0, _p128._0, _p129._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Scale':
+				var _p130 = prev;
+				if (_p130.ctor === 'Scale') {
+					var _p131 = prop;
+					if (_p131.ctor === 'Scale') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Scale(
+							A3(fn, _p49._0, _p130._0, _p131._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Scale3d':
+				var _p132 = prev;
+				if (_p132.ctor === 'Scale3d') {
+					var _p133 = prop;
+					if (_p133.ctor === 'Scale3d') {
+						return A3(
+							_mdgriffith$elm_style_animation$Style_Properties$Scale3d,
+							A3(fn, _p49._0, _p132._0, _p133._0),
+							A3(fn, _p49._1, _p132._1, _p133._1),
+							A3(fn, _p49._2, _p132._2, _p133._2));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'ScaleX':
+				var _p134 = prev;
+				if (_p134.ctor === 'ScaleX') {
+					var _p135 = prop;
+					if (_p135.ctor === 'ScaleX') {
+						return _mdgriffith$elm_style_animation$Style_Properties$ScaleX(
+							A3(fn, _p49._0, _p134._0, _p135._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'ScaleY':
+				var _p136 = prev;
+				if (_p136.ctor === 'ScaleY') {
+					var _p137 = prop;
+					if (_p137.ctor === 'ScaleY') {
+						return _mdgriffith$elm_style_animation$Style_Properties$ScaleY(
+							A3(fn, _p49._0, _p136._0, _p137._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'ScaleZ':
+				var _p138 = prev;
+				if (_p138.ctor === 'ScaleZ') {
+					var _p139 = prop;
+					if (_p139.ctor === 'ScaleZ') {
+						return _mdgriffith$elm_style_animation$Style_Properties$ScaleZ(
+							A3(fn, _p49._0, _p138._0, _p139._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Rotate':
+				var _p140 = prev;
+				if (_p140.ctor === 'Rotate') {
+					var _p141 = prop;
+					if (_p141.ctor === 'Rotate') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$Rotate,
+							A3(fn, _p49._0, _p140._0, _p141._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Rotate3d':
+				var _p142 = prev;
+				if (_p142.ctor === 'Rotate3d') {
+					var _p143 = prop;
+					if (_p143.ctor === 'Rotate3d') {
+						return A5(
+							_mdgriffith$elm_style_animation$Style_Properties$Rotate3d,
+							A3(fn, _p49._0, _p142._0, _p143._0),
+							A3(fn, _p49._1, _p142._1, _p143._1),
+							A3(fn, _p49._2, _p142._2, _p143._2),
+							A3(fn, _p49._3, _p142._3, _p143._3),
+							_p49._4);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'RotateX':
+				var _p144 = prev;
+				if (_p144.ctor === 'RotateX') {
+					var _p145 = prop;
+					if (_p145.ctor === 'RotateX') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$RotateX,
+							A3(fn, _p49._0, _p144._0, _p145._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'RotateY':
+				var _p146 = prev;
+				if (_p146.ctor === 'RotateY') {
+					var _p147 = prop;
+					if (_p147.ctor === 'RotateY') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$RotateY,
+							A3(fn, _p49._0, _p146._0, _p147._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Skew':
+				var _p148 = prev;
+				if (_p148.ctor === 'Skew') {
+					var _p149 = prop;
+					if (_p149.ctor === 'Skew') {
+						return A3(
+							_mdgriffith$elm_style_animation$Style_Properties$Skew,
+							A3(fn, _p49._0, _p148._0, _p149._0),
+							A3(fn, _p49._1, _p148._1, _p149._1),
+							_p49._2);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'SkewX':
+				var _p150 = prev;
+				if (_p150.ctor === 'SkewX') {
+					var _p151 = prop;
+					if (_p151.ctor === 'SkewX') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$SkewX,
+							A3(fn, _p49._0, _p150._0, _p151._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'SkewY':
+				var _p152 = prev;
+				if (_p152.ctor === 'SkewY') {
+					var _p153 = prop;
+					if (_p153.ctor === 'SkewY') {
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Properties$SkewY,
+							A3(fn, _p49._0, _p152._0, _p153._0),
+							_p49._1);
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Perspective':
+				var _p154 = prev;
+				if (_p154.ctor === 'Perspective') {
+					var _p155 = prop;
+					if (_p155.ctor === 'Perspective') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Perspective(
+							A3(fn, _p49._0, _p154._0, _p155._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'X':
+				var _p156 = prev;
+				if (_p156.ctor === 'X') {
+					var _p157 = prop;
+					if (_p157.ctor === 'X') {
+						return _mdgriffith$elm_style_animation$Style_Properties$X(
+							A3(fn, _p49._0, _p156._0, _p157._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Y':
+				var _p158 = prev;
+				if (_p158.ctor === 'Y') {
+					var _p159 = prop;
+					if (_p159.ctor === 'Y') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Y(
+							A3(fn, _p49._0, _p158._0, _p159._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Cx':
+				var _p160 = prev;
+				if (_p160.ctor === 'Cx') {
+					var _p161 = prop;
+					if (_p161.ctor === 'Cx') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Cx(
+							A3(fn, _p49._0, _p160._0, _p161._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Cy':
+				var _p162 = prev;
+				if (_p162.ctor === 'Cy') {
+					var _p163 = prop;
+					if (_p163.ctor === 'Cy') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Cy(
+							A3(fn, _p49._0, _p162._0, _p163._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'R':
+				var _p164 = prev;
+				if (_p164.ctor === 'R') {
+					var _p165 = prop;
+					if (_p165.ctor === 'R') {
+						return _mdgriffith$elm_style_animation$Style_Properties$R(
+							A3(fn, _p49._0, _p164._0, _p165._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Rx':
+				var _p166 = prev;
+				if (_p166.ctor === 'Rx') {
+					var _p167 = prop;
+					if (_p167.ctor === 'Rx') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Rx(
+							A3(fn, _p49._0, _p166._0, _p167._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Ry':
+				var _p168 = prev;
+				if (_p168.ctor === 'Ry') {
+					var _p169 = prop;
+					if (_p169.ctor === 'Ry') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Ry(
+							A3(fn, _p49._0, _p168._0, _p169._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'D':
+				var _p170 = prev;
+				if (_p170.ctor === 'D') {
+					var _p171 = prop;
+					if (_p171.ctor === 'D') {
+						return _mdgriffith$elm_style_animation$Style_Properties$D(
+							A4(
+								_elm_lang$core$List$map3,
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3Cmd(fn),
+								_p49._0,
+								_p170._0,
+								_p171._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Points':
+				var _p172 = prev;
+				if (_p172.ctor === 'Points') {
+					var _p173 = prop;
+					if (_p173.ctor === 'Points') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Points(
+							A4(
+								_elm_lang$core$List$map3,
+								F3(
+									function (_p176, _p175, _p174) {
+										var _p177 = _p176;
+										var _p178 = _p175;
+										var _p179 = _p174;
+										return {
+											ctor: '_Tuple2',
+											_0: A3(fn, _p177._0, _p178._0, _p179._0),
+											_1: A3(fn, _p177._1, _p178._1, _p179._1)
+										};
+									}),
+								_p49._0,
+								_p172._0,
+								_p173._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			case 'Fill':
+				var _p180 = prev;
+				if (_p180.ctor === 'Fill') {
+					var _p181 = prop;
+					if (_p181.ctor === 'Fill') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Fill(
+							A3(colorFn, _p49._0, _p180._0, _p181._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+			default:
+				var _p182 = prev;
+				if (_p182.ctor === 'Stroke') {
+					var _p183 = prop;
+					if (_p183.ctor === 'Stroke') {
+						return _mdgriffith$elm_style_animation$Style_Properties$Stroke(
+							A3(colorFn, _p49._0, _p182._0, _p183._0));
+					} else {
+						return prop;
+					}
+				} else {
+					return prop;
+				}
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points = F3(
+	function (fn, points, points2) {
+		return A3(
+			_elm_lang$core$List$map2,
+			F2(
+				function (_p185, _p184) {
+					var _p186 = _p185;
+					var _p187 = _p184;
+					return {
+						ctor: '_Tuple2',
+						_0: A2(fn, _p186._0, _p187._0),
+						_1: A2(fn, _p186._1, _p187._1)
+					};
+				}),
+			points,
+			points2);
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Cmd = F3(
+	function (fn, cmd, cmd2) {
+		var _p188 = cmd;
+		switch (_p188.ctor) {
+			case 'Move':
+				var _p189 = cmd2;
+				if (_p189.ctor === 'Move') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Move,
+						A2(fn, _p188._0, _p189._0),
+						A2(fn, _p188._1, _p189._1));
+				} else {
+					return cmd2;
+				}
+			case 'MoveTo':
+				var _p190 = cmd2;
+				if (_p190.ctor === 'MoveTo') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MoveTo,
+						A2(fn, _p188._0, _p190._0),
+						A2(fn, _p188._1, _p190._1));
+				} else {
+					return cmd2;
+				}
+			case 'Line':
+				var _p191 = cmd2;
+				if (_p191.ctor === 'Line') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Line,
+						A2(fn, _p188._0, _p191._0),
+						A2(fn, _p188._1, _p191._1));
+				} else {
+					return cmd2;
+				}
+			case 'LineTo':
+				var _p192 = cmd2;
+				if (_p192.ctor === 'LineTo') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$LineTo,
+						A2(fn, _p188._0, _p192._0),
+						A2(fn, _p188._1, _p192._1));
+				} else {
+					return cmd2;
+				}
+			case 'Horizontal':
+				var _p193 = cmd2;
+				if (_p193.ctor === 'Horizontal') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Horizontal(
+						A2(fn, _p188._0, _p193._0));
+				} else {
+					return cmd2;
+				}
+			case 'HorizontalTo':
+				var _p194 = cmd2;
+				if (_p194.ctor === 'HorizontalTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$HorizontalTo(
+						A2(fn, _p188._0, _p194._0));
+				} else {
+					return cmd2;
+				}
+			case 'Vertical':
+				var _p195 = cmd2;
+				if (_p195.ctor === 'Vertical') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Vertical(
+						A2(fn, _p188._0, _p195._0));
+				} else {
+					return cmd2;
+				}
+			case 'VerticalTo':
+				var _p196 = cmd2;
+				if (_p196.ctor === 'VerticalTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$VerticalTo(
+						A2(fn, _p188._0, _p196._0));
+				} else {
+					return cmd2;
+				}
+			case 'Curve':
+				var _p197 = cmd2;
+				if (_p197.ctor === 'Curve') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Curve(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p197._0));
+				} else {
+					return cmd2;
+				}
+			case 'CurveTo':
+				var _p198 = cmd2;
+				if (_p198.ctor === 'Curve') {
+					return _mdgriffith$elm_style_animation$Style_Properties$CurveTo(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p198._0));
+				} else {
+					return cmd2;
+				}
+			case 'Quadratic':
+				var _p199 = cmd2;
+				if (_p199.ctor === 'Quadratic') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Quadratic(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p199._0));
+				} else {
+					return cmd2;
+				}
+			case 'QuadraticTo':
+				var _p200 = cmd2;
+				if (_p200.ctor === 'QuadraticTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$QuadraticTo(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p200._0));
+				} else {
+					return cmd2;
+				}
+			case 'SmoothQuadratic':
+				var _p201 = cmd2;
+				if (_p201.ctor === 'SmoothQuadratic') {
+					return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadratic(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p201._0));
+				} else {
+					return cmd2;
+				}
+			case 'SmoothQuadraticTo':
+				var _p202 = cmd2;
+				if (_p202.ctor === 'SmoothQuadraticTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadraticTo(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p202._0));
+				} else {
+					return cmd2;
+				}
+			case 'Smooth':
+				var _p203 = cmd2;
+				if (_p203.ctor === 'Smooth') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Smooth(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p203._0));
+				} else {
+					return cmd2;
+				}
+			case 'SmoothTo':
+				var _p204 = cmd2;
+				if (_p204.ctor === 'SmoothTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$SmoothTo(
+						A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Points, fn, _p188._0, _p204._0));
+				} else {
+					return cmd2;
+				}
+			case 'Arc':
+				var _p205 = cmd2;
+				if (_p205.ctor === 'Arc') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$Arc,
+						A2(fn, _p188._0, _p205._0),
+						A2(fn, _p188._1, _p205._1),
+						A2(fn, _p188._2, _p205._2),
+						A2(fn, _p188._3, _p205._3));
+				} else {
+					return cmd2;
+				}
+			case 'ArcTo':
+				var _p206 = cmd2;
+				if (_p206.ctor === 'ArcTo') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$ArcTo,
+						A2(fn, _p188._0, _p206._0),
+						A2(fn, _p188._1, _p206._1),
+						A2(fn, _p188._2, _p206._2),
+						A2(fn, _p188._3, _p206._3));
+				} else {
+					return cmd2;
+				}
+			case 'LargeArc':
+				var _p207 = cmd2;
+				if (_p207.ctor === 'LargeArc') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$LargeArc,
+						A2(fn, _p188._0, _p207._0),
+						A2(fn, _p188._1, _p207._1),
+						A2(fn, _p188._2, _p207._2),
+						A2(fn, _p188._3, _p207._3));
+				} else {
+					return cmd2;
+				}
+			case 'LargeArcTo':
+				var _p208 = cmd2;
+				if (_p208.ctor === 'LargeArcTo') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$LargeArcTo,
+						A2(fn, _p188._0, _p208._0),
+						A2(fn, _p188._1, _p208._1),
+						A2(fn, _p188._2, _p208._2),
+						A2(fn, _p188._3, _p208._3));
+				} else {
+					return cmd2;
+				}
+			default:
+				return _mdgriffith$elm_style_animation$Style_Properties$Close;
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map2 = F4(
+	function (fn, colorFn, prev, prop) {
+		var _p209 = prev;
+		switch (_p209.ctor) {
+			case 'Display':
+				return prop;
+			case 'Opacity':
+				var _p210 = prop;
+				if (_p210.ctor === 'Opacity') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Opacity(
+						A2(fn, _p209._0, _p210._0));
+				} else {
+					return prop;
+				}
+			case 'Height':
+				var _p211 = prop;
+				if (_p211.ctor === 'Height') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Height,
+						A2(fn, _p209._0, _p211._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Width':
+				var _p212 = prop;
+				if (_p212.ctor === 'Width') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Width,
+						A2(fn, _p209._0, _p212._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Left':
+				var _p213 = prop;
+				if (_p213.ctor === 'Left') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Left,
+						A2(fn, _p209._0, _p213._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Top':
+				var _p214 = prop;
+				if (_p214.ctor === 'Top') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Top,
+						A2(fn, _p209._0, _p214._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Right':
+				var _p215 = prop;
+				if (_p215.ctor === 'Right') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Right,
+						A2(fn, _p209._0, _p215._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Bottom':
+				var _p216 = prop;
+				if (_p216.ctor === 'Bottom') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Bottom,
+						A2(fn, _p209._0, _p216._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MaxHeight':
+				var _p217 = prop;
+				if (_p217.ctor === 'MaxHeight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MaxHeight,
+						A2(fn, _p209._0, _p217._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MaxWidth':
+				var _p218 = prop;
+				if (_p218.ctor === 'MaxWidth') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MaxWidth,
+						A2(fn, _p209._0, _p218._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MinHeight':
+				var _p219 = prop;
+				if (_p219.ctor === 'MinHeight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MinHeight,
+						A2(fn, _p209._0, _p219._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MinWidth':
+				var _p220 = prop;
+				if (_p220.ctor === 'MinWidth') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MinWidth,
+						A2(fn, _p209._0, _p220._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Padding':
+				var _p221 = prop;
+				if (_p221.ctor === 'Padding') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Padding,
+						A2(fn, _p209._0, _p221._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingLeft':
+				var _p222 = prop;
+				if (_p222.ctor === 'PaddingLeft') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingLeft,
+						A2(fn, _p209._0, _p222._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingRight':
+				var _p223 = prop;
+				if (_p223.ctor === 'PaddingRight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingRight,
+						A2(fn, _p209._0, _p223._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingTop':
+				var _p224 = prop;
+				if (_p224.ctor === 'PaddingTop') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingTop,
+						A2(fn, _p209._0, _p224._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingBottom':
+				var _p225 = prop;
+				if (_p225.ctor === 'PaddingBottom') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingBottom,
+						A2(fn, _p209._0, _p225._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Margin':
+				var _p226 = prop;
+				if (_p226.ctor === 'Margin') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Margin,
+						A2(fn, _p209._0, _p226._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MarginLeft':
+				var _p227 = prop;
+				if (_p227.ctor === 'MarginLeft') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginLeft,
+						A2(fn, _p209._0, _p227._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MarginRight':
+				var _p228 = prop;
+				if (_p228.ctor === 'MarginRight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginRight,
+						A2(fn, _p209._0, _p228._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MarginTop':
+				var _p229 = prop;
+				if (_p229.ctor === 'MarginTop') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginTop,
+						A2(fn, _p209._0, _p229._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'MarginBottom':
+				var _p230 = prop;
+				if (_p230.ctor === 'MarginBottom') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginBottom,
+						A2(fn, _p209._0, _p230._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BorderWidth':
+				var _p231 = prop;
+				if (_p231.ctor === 'BorderWidth') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderWidth,
+						A2(fn, _p209._0, _p231._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BorderRadius':
+				var _p232 = prop;
+				if (_p232.ctor === 'BorderRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderRadius,
+						A2(fn, _p209._0, _p232._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BorderTopLeftRadius':
+				var _p233 = prop;
+				if (_p233.ctor === 'BorderTopLeftRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderTopLeftRadius,
+						A2(fn, _p209._0, _p233._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BorderTopRightRadius':
+				var _p234 = prop;
+				if (_p234.ctor === 'BorderTopRightRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderTopRightRadius,
+						A2(fn, _p209._0, _p234._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BorderBottomLeftRadius':
+				var _p235 = prop;
+				if (_p235.ctor === 'BorderBottomLeftRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderBottomLeftRadius,
+						A2(fn, _p209._0, _p235._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BorderBottomRightRadius':
+				var _p236 = prop;
+				if (_p236.ctor === 'BorderBottomRightRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderBottomRightRadius,
+						A2(fn, _p209._0, _p236._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'LetterSpacing':
+				var _p237 = prop;
+				if (_p237.ctor === 'LetterSpacing') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$LetterSpacing,
+						A2(fn, _p209._0, _p237._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'LineHeight':
+				var _p238 = prop;
+				if (_p238.ctor === 'LineHeight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$LineHeight,
+						A2(fn, _p209._0, _p238._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'BackgroundPosition':
+				var _p239 = prop;
+				if (_p239.ctor === 'BackgroundPosition') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$BackgroundPosition,
+						A2(fn, _p209._0, _p239._0),
+						A2(fn, _p209._1, _p239._1),
+						_p209._2);
+				} else {
+					return prop;
+				}
+			case 'Color':
+				var _p240 = prop;
+				if (_p240.ctor === 'Color') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Color(
+						A2(colorFn, _p209._0, _p240._0));
+				} else {
+					return prop;
+				}
+			case 'BorderColor':
+				var _p241 = prop;
+				if (_p241.ctor === 'BorderColor') {
+					return _mdgriffith$elm_style_animation$Style_Properties$BorderColor(
+						A2(colorFn, _p209._0, _p241._0));
+				} else {
+					return prop;
+				}
+			case 'BackgroundColor':
+				var _p242 = prop;
+				if (_p242.ctor === 'BackgroundColor') {
+					return _mdgriffith$elm_style_animation$Style_Properties$BackgroundColor(
+						A2(colorFn, _p209._0, _p242._0));
+				} else {
+					return prop;
+				}
+			case 'TransformOrigin':
+				var _p243 = prop;
+				if (_p243.ctor === 'TransformOrigin') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$TransformOrigin,
+						A2(fn, _p209._0, _p243._0),
+						A2(fn, _p209._1, _p243._1),
+						A2(fn, _p209._2, _p243._2),
+						_p209._3);
+				} else {
+					return prop;
+				}
+			case 'Translate':
+				var _p244 = prop;
+				if (_p244.ctor === 'Translate') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$Translate,
+						A2(fn, _p209._0, _p244._0),
+						A2(fn, _p209._1, _p244._1),
+						_p209._2);
+				} else {
+					return prop;
+				}
+			case 'Translate3d':
+				var _p245 = prop;
+				if (_p245.ctor === 'Translate3d') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$Translate3d,
+						A2(fn, _p209._0, _p245._0),
+						A2(fn, _p209._1, _p245._1),
+						A2(fn, _p209._2, _p245._2),
+						_p209._3);
+				} else {
+					return prop;
+				}
+			case 'TranslateX':
+				var _p246 = prop;
+				if (_p246.ctor === 'TranslateX') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$TranslateX,
+						A2(fn, _p209._0, _p246._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'TranslateY':
+				var _p247 = prop;
+				if (_p247.ctor === 'TranslateY') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$TranslateY,
+						A2(fn, _p209._0, _p247._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Scale':
+				var _p248 = prop;
+				if (_p248.ctor === 'Scale') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Scale(
+						A2(fn, _p209._0, _p248._0));
+				} else {
+					return prop;
+				}
+			case 'Scale3d':
+				var _p249 = prop;
+				if (_p249.ctor === 'Scale3d') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$Scale3d,
+						A2(fn, _p209._0, _p249._0),
+						A2(fn, _p209._1, _p249._1),
+						A2(fn, _p209._2, _p249._2));
+				} else {
+					return prop;
+				}
+			case 'ScaleX':
+				var _p250 = prop;
+				if (_p250.ctor === 'ScaleX') {
+					return _mdgriffith$elm_style_animation$Style_Properties$ScaleX(
+						A2(fn, _p209._0, _p250._0));
+				} else {
+					return prop;
+				}
+			case 'ScaleY':
+				var _p251 = prop;
+				if (_p251.ctor === 'ScaleY') {
+					return _mdgriffith$elm_style_animation$Style_Properties$ScaleY(
+						A2(fn, _p209._0, _p251._0));
+				} else {
+					return prop;
+				}
+			case 'ScaleZ':
+				var _p252 = prop;
+				if (_p252.ctor === 'ScaleZ') {
+					return _mdgriffith$elm_style_animation$Style_Properties$ScaleZ(
+						A2(fn, _p209._0, _p252._0));
+				} else {
+					return prop;
+				}
+			case 'Rotate':
+				var _p253 = prop;
+				if (_p253.ctor === 'Rotate') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Rotate,
+						A2(fn, _p209._0, _p253._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Rotate3d':
+				var _p254 = prop;
+				if (_p254.ctor === 'Rotate3d') {
+					return A5(
+						_mdgriffith$elm_style_animation$Style_Properties$Rotate3d,
+						A2(fn, _p209._0, _p254._0),
+						A2(fn, _p209._1, _p254._1),
+						A2(fn, _p209._2, _p254._2),
+						A2(fn, _p209._3, _p254._3),
+						_p209._4);
+				} else {
+					return prop;
+				}
+			case 'RotateX':
+				var _p255 = prop;
+				if (_p255.ctor === 'RotateX') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$RotateX,
+						A2(fn, _p209._0, _p255._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'RotateY':
+				var _p256 = prop;
+				if (_p256.ctor === 'RotateY') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$RotateY,
+						A2(fn, _p209._0, _p256._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Skew':
+				var _p257 = prop;
+				if (_p257.ctor === 'Skew') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$Skew,
+						A2(fn, _p209._0, _p257._0),
+						A2(fn, _p209._1, _p257._1),
+						_p209._2);
+				} else {
+					return prop;
+				}
+			case 'SkewX':
+				var _p258 = prop;
+				if (_p258.ctor === 'SkewX') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$SkewX,
+						A2(fn, _p209._0, _p258._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'SkewY':
+				var _p259 = prop;
+				if (_p259.ctor === 'SkewY') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$SkewY,
+						A2(fn, _p209._0, _p259._0),
+						_p209._1);
+				} else {
+					return prop;
+				}
+			case 'Perspective':
+				var _p260 = prop;
+				if (_p260.ctor === 'Perspective') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Perspective(
+						A2(fn, _p209._0, _p260._0));
+				} else {
+					return prop;
+				}
+			case 'Matrix':
+				var _p261 = prop;
+				if (_p261.ctor === 'Matrix') {
+					return A6(
+						_mdgriffith$elm_style_animation$Style_Properties$Matrix,
+						A2(fn, _p209._0, _p261._0),
+						A2(fn, _p209._1, _p261._1),
+						A2(fn, _p209._2, _p261._2),
+						A2(fn, _p209._3, _p261._3),
+						A2(fn, _p209._4, _p261._4),
+						A2(fn, _p209._5, _p261._5));
+				} else {
+					return prop;
+				}
+			case 'Matrix3d':
+				var _p262 = prop;
+				if (_p262.ctor === 'Matrix3d') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Matrix3d(
+						A2(fn, _p209._0, _p262._0))(
+						A2(fn, _p209._1, _p262._1))(
+						A2(fn, _p209._2, _p262._2))(
+						A2(fn, _p209._3, _p262._3))(
+						A2(fn, _p209._4, _p262._4))(
+						A2(fn, _p209._5, _p262._5))(
+						A2(fn, _p209._6, _p262._6))(
+						A2(fn, _p209._7, _p262._7))(
+						A2(fn, _p209._8, _p262._8))(
+						A2(fn, _p209._9, _p262._9))(
+						A2(fn, _p209._10, _p262._10))(
+						A2(fn, _p209._11, _p262._11))(
+						A2(fn, _p209._12, _p262._12))(
+						A2(fn, _p209._13, _p262._13))(
+						A2(fn, _p209._14, _p262._14))(
+						A2(fn, _p209._15, _p262._15));
+				} else {
+					return prop;
+				}
+			case 'X':
+				var _p263 = prop;
+				if (_p263.ctor === 'X') {
+					return _mdgriffith$elm_style_animation$Style_Properties$X(
+						A2(fn, _p209._0, _p263._0));
+				} else {
+					return prop;
+				}
+			case 'Y':
+				var _p264 = prop;
+				if (_p264.ctor === 'Y') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Y(
+						A2(fn, _p209._0, _p264._0));
+				} else {
+					return prop;
+				}
+			case 'Cx':
+				var _p265 = prop;
+				if (_p265.ctor === 'Cx') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Cx(
+						A2(fn, _p209._0, _p265._0));
+				} else {
+					return prop;
+				}
+			case 'Cy':
+				var _p266 = prop;
+				if (_p266.ctor === 'Cy') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Cy(
+						A2(fn, _p209._0, _p266._0));
+				} else {
+					return prop;
+				}
+			case 'R':
+				var _p267 = prop;
+				if (_p267.ctor === 'R') {
+					return _mdgriffith$elm_style_animation$Style_Properties$R(
+						A2(fn, _p209._0, _p267._0));
+				} else {
+					return prop;
+				}
+			case 'Rx':
+				var _p268 = prop;
+				if (_p268.ctor === 'Rx') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Rx(
+						A2(fn, _p209._0, _p268._0));
+				} else {
+					return prop;
+				}
+			case 'Ry':
+				var _p269 = prop;
+				if (_p269.ctor === 'Ry') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Ry(
+						A2(fn, _p209._0, _p269._0));
+				} else {
+					return prop;
+				}
+			case 'D':
+				var _p270 = prop;
+				if (_p270.ctor === 'D') {
+					return _mdgriffith$elm_style_animation$Style_Properties$D(
+						A3(
+							_elm_lang$core$List$map2,
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2Cmd(fn),
+							_p209._0,
+							_p270._0));
+				} else {
+					return prop;
+				}
+			case 'Points':
+				var _p271 = prop;
+				if (_p271.ctor === 'Points') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Points(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p273, _p272) {
+									var _p274 = _p273;
+									var _p275 = _p272;
+									return {
+										ctor: '_Tuple2',
+										_0: A2(fn, _p274._0, _p275._0),
+										_1: A2(fn, _p274._1, _p275._1)
+									};
+								}),
+							_p209._0,
+							_p271._0));
+				} else {
+					return prop;
+				}
+			case 'Fill':
+				var _p276 = prop;
+				if (_p276.ctor === 'Fill') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Fill(
+						A2(colorFn, _p209._0, _p276._0));
+				} else {
+					return prop;
+				}
+			default:
+				var _p277 = prop;
+				if (_p277.ctor === 'Stroke') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Stroke(
+						A2(colorFn, _p209._0, _p277._0));
+				} else {
+					return prop;
+				}
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$applyCmd = F2(
+	function (cmd, cmd2) {
+		var _p278 = cmd;
+		switch (_p278.ctor) {
+			case 'Move':
+				var _p279 = cmd2;
+				if (_p279.ctor === 'Move') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Move,
+						_p278._0(_p279._0),
+						_p278._1(_p279._1));
+				} else {
+					return cmd2;
+				}
+			case 'MoveTo':
+				var _p280 = cmd2;
+				if (_p280.ctor === 'MoveTo') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MoveTo,
+						_p278._0(_p280._0),
+						_p278._1(_p280._1));
+				} else {
+					return cmd2;
+				}
+			case 'Line':
+				var _p281 = cmd2;
+				if (_p281.ctor === 'Line') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Line,
+						_p278._0(_p281._0),
+						_p278._1(_p281._1));
+				} else {
+					return cmd2;
+				}
+			case 'LineTo':
+				var _p282 = cmd2;
+				if (_p282.ctor === 'LineTo') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$LineTo,
+						_p278._0(_p282._0),
+						_p278._1(_p282._1));
+				} else {
+					return cmd2;
+				}
+			case 'Horizontal':
+				var _p283 = cmd2;
+				if (_p283.ctor === 'Horizontal') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Horizontal(
+						_p278._0(_p283._0));
+				} else {
+					return cmd2;
+				}
+			case 'HorizontalTo':
+				var _p284 = cmd2;
+				if (_p284.ctor === 'HorizontalTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$HorizontalTo(
+						_p278._0(_p284._0));
+				} else {
+					return cmd2;
+				}
+			case 'Vertical':
+				var _p285 = cmd2;
+				if (_p285.ctor === 'Vertical') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Vertical(
+						_p278._0(_p285._0));
+				} else {
+					return cmd2;
+				}
+			case 'VerticalTo':
+				var _p286 = cmd2;
+				if (_p286.ctor === 'VerticalTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$VerticalTo(
+						_p278._0(_p286._0));
+				} else {
+					return cmd2;
+				}
+			case 'Curve':
+				var _p287 = cmd2;
+				if (_p287.ctor === 'Curve') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Curve(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p289, _p288) {
+									var _p290 = _p289;
+									var _p291 = _p288;
+									return {
+										ctor: '_Tuple2',
+										_0: _p290._0(_p291._0),
+										_1: _p290._1(_p291._1)
+									};
+								}),
+							_p278._0,
+							_p287._0));
+				} else {
+					return cmd2;
+				}
+			case 'CurveTo':
+				var _p292 = cmd2;
+				if (_p292.ctor === 'Curve') {
+					return _mdgriffith$elm_style_animation$Style_Properties$CurveTo(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p294, _p293) {
+									var _p295 = _p294;
+									var _p296 = _p293;
+									return {
+										ctor: '_Tuple2',
+										_0: _p295._0(_p296._0),
+										_1: _p295._1(_p296._1)
+									};
+								}),
+							_p278._0,
+							_p292._0));
+				} else {
+					return cmd2;
+				}
+			case 'Quadratic':
+				var _p297 = cmd2;
+				if (_p297.ctor === 'Quadratic') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Quadratic(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p299, _p298) {
+									var _p300 = _p299;
+									var _p301 = _p298;
+									return {
+										ctor: '_Tuple2',
+										_0: _p300._0(_p301._0),
+										_1: _p300._1(_p301._1)
+									};
+								}),
+							_p278._0,
+							_p297._0));
+				} else {
+					return cmd2;
+				}
+			case 'QuadraticTo':
+				var _p302 = cmd2;
+				if (_p302.ctor === 'QuadraticTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$QuadraticTo(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p304, _p303) {
+									var _p305 = _p304;
+									var _p306 = _p303;
+									return {
+										ctor: '_Tuple2',
+										_0: _p305._0(_p306._0),
+										_1: _p305._1(_p306._1)
+									};
+								}),
+							_p278._0,
+							_p302._0));
+				} else {
+					return cmd2;
+				}
+			case 'SmoothQuadratic':
+				var _p307 = cmd2;
+				if (_p307.ctor === 'SmoothQuadratic') {
+					return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadratic(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p309, _p308) {
+									var _p310 = _p309;
+									var _p311 = _p308;
+									return {
+										ctor: '_Tuple2',
+										_0: _p310._0(_p311._0),
+										_1: _p310._1(_p311._1)
+									};
+								}),
+							_p278._0,
+							_p307._0));
+				} else {
+					return cmd2;
+				}
+			case 'SmoothQuadraticTo':
+				var _p312 = cmd2;
+				if (_p312.ctor === 'SmoothQuadraticTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadraticTo(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p314, _p313) {
+									var _p315 = _p314;
+									var _p316 = _p313;
+									return {
+										ctor: '_Tuple2',
+										_0: _p315._0(_p316._0),
+										_1: _p315._1(_p316._1)
+									};
+								}),
+							_p278._0,
+							_p312._0));
+				} else {
+					return cmd2;
+				}
+			case 'Smooth':
+				var _p317 = cmd2;
+				if (_p317.ctor === 'Smooth') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Smooth(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p319, _p318) {
+									var _p320 = _p319;
+									var _p321 = _p318;
+									return {
+										ctor: '_Tuple2',
+										_0: _p320._0(_p321._0),
+										_1: _p320._1(_p321._1)
+									};
+								}),
+							_p278._0,
+							_p317._0));
+				} else {
+					return cmd2;
+				}
+			case 'SmoothTo':
+				var _p322 = cmd2;
+				if (_p322.ctor === 'SmoothTo') {
+					return _mdgriffith$elm_style_animation$Style_Properties$SmoothTo(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p324, _p323) {
+									var _p325 = _p324;
+									var _p326 = _p323;
+									return {
+										ctor: '_Tuple2',
+										_0: _p325._0(_p326._0),
+										_1: _p325._1(_p326._1)
+									};
+								}),
+							_p278._0,
+							_p322._0));
+				} else {
+					return cmd2;
+				}
+			case 'Arc':
+				var _p327 = cmd2;
+				if (_p327.ctor === 'Arc') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$Arc,
+						_p278._0(_p327._0),
+						_p278._1(_p327._1),
+						_p278._2(_p327._2),
+						_p278._3(_p327._3));
+				} else {
+					return cmd2;
+				}
+			case 'ArcTo':
+				var _p328 = cmd2;
+				if (_p328.ctor === 'ArcTo') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$ArcTo,
+						_p278._0(_p328._0),
+						_p278._1(_p328._1),
+						_p278._2(_p328._2),
+						_p278._3(_p328._3));
+				} else {
+					return cmd2;
+				}
+			case 'LargeArc':
+				var _p329 = cmd2;
+				if (_p329.ctor === 'LargeArc') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$LargeArc,
+						_p278._0(_p329._0),
+						_p278._1(_p329._1),
+						_p278._2(_p329._2),
+						_p278._3(_p329._3));
+				} else {
+					return cmd2;
+				}
+			case 'LargeArcTo':
+				var _p330 = cmd2;
+				if (_p330.ctor === 'LargeArcTo') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$LargeArcTo,
+						_p278._0(_p330._0),
+						_p278._1(_p330._1),
+						_p278._2(_p330._2),
+						_p278._3(_p330._3));
+				} else {
+					return cmd2;
+				}
+			default:
+				return _mdgriffith$elm_style_animation$Style_Properties$Close;
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$apply = F2(
+	function (retarget, prop) {
+		var _p331 = retarget;
+		switch (_p331.ctor) {
+			case 'Display':
+				return prop;
+			case 'Opacity':
+				var _p332 = prop;
+				if (_p332.ctor === 'Opacity') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Opacity(
+						_p331._0(_p332._0));
+				} else {
+					return prop;
+				}
+			case 'Height':
+				var _p333 = prop;
+				if (_p333.ctor === 'Height') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Height,
+						_p331._0(_p333._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Width':
+				var _p334 = prop;
+				if (_p334.ctor === 'Width') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Width,
+						_p331._0(_p334._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Left':
+				var _p335 = prop;
+				if (_p335.ctor === 'Left') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Left,
+						_p331._0(_p335._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Top':
+				var _p336 = prop;
+				if (_p336.ctor === 'Top') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Top,
+						_p331._0(_p336._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Right':
+				var _p337 = prop;
+				if (_p337.ctor === 'Right') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Right,
+						_p331._0(_p337._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Bottom':
+				var _p338 = prop;
+				if (_p338.ctor === 'Bottom') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Bottom,
+						_p331._0(_p338._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MaxHeight':
+				var _p339 = prop;
+				if (_p339.ctor === 'MaxHeight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MaxHeight,
+						_p331._0(_p339._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MaxWidth':
+				var _p340 = prop;
+				if (_p340.ctor === 'MaxWidth') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MaxWidth,
+						_p331._0(_p340._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MinHeight':
+				var _p341 = prop;
+				if (_p341.ctor === 'MinHeight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MinHeight,
+						_p331._0(_p341._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MinWidth':
+				var _p342 = prop;
+				if (_p342.ctor === 'MinWidth') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MinWidth,
+						_p331._0(_p342._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Padding':
+				var _p343 = prop;
+				if (_p343.ctor === 'Padding') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Padding,
+						_p331._0(_p343._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingLeft':
+				var _p344 = prop;
+				if (_p344.ctor === 'PaddingLeft') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingLeft,
+						_p331._0(_p344._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingRight':
+				var _p345 = prop;
+				if (_p345.ctor === 'PaddingRight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingRight,
+						_p331._0(_p345._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingTop':
+				var _p346 = prop;
+				if (_p346.ctor === 'PaddingTop') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingTop,
+						_p331._0(_p346._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'PaddingBottom':
+				var _p347 = prop;
+				if (_p347.ctor === 'PaddingBottom') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$PaddingBottom,
+						_p331._0(_p347._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Margin':
+				var _p348 = prop;
+				if (_p348.ctor === 'Margin') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Margin,
+						_p331._0(_p348._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MarginLeft':
+				var _p349 = prop;
+				if (_p349.ctor === 'MarginLeft') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginLeft,
+						_p331._0(_p349._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MarginRight':
+				var _p350 = prop;
+				if (_p350.ctor === 'MarginRight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginRight,
+						_p331._0(_p350._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MarginTop':
+				var _p351 = prop;
+				if (_p351.ctor === 'MarginTop') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginTop,
+						_p331._0(_p351._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'MarginBottom':
+				var _p352 = prop;
+				if (_p352.ctor === 'MarginBottom') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$MarginBottom,
+						_p331._0(_p352._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BorderWidth':
+				var _p353 = prop;
+				if (_p353.ctor === 'BorderWidth') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderWidth,
+						_p331._0(_p353._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BorderRadius':
+				var _p354 = prop;
+				if (_p354.ctor === 'BorderRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderRadius,
+						_p331._0(_p354._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BorderTopLeftRadius':
+				var _p355 = prop;
+				if (_p355.ctor === 'BorderTopLeftRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderTopLeftRadius,
+						_p331._0(_p355._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BorderTopRightRadius':
+				var _p356 = prop;
+				if (_p356.ctor === 'BorderTopRightRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderTopRightRadius,
+						_p331._0(_p356._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BorderBottomLeftRadius':
+				var _p357 = prop;
+				if (_p357.ctor === 'BorderBottomLeftRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderBottomLeftRadius,
+						_p331._0(_p357._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BorderBottomRightRadius':
+				var _p358 = prop;
+				if (_p358.ctor === 'BorderBottomRightRadius') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$BorderBottomRightRadius,
+						_p331._0(_p358._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'LetterSpacing':
+				var _p359 = prop;
+				if (_p359.ctor === 'LetterSpacing') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$LetterSpacing,
+						_p331._0(_p359._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'LineHeight':
+				var _p360 = prop;
+				if (_p360.ctor === 'LineHeight') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$LineHeight,
+						_p331._0(_p360._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'BackgroundPosition':
+				var _p361 = prop;
+				if (_p361.ctor === 'BackgroundPosition') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$BackgroundPosition,
+						_p331._0(_p361._0),
+						_p331._1(_p361._1),
+						_p331._2);
+				} else {
+					return prop;
+				}
+			case 'Color':
+				var _p362 = prop;
+				if (_p362.ctor === 'Color') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Color(
+						_p331._0(_p362._0));
+				} else {
+					return prop;
+				}
+			case 'BorderColor':
+				var _p363 = prop;
+				if (_p363.ctor === 'BorderColor') {
+					return _mdgriffith$elm_style_animation$Style_Properties$BorderColor(
+						_p331._0(_p363._0));
+				} else {
+					return prop;
+				}
+			case 'BackgroundColor':
+				var _p364 = prop;
+				if (_p364.ctor === 'BackgroundColor') {
+					return _mdgriffith$elm_style_animation$Style_Properties$BackgroundColor(
+						_p331._0(_p364._0));
+				} else {
+					return prop;
+				}
+			case 'TransformOrigin':
+				var _p365 = prop;
+				if (_p365.ctor === 'TransformOrigin') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$TransformOrigin,
+						_p331._0(_p365._0),
+						_p331._1(_p365._1),
+						_p331._2(_p365._2),
+						_p331._3);
+				} else {
+					return prop;
+				}
+			case 'Translate':
+				var _p366 = prop;
+				if (_p366.ctor === 'Translate') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$Translate,
+						_p331._0(_p366._0),
+						_p331._1(_p366._1),
+						_p331._2);
+				} else {
+					return prop;
+				}
+			case 'Translate3d':
+				var _p367 = prop;
+				if (_p367.ctor === 'Translate3d') {
+					return A4(
+						_mdgriffith$elm_style_animation$Style_Properties$Translate3d,
+						_p331._0(_p367._0),
+						_p331._1(_p367._1),
+						_p331._2(_p367._2),
+						_p331._3);
+				} else {
+					return prop;
+				}
+			case 'TranslateX':
+				var _p368 = prop;
+				if (_p368.ctor === 'TranslateX') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$TranslateX,
+						_p331._0(_p368._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'TranslateY':
+				var _p369 = prop;
+				if (_p369.ctor === 'TranslateY') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$TranslateY,
+						_p331._0(_p369._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Scale':
+				var _p370 = prop;
+				if (_p370.ctor === 'Scale') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Scale(
+						_p331._0(_p370._0));
+				} else {
+					return prop;
+				}
+			case 'Scale3d':
+				var _p371 = prop;
+				if (_p371.ctor === 'Scale3d') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$Scale3d,
+						_p331._0(_p371._0),
+						_p331._1(_p371._1),
+						_p331._2(_p371._2));
+				} else {
+					return prop;
+				}
+			case 'ScaleX':
+				var _p372 = prop;
+				if (_p372.ctor === 'ScaleX') {
+					return _mdgriffith$elm_style_animation$Style_Properties$ScaleX(
+						_p331._0(_p372._0));
+				} else {
+					return prop;
+				}
+			case 'ScaleY':
+				var _p373 = prop;
+				if (_p373.ctor === 'ScaleY') {
+					return _mdgriffith$elm_style_animation$Style_Properties$ScaleY(
+						_p331._0(_p373._0));
+				} else {
+					return prop;
+				}
+			case 'ScaleZ':
+				var _p374 = prop;
+				if (_p374.ctor === 'ScaleZ') {
+					return _mdgriffith$elm_style_animation$Style_Properties$ScaleZ(
+						_p331._0(_p374._0));
+				} else {
+					return prop;
+				}
+			case 'Rotate':
+				var _p375 = prop;
+				if (_p375.ctor === 'Rotate') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$Rotate,
+						_p331._0(_p375._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Rotate3d':
+				var _p376 = prop;
+				if (_p376.ctor === 'Rotate3d') {
+					return A5(
+						_mdgriffith$elm_style_animation$Style_Properties$Rotate3d,
+						_p331._0(_p376._0),
+						_p331._1(_p376._1),
+						_p331._2(_p376._2),
+						_p331._3(_p376._3),
+						_p331._4);
+				} else {
+					return prop;
+				}
+			case 'RotateX':
+				var _p377 = prop;
+				if (_p377.ctor === 'RotateX') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$RotateX,
+						_p331._0(_p377._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'RotateY':
+				var _p378 = prop;
+				if (_p378.ctor === 'RotateY') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$RotateY,
+						_p331._0(_p378._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Skew':
+				var _p379 = prop;
+				if (_p379.ctor === 'Skew') {
+					return A3(
+						_mdgriffith$elm_style_animation$Style_Properties$Skew,
+						_p331._0(_p379._0),
+						_p331._1(_p379._1),
+						_p331._2);
+				} else {
+					return prop;
+				}
+			case 'SkewX':
+				var _p380 = prop;
+				if (_p380.ctor === 'SkewX') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$SkewX,
+						_p331._0(_p380._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'SkewY':
+				var _p381 = prop;
+				if (_p381.ctor === 'SkewY') {
+					return A2(
+						_mdgriffith$elm_style_animation$Style_Properties$SkewY,
+						_p331._0(_p381._0),
+						_p331._1);
+				} else {
+					return prop;
+				}
+			case 'Perspective':
+				var _p382 = prop;
+				if (_p382.ctor === 'Perspective') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Perspective(
+						_p331._0(_p382._0));
+				} else {
+					return prop;
+				}
+			case 'Matrix':
+				var _p383 = prop;
+				if (_p383.ctor === 'Matrix') {
+					return A6(
+						_mdgriffith$elm_style_animation$Style_Properties$Matrix,
+						_p331._0(_p383._0),
+						_p331._1(_p383._1),
+						_p331._2(_p383._2),
+						_p331._3(_p383._3),
+						_p331._4(_p383._4),
+						_p331._5(_p383._5));
+				} else {
+					return prop;
+				}
+			case 'Matrix3d':
+				var _p384 = prop;
+				if (_p384.ctor === 'Matrix3d') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Matrix3d(
+						_p331._0(_p384._0))(
+						_p331._1(_p384._1))(
+						_p331._2(_p384._2))(
+						_p331._3(_p384._3))(
+						_p331._4(_p384._4))(
+						_p331._5(_p384._5))(
+						_p331._6(_p384._6))(
+						_p331._7(_p384._7))(
+						_p331._8(_p384._8))(
+						_p331._9(_p384._9))(
+						_p331._10(_p384._10))(
+						_p331._11(_p384._11))(
+						_p331._12(_p384._12))(
+						_p331._13(_p384._13))(
+						_p331._14(_p384._14))(
+						_p331._15(_p384._15));
+				} else {
+					return prop;
+				}
+			case 'X':
+				var _p385 = prop;
+				if (_p385.ctor === 'X') {
+					return _mdgriffith$elm_style_animation$Style_Properties$X(
+						_p331._0(_p385._0));
+				} else {
+					return prop;
+				}
+			case 'Y':
+				var _p386 = prop;
+				if (_p386.ctor === 'Y') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Y(
+						_p331._0(_p386._0));
+				} else {
+					return prop;
+				}
+			case 'Cx':
+				var _p387 = prop;
+				if (_p387.ctor === 'Cx') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Cx(
+						_p331._0(_p387._0));
+				} else {
+					return prop;
+				}
+			case 'Cy':
+				var _p388 = prop;
+				if (_p388.ctor === 'Cy') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Cy(
+						_p331._0(_p388._0));
+				} else {
+					return prop;
+				}
+			case 'R':
+				var _p389 = prop;
+				if (_p389.ctor === 'R') {
+					return _mdgriffith$elm_style_animation$Style_Properties$R(
+						_p331._0(_p389._0));
+				} else {
+					return prop;
+				}
+			case 'Rx':
+				var _p390 = prop;
+				if (_p390.ctor === 'Rx') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Rx(
+						_p331._0(_p390._0));
+				} else {
+					return prop;
+				}
+			case 'Ry':
+				var _p391 = prop;
+				if (_p391.ctor === 'Ry') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Ry(
+						_p331._0(_p391._0));
+				} else {
+					return prop;
+				}
+			case 'D':
+				var _p392 = prop;
+				if (_p392.ctor === 'D') {
+					return _mdgriffith$elm_style_animation$Style_Properties$D(
+						A3(_elm_lang$core$List$map2, _mdgriffith$elm_style_animation$Style_PropertyHelpers$applyCmd, _p331._0, _p392._0));
+				} else {
+					return prop;
+				}
+			case 'Points':
+				var _p393 = prop;
+				if (_p393.ctor === 'Points') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Points(
+						A3(
+							_elm_lang$core$List$map2,
+							F2(
+								function (_p395, _p394) {
+									var _p396 = _p395;
+									var _p397 = _p394;
+									return {
+										ctor: '_Tuple2',
+										_0: _p396._0(_p397._0),
+										_1: _p396._1(_p397._1)
+									};
+								}),
+							_p331._0,
+							_p393._0));
+				} else {
+					return prop;
+				}
+			case 'Fill':
+				var _p398 = prop;
+				if (_p398.ctor === 'Fill') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Fill(
+						_p331._0(_p398._0));
+				} else {
+					return prop;
+				}
+			default:
+				var _p399 = prop;
+				if (_p399.ctor === 'Stroke') {
+					return _mdgriffith$elm_style_animation$Style_Properties$Stroke(
+						_p331._0(_p399._0));
+				} else {
+					return prop;
+				}
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$isColor = F2(
+	function (pred, color) {
+		var _p400 = color;
+		return pred(_p400._0) && (pred(_p400._1) && (pred(_p400._2) && pred(_p400._3)));
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints = F2(
+	function (pred, points) {
+		return A2(
+			_elm_lang$core$List$all,
+			function (_p401) {
+				var _p402 = _p401;
+				return pred(_p402._0) && pred(_p402._1);
+			},
+			points);
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$isCmd = F2(
+	function (pred, cmd) {
+		var _p403 = cmd;
+		switch (_p403.ctor) {
+			case 'Move':
+				return pred(_p403._0) && pred(_p403._1);
+			case 'MoveTo':
+				return pred(_p403._0) && pred(_p403._1);
+			case 'Line':
+				return pred(_p403._0) && pred(_p403._1);
+			case 'LineTo':
+				return pred(_p403._0) && pred(_p403._1);
+			case 'Horizontal':
+				return pred(_p403._0);
+			case 'HorizontalTo':
+				return pred(_p403._0);
+			case 'Vertical':
+				return pred(_p403._0);
+			case 'VerticalTo':
+				return pred(_p403._0);
+			case 'Curve':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'CurveTo':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'Quadratic':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'QuadraticTo':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'SmoothQuadratic':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'SmoothQuadraticTo':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'Smooth':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'SmoothTo':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isPoints, pred, _p403._0);
+			case 'Arc':
+				return pred(_p403._0) && (pred(_p403._1) && (pred(_p403._2) && pred(_p403._3)));
+			case 'ArcTo':
+				return pred(_p403._0) && (pred(_p403._1) && (pred(_p403._2) && pred(_p403._3)));
+			case 'LargeArc':
+				return pred(_p403._0) && (pred(_p403._1) && (pred(_p403._2) && pred(_p403._3)));
+			case 'LargeArcTo':
+				return pred(_p403._0) && (pred(_p403._1) && (pred(_p403._2) && pred(_p403._3)));
+			default:
+				return true;
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$is = F2(
+	function (pred, prop) {
+		var _p404 = prop;
+		switch (_p404.ctor) {
+			case 'Display':
+				return true;
+			case 'Opacity':
+				return pred(_p404._0);
+			case 'Height':
+				return pred(_p404._0);
+			case 'Width':
+				return pred(_p404._0);
+			case 'Left':
+				return pred(_p404._0);
+			case 'Top':
+				return pred(_p404._0);
+			case 'Right':
+				return pred(_p404._0);
+			case 'Bottom':
+				return pred(_p404._0);
+			case 'MaxHeight':
+				return pred(_p404._0);
+			case 'MaxWidth':
+				return pred(_p404._0);
+			case 'MinHeight':
+				return pred(_p404._0);
+			case 'MinWidth':
+				return pred(_p404._0);
+			case 'Padding':
+				return pred(_p404._0);
+			case 'PaddingLeft':
+				return pred(_p404._0);
+			case 'PaddingRight':
+				return pred(_p404._0);
+			case 'PaddingTop':
+				return pred(_p404._0);
+			case 'PaddingBottom':
+				return pred(_p404._0);
+			case 'Margin':
+				return pred(_p404._0);
+			case 'MarginLeft':
+				return pred(_p404._0);
+			case 'MarginRight':
+				return pred(_p404._0);
+			case 'MarginTop':
+				return pred(_p404._0);
+			case 'MarginBottom':
+				return pred(_p404._0);
+			case 'BorderWidth':
+				return pred(_p404._0);
+			case 'BorderRadius':
+				return pred(_p404._0);
+			case 'BorderTopLeftRadius':
+				return pred(_p404._0);
+			case 'BorderTopRightRadius':
+				return pred(_p404._0);
+			case 'BorderBottomLeftRadius':
+				return pred(_p404._0);
+			case 'BorderBottomRightRadius':
+				return pred(_p404._0);
+			case 'LetterSpacing':
+				return pred(_p404._0);
+			case 'LineHeight':
+				return pred(_p404._0);
+			case 'BackgroundPosition':
+				return pred(_p404._0) && pred(_p404._1);
+			case 'TransformOrigin':
+				return pred(_p404._0) && (pred(_p404._1) && pred(_p404._2));
+			case 'Color':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isColor, pred, _p404._0);
+			case 'BackgroundColor':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isColor, pred, _p404._0);
+			case 'BorderColor':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isColor, pred, _p404._0);
+			case 'Translate':
+				return pred(_p404._0) && pred(_p404._1);
+			case 'Translate3d':
+				return pred(_p404._0) && (pred(_p404._1) && pred(_p404._2));
+			case 'TranslateX':
+				return pred(_p404._0);
+			case 'TranslateY':
+				return pred(_p404._0);
+			case 'Scale':
+				return pred(_p404._0);
+			case 'Scale3d':
+				return pred(_p404._0) && (pred(_p404._1) && pred(_p404._2));
+			case 'ScaleX':
+				return pred(_p404._0);
+			case 'ScaleY':
+				return pred(_p404._0);
+			case 'ScaleZ':
+				return pred(_p404._0);
+			case 'Rotate':
+				return pred(_p404._0);
+			case 'Rotate3d':
+				return pred(_p404._0) && (pred(_p404._1) && (pred(_p404._2) && pred(_p404._3)));
+			case 'RotateX':
+				return pred(_p404._0);
+			case 'RotateY':
+				return pred(_p404._0);
+			case 'Skew':
+				return pred(_p404._0) && pred(_p404._1);
+			case 'SkewX':
+				return pred(_p404._0);
+			case 'SkewY':
+				return pred(_p404._0);
+			case 'Perspective':
+				return pred(_p404._0);
+			case 'Matrix':
+				return A2(
+					_elm_lang$core$List$all,
+					pred,
+					_elm_lang$core$Native_List.fromArray(
+						[_p404._0, _p404._1, _p404._2, _p404._3, _p404._4, _p404._5]));
+			case 'Matrix3d':
+				return A2(
+					_elm_lang$core$List$all,
+					pred,
+					_elm_lang$core$Native_List.fromArray(
+						[_p404._0, _p404._1, _p404._2, _p404._3, _p404._4, _p404._5, _p404._6, _p404._7, _p404._8, _p404._9, _p404._10, _p404._11, _p404._12, _p404._13, _p404._14, _p404._15]));
+			case 'X':
+				return pred(_p404._0);
+			case 'Y':
+				return pred(_p404._0);
+			case 'Cx':
+				return pred(_p404._0);
+			case 'Cy':
+				return pred(_p404._0);
+			case 'R':
+				return pred(_p404._0);
+			case 'Rx':
+				return pred(_p404._0);
+			case 'Ry':
+				return pred(_p404._0);
+			case 'D':
+				return A2(
+					_elm_lang$core$List$all,
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$isCmd(pred),
+					_p404._0);
+			case 'Points':
+				return A2(
+					_elm_lang$core$List$all,
+					function (_p405) {
+						var _p406 = _p405;
+						return pred(_p406._0) && pred(_p406._1);
+					},
+					_p404._0);
+			case 'Fill':
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isColor, pred, _p404._0);
+			default:
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$isColor, pred, _p404._0);
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$matchPoints = F2(
+	function (points, matchTo) {
+		var _p407 = points;
+		if (_p407.ctor === 'Points') {
+			var _p410 = _p407._0;
+			var _p408 = matchTo;
+			if (_p408.ctor === 'Points') {
+				var maybeLast = _elm_lang$core$List$head(
+					A2(
+						_elm_lang$core$List$drop,
+						_elm_lang$core$List$length(_p410) - 1,
+						_p410));
+				var diff = _elm_lang$core$List$length(_p408._0) - _elm_lang$core$List$length(_p410);
+				if (_elm_lang$core$Native_Utils.cmp(diff, 0) > 0) {
+					var _p409 = maybeLast;
+					if (_p409.ctor === 'Nothing') {
+						return points;
+					} else {
+						return _mdgriffith$elm_style_animation$Style_Properties$Points(
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_p410,
+								A2(_elm_lang$core$List$repeat, diff, _p409._0)));
+					}
+				} else {
+					return points;
+				}
+			} else {
+				return points;
+			}
+		} else {
+			return points;
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints = F2(
+	function (fn, points) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (_p411) {
+				var _p412 = _p411;
+				return {
+					ctor: '_Tuple2',
+					_0: fn(_p412._0),
+					_1: fn(_p412._1)
+				};
+			},
+			points);
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$mapCmd = F2(
+	function (fn, cmd) {
+		var _p413 = cmd;
+		switch (_p413.ctor) {
+			case 'Move':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Move,
+					fn(_p413._0),
+					fn(_p413._1));
+			case 'MoveTo':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MoveTo,
+					fn(_p413._0),
+					fn(_p413._1));
+			case 'Line':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Line,
+					fn(_p413._0),
+					fn(_p413._1));
+			case 'LineTo':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$LineTo,
+					fn(_p413._0),
+					fn(_p413._1));
+			case 'Horizontal':
+				return _mdgriffith$elm_style_animation$Style_Properties$Horizontal(
+					fn(_p413._0));
+			case 'HorizontalTo':
+				return _mdgriffith$elm_style_animation$Style_Properties$HorizontalTo(
+					fn(_p413._0));
+			case 'Vertical':
+				return _mdgriffith$elm_style_animation$Style_Properties$Vertical(
+					fn(_p413._0));
+			case 'VerticalTo':
+				return _mdgriffith$elm_style_animation$Style_Properties$VerticalTo(
+					fn(_p413._0));
+			case 'Curve':
+				return _mdgriffith$elm_style_animation$Style_Properties$Curve(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'CurveTo':
+				return _mdgriffith$elm_style_animation$Style_Properties$CurveTo(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'Quadratic':
+				return _mdgriffith$elm_style_animation$Style_Properties$Quadratic(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'QuadraticTo':
+				return _mdgriffith$elm_style_animation$Style_Properties$QuadraticTo(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'SmoothQuadratic':
+				return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadratic(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'SmoothQuadraticTo':
+				return _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadraticTo(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'Smooth':
+				return _mdgriffith$elm_style_animation$Style_Properties$Smooth(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'SmoothTo':
+				return _mdgriffith$elm_style_animation$Style_Properties$SmoothTo(
+					A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapPoints, fn, _p413._0));
+			case 'Arc':
+				return A4(
+					_mdgriffith$elm_style_animation$Style_Properties$Arc,
+					fn(_p413._0),
+					fn(_p413._1),
+					fn(_p413._2),
+					fn(_p413._3));
+			case 'ArcTo':
+				return A4(
+					_mdgriffith$elm_style_animation$Style_Properties$ArcTo,
+					fn(_p413._0),
+					fn(_p413._1),
+					fn(_p413._2),
+					fn(_p413._3));
+			case 'LargeArc':
+				return A4(
+					_mdgriffith$elm_style_animation$Style_Properties$LargeArc,
+					fn(_p413._0),
+					fn(_p413._1),
+					fn(_p413._2),
+					fn(_p413._3));
+			case 'LargeArcTo':
+				return A4(
+					_mdgriffith$elm_style_animation$Style_Properties$LargeArcTo,
+					fn(_p413._0),
+					fn(_p413._1),
+					fn(_p413._2),
+					fn(_p413._3));
+			default:
+				return _mdgriffith$elm_style_animation$Style_Properties$Close;
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$map = F3(
+	function (fn, colorFn, prop) {
+		var _p414 = prop;
+		switch (_p414.ctor) {
+			case 'Display':
+				return _mdgriffith$elm_style_animation$Style_Properties$Display(_p414._0);
+			case 'Opacity':
+				return _mdgriffith$elm_style_animation$Style_Properties$Opacity(
+					fn(_p414._0));
+			case 'Height':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Height,
+					fn(_p414._0),
+					_p414._1);
+			case 'Width':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Width,
+					fn(_p414._0),
+					_p414._1);
+			case 'Left':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Left,
+					fn(_p414._0),
+					_p414._1);
+			case 'Top':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Top,
+					fn(_p414._0),
+					_p414._1);
+			case 'Right':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Right,
+					fn(_p414._0),
+					_p414._1);
+			case 'Bottom':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Bottom,
+					fn(_p414._0),
+					_p414._1);
+			case 'MaxHeight':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MaxHeight,
+					fn(_p414._0),
+					_p414._1);
+			case 'MaxWidth':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MaxWidth,
+					fn(_p414._0),
+					_p414._1);
+			case 'MinHeight':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MinHeight,
+					fn(_p414._0),
+					_p414._1);
+			case 'MinWidth':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MinWidth,
+					fn(_p414._0),
+					_p414._1);
+			case 'Padding':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Padding,
+					fn(_p414._0),
+					_p414._1);
+			case 'PaddingLeft':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$PaddingLeft,
+					fn(_p414._0),
+					_p414._1);
+			case 'PaddingRight':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$PaddingRight,
+					fn(_p414._0),
+					_p414._1);
+			case 'PaddingTop':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$PaddingTop,
+					fn(_p414._0),
+					_p414._1);
+			case 'PaddingBottom':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$PaddingBottom,
+					fn(_p414._0),
+					_p414._1);
+			case 'Margin':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Margin,
+					fn(_p414._0),
+					_p414._1);
+			case 'MarginLeft':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MarginLeft,
+					fn(_p414._0),
+					_p414._1);
+			case 'MarginRight':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MarginRight,
+					fn(_p414._0),
+					_p414._1);
+			case 'MarginTop':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MarginTop,
+					fn(_p414._0),
+					_p414._1);
+			case 'MarginBottom':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$MarginBottom,
+					fn(_p414._0),
+					_p414._1);
+			case 'BorderWidth':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$BorderWidth,
+					fn(_p414._0),
+					_p414._1);
+			case 'BorderRadius':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$BorderRadius,
+					fn(_p414._0),
+					_p414._1);
+			case 'BorderTopLeftRadius':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$BorderTopLeftRadius,
+					fn(_p414._0),
+					_p414._1);
+			case 'BorderTopRightRadius':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$BorderTopRightRadius,
+					fn(_p414._0),
+					_p414._1);
+			case 'BorderBottomLeftRadius':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$BorderBottomLeftRadius,
+					fn(_p414._0),
+					_p414._1);
+			case 'BorderBottomRightRadius':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$BorderBottomRightRadius,
+					fn(_p414._0),
+					_p414._1);
+			case 'LetterSpacing':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$LetterSpacing,
+					fn(_p414._0),
+					_p414._1);
+			case 'LineHeight':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$LineHeight,
+					fn(_p414._0),
+					_p414._1);
+			case 'BackgroundPosition':
+				return A3(
+					_mdgriffith$elm_style_animation$Style_Properties$BackgroundPosition,
+					fn(_p414._0),
+					fn(_p414._1),
+					_p414._2);
+			case 'TransformOrigin':
+				return A4(
+					_mdgriffith$elm_style_animation$Style_Properties$TransformOrigin,
+					fn(_p414._0),
+					fn(_p414._1),
+					fn(_p414._2),
+					_p414._3);
+			case 'Color':
+				return _mdgriffith$elm_style_animation$Style_Properties$Color(
+					colorFn(_p414._0));
+			case 'BackgroundColor':
+				return _mdgriffith$elm_style_animation$Style_Properties$BackgroundColor(
+					colorFn(_p414._0));
+			case 'BorderColor':
+				return _mdgriffith$elm_style_animation$Style_Properties$BorderColor(
+					colorFn(_p414._0));
+			case 'Translate':
+				return A3(
+					_mdgriffith$elm_style_animation$Style_Properties$Translate,
+					fn(_p414._0),
+					fn(_p414._1),
+					_p414._2);
+			case 'Translate3d':
+				return A4(
+					_mdgriffith$elm_style_animation$Style_Properties$Translate3d,
+					fn(_p414._0),
+					fn(_p414._1),
+					fn(_p414._2),
+					_p414._3);
+			case 'TranslateX':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$TranslateX,
+					fn(_p414._0),
+					_p414._1);
+			case 'TranslateY':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$TranslateY,
+					fn(_p414._0),
+					_p414._1);
+			case 'Scale':
+				return _mdgriffith$elm_style_animation$Style_Properties$Scale(
+					fn(_p414._0));
+			case 'Scale3d':
+				return A3(
+					_mdgriffith$elm_style_animation$Style_Properties$Scale3d,
+					fn(_p414._0),
+					fn(_p414._1),
+					fn(_p414._2));
+			case 'ScaleX':
+				return _mdgriffith$elm_style_animation$Style_Properties$ScaleX(
+					fn(_p414._0));
+			case 'ScaleY':
+				return _mdgriffith$elm_style_animation$Style_Properties$ScaleY(
+					fn(_p414._0));
+			case 'ScaleZ':
+				return _mdgriffith$elm_style_animation$Style_Properties$ScaleZ(
+					fn(_p414._0));
+			case 'Rotate':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$Rotate,
+					fn(_p414._0),
+					_p414._1);
+			case 'Rotate3d':
+				return A5(
+					_mdgriffith$elm_style_animation$Style_Properties$Rotate3d,
+					fn(_p414._0),
+					fn(_p414._1),
+					fn(_p414._2),
+					fn(_p414._3),
+					_p414._4);
+			case 'RotateX':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$RotateX,
+					fn(_p414._0),
+					_p414._1);
+			case 'RotateY':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$RotateY,
+					fn(_p414._0),
+					_p414._1);
+			case 'Skew':
+				return A3(
+					_mdgriffith$elm_style_animation$Style_Properties$Skew,
+					fn(_p414._0),
+					fn(_p414._1),
+					_p414._2);
+			case 'SkewX':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$SkewX,
+					fn(_p414._0),
+					_p414._1);
+			case 'SkewY':
+				return A2(
+					_mdgriffith$elm_style_animation$Style_Properties$SkewY,
+					fn(_p414._0),
+					_p414._1);
+			case 'Perspective':
+				return _mdgriffith$elm_style_animation$Style_Properties$Perspective(
+					fn(_p414._0));
+			case 'Matrix':
+				return A6(
+					_mdgriffith$elm_style_animation$Style_Properties$Matrix,
+					fn(_p414._0),
+					fn(_p414._1),
+					fn(_p414._2),
+					fn(_p414._3),
+					fn(_p414._4),
+					fn(_p414._5));
+			case 'Matrix3d':
+				return _mdgriffith$elm_style_animation$Style_Properties$Matrix3d(
+					fn(_p414._0))(
+					fn(_p414._1))(
+					fn(_p414._2))(
+					fn(_p414._3))(
+					fn(_p414._4))(
+					fn(_p414._5))(
+					fn(_p414._6))(
+					fn(_p414._7))(
+					fn(_p414._8))(
+					fn(_p414._9))(
+					fn(_p414._10))(
+					fn(_p414._11))(
+					fn(_p414._12))(
+					fn(_p414._13))(
+					fn(_p414._14))(
+					fn(_p414._15));
+			case 'X':
+				return _mdgriffith$elm_style_animation$Style_Properties$X(
+					fn(_p414._0));
+			case 'Y':
+				return _mdgriffith$elm_style_animation$Style_Properties$Y(
+					fn(_p414._0));
+			case 'Cx':
+				return _mdgriffith$elm_style_animation$Style_Properties$Cx(
+					fn(_p414._0));
+			case 'Cy':
+				return _mdgriffith$elm_style_animation$Style_Properties$Cy(
+					fn(_p414._0));
+			case 'R':
+				return _mdgriffith$elm_style_animation$Style_Properties$R(
+					fn(_p414._0));
+			case 'Rx':
+				return _mdgriffith$elm_style_animation$Style_Properties$Rx(
+					fn(_p414._0));
+			case 'Ry':
+				return _mdgriffith$elm_style_animation$Style_Properties$Ry(
+					fn(_p414._0));
+			case 'D':
+				return _mdgriffith$elm_style_animation$Style_Properties$D(
+					A2(
+						_elm_lang$core$List$map,
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$mapCmd(fn),
+						_p414._0));
+			case 'Points':
+				return _mdgriffith$elm_style_animation$Style_Properties$Points(
+					A2(
+						_elm_lang$core$List$map,
+						function (_p415) {
+							var _p416 = _p415;
+							return {
+								ctor: '_Tuple2',
+								_0: fn(_p416._0),
+								_1: fn(_p416._1)
+							};
+						},
+						_p414._0));
+			case 'Fill':
+				return _mdgriffith$elm_style_animation$Style_Properties$Fill(
+					colorFn(_p414._0));
+			default:
+				return _mdgriffith$elm_style_animation$Style_Properties$Stroke(
+					colorFn(_p414._0));
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$vacate = function (prop) {
+	return A3(
+		_mdgriffith$elm_style_animation$Style_PropertyHelpers$map,
+		function (_p417) {
+			return 0;
+		},
+		function (_p418) {
+			return _elm_lang$core$Color$black;
+		},
+		prop);
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$toStaticColor = function (dynamic) {
+	var _p419 = dynamic;
+	return A4(
+		_elm_lang$core$Color$rgba,
+		_elm_lang$core$Basics$round(_p419._0.physical.position),
+		_elm_lang$core$Basics$round(_p419._1.physical.position),
+		_elm_lang$core$Basics$round(_p419._2.physical.position),
+		_p419._3.physical.position);
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$toStatic = function (prop) {
+	return A3(
+		_mdgriffith$elm_style_animation$Style_PropertyHelpers$map,
+		function (phys) {
+			return phys.physical.position;
+		},
+		_mdgriffith$elm_style_animation$Style_PropertyHelpers$toStaticColor,
+		prop);
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$displayMode = function (mode) {
+	var _p420 = mode;
+	switch (_p420.ctor) {
+		case 'None':
+			return 'none';
+		case 'Inline':
+			return 'inline';
+		case 'InlineBlock':
+			return 'inline-block';
+		case 'Block':
+			return 'block';
+		case 'Flex':
+			return 'flex';
+		case 'InlineFlex':
+			return 'inline-flex';
+		default:
+			return 'list-item';
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit = function (unit) {
+	var _p421 = unit;
+	switch (_p421.ctor) {
+		case 'Deg':
+			return 'deg';
+		case 'Grad':
+			return 'grad';
+		case 'Rad':
+			return 'rad';
+		default:
+			return 'turn';
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit = function (unit) {
+	var _p422 = unit;
+	switch (_p422.ctor) {
+		case 'Px':
+			return 'px';
+		case 'Percent':
+			return '%';
+		case 'Rem':
+			return 'rem';
+		case 'Em':
+			return 'em';
+		case 'Ex':
+			return 'ex';
+		case 'Ch':
+			return 'ch';
+		case 'Vh':
+			return 'vh';
+		case 'Vw':
+			return 'vw';
+		case 'Vmin':
+			return 'vmin';
+		case 'Vmax':
+			return 'vmax';
+		case 'Mm':
+			return 'mm';
+		case 'Cm':
+			return 'cm';
+		case 'In':
+			return 'in';
+		case 'Pt':
+			return 'pt';
+		default:
+			return 'pc';
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$id = function (prop) {
+	var _p423 = prop;
+	switch (_p423.ctor) {
+		case 'Opacity':
+			return 'opacity';
+		case 'Display':
+			return 'display';
+		case 'Height':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'height in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Width':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'width in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Left':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'left in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Right':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'right in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Bottom':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'bottom in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Top':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'top in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MaxHeight':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'max-height in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MaxWidth':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'max-width in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MinHeight':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'min-height in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MinWidth':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'min-width in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Padding':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'padding in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'PaddingLeft':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'padding-left in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'PaddingRight':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'padding-right in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'PaddingTop':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'padding-top in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'PaddingBottom':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'padding-bottom in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Margin':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'margin in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MarginLeft':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'margin-left in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MarginRight':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'margin-right in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MarginTop':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'margin-top in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'MarginBottom':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'margin-bottom in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BorderWidth':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'border-width in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BorderRadius':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'border-radius in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BorderTopLeftRadius':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'border-top-left-radius in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BorderTopRightRadius':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'border-top-right-radius in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BorderBottomLeftRadius':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'border-bottom-left-radius in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BorderBottomRightRadius':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'border-bottom-right-radius in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'LetterSpacing':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'letter-spacing in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'LineHeight':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'line-height in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'BackgroundPosition':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'background-position in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._2));
+		case 'Color':
+			return 'color';
+		case 'BackgroundColor':
+			return 'background-color';
+		case 'BorderColor':
+			return 'border-color';
+		case 'TransformOrigin':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'transform-origin in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._3));
+		case 'Matrix':
+			return 'matrix';
+		case 'Matrix3d':
+			return 'matrix3d';
+		case 'Translate':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translate in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._2));
+		case 'Translate3d':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translate3d in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._3));
+		case 'TranslateX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translatex in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'TranslateY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translatey in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(_p423._1));
+		case 'Scale':
+			return 'scale';
+		case 'Scale3d':
+			return 'scale3d';
+		case 'ScaleX':
+			return 'scalex';
+		case 'ScaleY':
+			return 'scaley';
+		case 'ScaleZ':
+			return 'scalez';
+		case 'Rotate':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotate in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._1));
+		case 'Rotate3d':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotate3d in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._4));
+		case 'RotateX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotatex in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._1));
+		case 'RotateY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotatey in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._1));
+		case 'Skew':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'skew in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._2));
+		case 'SkewX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'skewx in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._1));
+		case 'SkewY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'skewy in ',
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(_p423._1));
+		case 'Perspective':
+			return 'perspective';
+		case 'X':
+			return 'x';
+		case 'Y':
+			return 'y';
+		case 'Cx':
+			return 'cx';
+		case 'Cy':
+			return 'cy';
+		case 'R':
+			return 'r';
+		case 'Rx':
+			return 'rx';
+		case 'Ry':
+			return 'ry';
+		case 'D':
+			return 'd';
+		case 'Points':
+			return 'points';
+		case 'Fill':
+			return 'fill';
+		default:
+			return 'stroke';
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$baseName = function (prop) {
+	var _p424 = prop;
+	switch (_p424.ctor) {
+		case 'Display':
+			return 'display';
+		case 'Opacity':
+			return 'opacity';
+		case 'Height':
+			return 'height';
+		case 'Width':
+			return 'width';
+		case 'Left':
+			return 'left';
+		case 'Right':
+			return 'right';
+		case 'Bottom':
+			return 'bottom';
+		case 'Top':
+			return 'top';
+		case 'MaxHeight':
+			return 'max-height';
+		case 'MaxWidth':
+			return 'max-width';
+		case 'MinHeight':
+			return 'min-height';
+		case 'MinWidth':
+			return 'min-width';
+		case 'Padding':
+			return 'padding';
+		case 'PaddingLeft':
+			return 'padding-left';
+		case 'PaddingRight':
+			return 'padding-right';
+		case 'PaddingTop':
+			return 'padding-top';
+		case 'PaddingBottom':
+			return 'padding-bottom';
+		case 'Margin':
+			return 'margin';
+		case 'MarginLeft':
+			return 'margin-left';
+		case 'MarginRight':
+			return 'margin-right';
+		case 'MarginTop':
+			return 'margin-top';
+		case 'MarginBottom':
+			return 'margin-bottom';
+		case 'BorderWidth':
+			return 'border-width';
+		case 'BorderRadius':
+			return 'border-radius';
+		case 'BorderTopLeftRadius':
+			return 'border-top-left-radius';
+		case 'BorderTopRightRadius':
+			return 'border-top-right-radius';
+		case 'BorderBottomLeftRadius':
+			return 'border-bottom-left-radius';
+		case 'BorderBottomRightRadius':
+			return 'border-bottom-right-radius';
+		case 'LetterSpacing':
+			return 'letter-spacing';
+		case 'LineHeight':
+			return 'line-height';
+		case 'BackgroundPosition':
+			return 'background-position';
+		case 'Color':
+			return 'color';
+		case 'BackgroundColor':
+			return 'background-color';
+		case 'BorderColor':
+			return 'border-color';
+		case 'TransformOrigin':
+			return 'transform-origin';
+		case 'Matrix':
+			return 'matrix';
+		case 'Matrix3d':
+			return 'matrix3d';
+		case 'Translate':
+			return 'translate';
+		case 'Translate3d':
+			return 'translate3d';
+		case 'TranslateX':
+			return 'translatex';
+		case 'TranslateY':
+			return 'translatey';
+		case 'Scale':
+			return 'scale';
+		case 'Scale3d':
+			return 'scale3d';
+		case 'ScaleX':
+			return 'scalex';
+		case 'ScaleY':
+			return 'scaley';
+		case 'ScaleZ':
+			return 'scalez';
+		case 'Rotate':
+			return 'rotate';
+		case 'Rotate3d':
+			return 'rotate3d';
+		case 'RotateX':
+			return 'rotatex';
+		case 'RotateY':
+			return 'rotatey';
+		case 'Skew':
+			return 'skew';
+		case 'SkewX':
+			return 'skewx';
+		case 'SkewY':
+			return 'skewy';
+		case 'Perspective':
+			return 'perspective';
+		case 'X':
+			return 'x';
+		case 'Y':
+			return 'y';
+		case 'Cx':
+			return 'cx';
+		case 'Cy':
+			return 'cy';
+		case 'R':
+			return 'r';
+		case 'Rx':
+			return 'rx';
+		case 'Ry':
+			return 'ry';
+		case 'D':
+			return 'd';
+		case 'Points':
+			return 'points';
+		case 'Fill':
+			return 'fill';
+		default:
+			return 'stroke';
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$webkitPrefix = '-webkit-';
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$iePrefix = '-ms-';
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$prefix = function (stylePair) {
+	var propValue = _elm_lang$core$Basics$snd(stylePair);
+	var propName = _elm_lang$core$Basics$fst(stylePair);
+	var _p425 = propName;
+	switch (_p425) {
+		case 'transform':
+			return _elm_lang$core$Native_List.fromArray(
+				[
+					stylePair,
+					{
+					ctor: '_Tuple2',
+					_0: A2(_elm_lang$core$Basics_ops['++'], _mdgriffith$elm_style_animation$Style_PropertyHelpers$iePrefix, propName),
+					_1: propValue
+				},
+					{
+					ctor: '_Tuple2',
+					_0: A2(_elm_lang$core$Basics_ops['++'], _mdgriffith$elm_style_animation$Style_PropertyHelpers$webkitPrefix, propName),
+					_1: propValue
+				}
+				]);
+		case 'transform-origin':
+			return _elm_lang$core$Native_List.fromArray(
+				[
+					stylePair,
+					{
+					ctor: '_Tuple2',
+					_0: A2(_elm_lang$core$Basics_ops['++'], _mdgriffith$elm_style_animation$Style_PropertyHelpers$iePrefix, propName),
+					_1: propValue
+				},
+					{
+					ctor: '_Tuple2',
+					_0: A2(_elm_lang$core$Basics_ops['++'], _mdgriffith$elm_style_animation$Style_PropertyHelpers$webkitPrefix, propName),
+					_1: propValue
+				}
+				]);
+		default:
+			return _elm_lang$core$Native_List.fromArray(
+				[stylePair]);
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor = function (color) {
+	var rgba = _elm_lang$core$Color$toRgb(color);
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'rgba(',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(rgba.red),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				',',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(rgba.green),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						',',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(rgba.blue),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								',',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(rgba.alpha),
+									')'))))))));
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$name = function (styleProp) {
+	var _p426 = styleProp;
+	switch (_p426.ctor) {
+		case 'Display':
+			return 'display';
+		case 'Opacity':
+			return 'opacity';
+		case 'Height':
+			return 'height';
+		case 'Width':
+			return 'width';
+		case 'Left':
+			return 'left';
+		case 'Right':
+			return 'right';
+		case 'Bottom':
+			return 'bottom';
+		case 'Top':
+			return 'top';
+		case 'MaxHeight':
+			return 'max-height';
+		case 'MaxWidth':
+			return 'max-width';
+		case 'MinHeight':
+			return 'min-height';
+		case 'MinWidth':
+			return 'min-width';
+		case 'Padding':
+			return 'padding';
+		case 'PaddingLeft':
+			return 'padding-left';
+		case 'PaddingRight':
+			return 'padding-right';
+		case 'PaddingTop':
+			return 'padding-top';
+		case 'PaddingBottom':
+			return 'padding-bottom';
+		case 'Margin':
+			return 'margin';
+		case 'MarginLeft':
+			return 'margin-left';
+		case 'MarginRight':
+			return 'margin-right';
+		case 'MarginTop':
+			return 'margin-top';
+		case 'MarginBottom':
+			return 'margin-bottom';
+		case 'BorderWidth':
+			return 'border-width';
+		case 'BorderRadius':
+			return 'border-radius';
+		case 'BorderTopLeftRadius':
+			return 'border-top-left-radius';
+		case 'BorderTopRightRadius':
+			return 'border-top-right-radius';
+		case 'BorderBottomLeftRadius':
+			return 'border-bottom-left-radius';
+		case 'BorderBottomRightRadius':
+			return 'border-bottom-right-radius';
+		case 'LetterSpacing':
+			return 'letter-spacing';
+		case 'LineHeight':
+			return 'line-height';
+		case 'BackgroundPosition':
+			return 'background-position';
+		case 'TransformOrigin':
+			return 'transform-origin';
+		case 'Color':
+			return 'color';
+		case 'BackgroundColor':
+			return 'background-color';
+		case 'BorderColor':
+			return 'border-color';
+		case 'Matrix':
+			return 'transform';
+		case 'Matrix3d':
+			return 'transform';
+		case 'Translate':
+			return 'transform';
+		case 'Translate3d':
+			return 'transform';
+		case 'TranslateX':
+			return 'transform';
+		case 'TranslateY':
+			return 'transform';
+		case 'Scale':
+			return 'transform';
+		case 'Scale3d':
+			return 'transform';
+		case 'ScaleX':
+			return 'transform';
+		case 'ScaleY':
+			return 'transform';
+		case 'ScaleZ':
+			return 'transform';
+		case 'Rotate':
+			return 'transform';
+		case 'Rotate3d':
+			return 'transform';
+		case 'RotateX':
+			return 'transform';
+		case 'RotateY':
+			return 'transform';
+		case 'Skew':
+			return 'transform';
+		case 'SkewX':
+			return 'transform';
+		case 'SkewY':
+			return 'transform';
+		case 'Perspective':
+			return 'transform';
+		case 'X':
+			return 'x';
+		case 'Y':
+			return 'y';
+		case 'Cx':
+			return 'cx';
+		case 'Cy':
+			return 'cy';
+		case 'R':
+			return 'r';
+		case 'Rx':
+			return 'rx';
+		case 'Ry':
+			return 'ry';
+		case 'D':
+			return 'd';
+		case 'Points':
+			return 'points';
+		case 'Fill':
+			return 'fill';
+		default:
+			return 'stroke';
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints = function (points) {
+	return _elm_lang$core$String$concat(
+		A2(
+			_elm_lang$core$List$intersperse,
+			' ',
+			A2(
+				_elm_lang$core$List$map,
+				function (pair) {
+					return A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(
+							_elm_lang$core$Basics$fst(pair)),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							_elm_lang$core$Basics$toString(
+								_elm_lang$core$Basics$snd(pair))));
+				},
+				points)));
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPath = function (commands) {
+	var renderCommand = function (cmd) {
+		var _p427 = cmd;
+		switch (_p427.ctor) {
+			case 'Move':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'm ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							_elm_lang$core$Basics$toString(_p427._1))));
+			case 'MoveTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'M ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							_elm_lang$core$Basics$toString(_p427._1))));
+			case 'Line':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'l ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							_elm_lang$core$Basics$toString(_p427._1))));
+			case 'LineTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'L ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							_elm_lang$core$Basics$toString(_p427._1))));
+			case 'Horizontal':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'h ',
+					_elm_lang$core$Basics$toString(_p427._0));
+			case 'HorizontalTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'H ',
+					_elm_lang$core$Basics$toString(_p427._0));
+			case 'Vertical':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'v ',
+					_elm_lang$core$Basics$toString(_p427._0));
+			case 'VerticalTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'V ',
+					_elm_lang$core$Basics$toString(_p427._0));
+			case 'Curve':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'c ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'CurveTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'C ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'Quadratic':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'q ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'QuadraticTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'Q ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'SmoothQuadratic':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					't ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'SmoothQuadraticTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'T ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'Smooth':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					's ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'SmoothTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'S ',
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p427._0));
+			case 'Arc':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'a ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p427._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'0 0 0',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p427._2),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											',',
+											_elm_lang$core$Basics$toString(_p427._3))))))));
+			case 'ArcTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'A ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p427._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'0 0 0',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p427._2),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											',',
+											_elm_lang$core$Basics$toString(_p427._3))))))));
+			case 'LargeArc':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'a ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p427._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'0 1 0',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p427._2),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											',',
+											_elm_lang$core$Basics$toString(_p427._3))))))));
+			case 'LargeArcTo':
+				return A2(
+					_elm_lang$core$Basics_ops['++'],
+					'A ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p427._0),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							',',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_elm_lang$core$Basics$toString(_p427._1),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'0 1 0',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_elm_lang$core$Basics$toString(_p427._2),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											',',
+											_elm_lang$core$Basics$toString(_p427._3))))))));
+			default:
+				return 'z';
+		}
+	};
+	return _elm_lang$core$String$concat(
+		A2(
+			_elm_lang$core$List$intersperse,
+			' ',
+			A2(_elm_lang$core$List$map, renderCommand, commands)));
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$value = function (prop) {
+	var renderList = function (xs) {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			'(',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$String$concat(
+					A2(
+						_elm_lang$core$List$intersperse,
+						',',
+						A2(_elm_lang$core$List$map, _elm_lang$core$Basics$toString, xs))),
+				')'));
+	};
+	var val = function (a) {
+		return _elm_lang$core$Basics$toString(a);
+	};
+	var renderLength = F2(
+		function (a, unit) {
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				val(a),
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$lenUnit(unit));
+		});
+	var renderAngle = F2(
+		function (a, unit) {
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				val(a),
+				_mdgriffith$elm_style_animation$Style_PropertyHelpers$angleUnit(unit));
+		});
+	var _p428 = prop;
+	switch (_p428.ctor) {
+		case 'Display':
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$displayMode(_p428._0);
+		case 'Opacity':
+			return val(_p428._0);
+		case 'Height':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Width':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Left':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Top':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Right':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Bottom':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MaxHeight':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MaxWidth':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MinHeight':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MinWidth':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Padding':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'PaddingLeft':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'PaddingRight':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'PaddingTop':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'PaddingBottom':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'Margin':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MarginLeft':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MarginRight':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MarginTop':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'MarginBottom':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BorderWidth':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BorderRadius':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BorderTopLeftRadius':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BorderTopRightRadius':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BorderBottomLeftRadius':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BorderBottomRightRadius':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'LetterSpacing':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'LineHeight':
+			return A2(renderLength, _p428._0, _p428._1);
+		case 'BackgroundPosition':
+			var _p429 = _p428._2;
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				A2(renderLength, _p428._0, _p429),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					A2(renderLength, _p428._1, _p429)));
+		case 'TransformOrigin':
+			var _p430 = _p428._3;
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				A2(renderLength, _p428._0, _p430),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						A2(renderLength, _p428._1, _p430),
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							' ',
+							A2(renderLength, _p428._2, _p430)))));
+		case 'Color':
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p428._0);
+		case 'BackgroundColor':
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p428._0);
+		case 'BorderColor':
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p428._0);
+		case 'Translate':
+			var _p431 = _p428._2;
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translate(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderLength, _p428._0, _p431),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						',',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A2(renderLength, _p428._1, _p431),
+							')'))));
+		case 'Translate3d':
+			var _p432 = _p428._3;
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translate3d(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderLength, _p428._0, _p432),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						',',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A2(renderLength, _p428._1, _p432),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								',',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									A2(renderLength, _p428._2, _p432),
+									')'))))));
+		case 'TranslateX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translateX(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderLength, _p428._0, _p428._1),
+					')'));
+		case 'TranslateY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'translateY(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderLength, _p428._0, _p428._1),
+					')'));
+		case 'Scale':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'scale(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					')'));
+		case 'Scale3d':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'scale3d(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						',',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							val(_p428._1),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								',',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									val(_p428._2),
+									')'))))));
+		case 'ScaleX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'scaleX(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					')'));
+		case 'ScaleY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'scaleY(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					')'));
+		case 'ScaleZ':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'scaleZ(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					')'));
+		case 'Rotate':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotate(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderAngle, _p428._0, _p428._1),
+					')'));
+		case 'Rotate3d':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotate3d(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						',',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							val(_p428._1),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								',',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									val(_p428._2),
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										',',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											A2(renderAngle, _p428._3, _p428._4),
+											')'))))))));
+		case 'RotateX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotateX(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderAngle, _p428._0, _p428._1),
+					')'));
+		case 'RotateY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'rotateY(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderAngle, _p428._0, _p428._1),
+					')'));
+		case 'Skew':
+			var _p433 = _p428._2;
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'skew(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderAngle, _p428._0, _p433),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						',',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A2(renderAngle, _p428._1, _p433),
+							')'))));
+		case 'SkewX':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'skewX(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderAngle, _p428._0, _p428._1),
+					')'));
+		case 'SkewY':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'skewY(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(renderAngle, _p428._0, _p428._1),
+					')'));
+		case 'Perspective':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'perspective(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					val(_p428._0),
+					')'));
+		case 'Matrix':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'matrix',
+				renderList(
+					_elm_lang$core$Native_List.fromArray(
+						[_p428._0, _p428._1, _p428._2, _p428._3, _p428._4, _p428._5])));
+		case 'Matrix3d':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'matrix3d',
+				renderList(
+					_elm_lang$core$Native_List.fromArray(
+						[_p428._0, _p428._1, _p428._2, _p428._3, _p428._4, _p428._5, _p428._6, _p428._7, _p428._8, _p428._9, _p428._10, _p428._11, _p428._12, _p428._13, _p428._14, _p428._15])));
+		case 'X':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'Y':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'Cx':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'Cy':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'R':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'Rx':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'Ry':
+			return _elm_lang$core$Basics$toString(_p428._0);
+		case 'D':
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPath(_p428._0);
+		case 'Points':
+			return renderList(_p428._0);
+		case 'Fill':
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p428._0);
+		default:
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p428._0);
+	}
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderAttr = function (styles) {
+	var toAttr = function (prop) {
+		var _p434 = prop;
+		switch (_p434.ctor) {
+			case 'X':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$x(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Y':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$y(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Cx':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$cx(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Cy':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$cy(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'R':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$r(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Rx':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$rx(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Ry':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$ry(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'D':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$d(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPath(_p434._0)));
+			case 'Points':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$points(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderPoints(_p434._0)));
+			case 'Width':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$width(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Height':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$height(
+						_elm_lang$core$Basics$toString(_p434._0)));
+			case 'Fill':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$fill(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p434._0)));
+			case 'Stroke':
+				return _elm_lang$core$Maybe$Just(
+					_elm_lang$svg$Svg_Attributes$stroke(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$renderColor(_p434._0)));
+			default:
+				return _elm_lang$core$Maybe$Nothing;
+		}
+	};
+	return A2(_elm_lang$core$List$filterMap, toAttr, styles);
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$render = function (styleProps) {
+	var rendered = A2(
+		_elm_lang$core$List$map,
+		function (prop) {
+			return {
+				ctor: '_Tuple2',
+				_0: _mdgriffith$elm_style_animation$Style_PropertyHelpers$name(prop),
+				_1: _mdgriffith$elm_style_animation$Style_PropertyHelpers$value(prop)
+			};
+		},
+		styleProps);
+	var props = A2(
+		_elm_lang$core$List$filter,
+		function (_p435) {
+			var _p436 = _p435;
+			return !_elm_lang$core$Native_Utils.eq(_p436._0, 'transform');
+		},
+		rendered);
+	var transforms = A2(
+		_elm_lang$core$List$map,
+		_elm_lang$core$Basics$snd,
+		A2(
+			_elm_lang$core$List$filter,
+			function (_p437) {
+				var _p438 = _p437;
+				return _elm_lang$core$Native_Utils.eq(_p438._0, 'transform');
+			},
+			rendered));
+	var combinedTransforms = _elm_lang$core$Native_Utils.eq(
+		_elm_lang$core$List$length(transforms),
+		0) ? _elm_lang$core$Native_List.fromArray(
+		[]) : _elm_lang$core$Native_List.fromArray(
+		[
+			{
+			ctor: '_Tuple2',
+			_0: 'transform',
+			_1: _elm_lang$core$String$concat(
+				A2(_elm_lang$core$List$intersperse, ' ', transforms))
+		}
+		]);
+	return A2(
+		_elm_lang$core$List$concatMap,
+		_mdgriffith$elm_style_animation$Style_PropertyHelpers$prefix,
+		A2(_elm_lang$core$Basics_ops['++'], props, combinedTransforms));
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$defaultEasing = function (x) {
+	return (1 - _elm_lang$core$Basics$cos(_elm_lang$core$Basics$pi * x)) / 2;
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$defaultDuration = 0.35 * _elm_lang$core$Time$second;
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyEasing = {
+	ease: _mdgriffith$elm_style_animation$Style_PropertyHelpers$defaultEasing,
+	counterForce: {stiffness: 170, damping: 26, destination: 1},
+	counterForcePhys: _elm_lang$core$Maybe$Nothing,
+	duration: _mdgriffith$elm_style_animation$Style_PropertyHelpers$defaultDuration
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyPhysics = {
+	physical: {position: 0, velocity: 0},
+	spring: {stiffness: 170, damping: 26, destination: 1},
+	easing: _elm_lang$core$Maybe$Nothing
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$Physics = F3(
+	function (a, b, c) {
+		return {physical: a, spring: b, easing: c};
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$Easing = F4(
+	function (a, b, c, d) {
+		return {ease: a, counterForce: b, counterForcePhys: c, duration: d};
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$RGBA = F4(
+	function (a, b, c, d) {
+		return {ctor: 'RGBA', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyDynamicColor = A4(_mdgriffith$elm_style_animation$Style_PropertyHelpers$RGBA, _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyPhysics, _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyPhysics, _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyPhysics, _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyPhysics);
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$toDynamic = function (prop) {
+	return A3(
+		_mdgriffith$elm_style_animation$Style_PropertyHelpers$map,
+		function (_p439) {
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyPhysics;
+		},
+		function (_p440) {
+			return _mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyDynamicColor;
+		},
+		prop);
+};
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$update = F2(
+	function (fn, prop) {
+		return A3(
+			_mdgriffith$elm_style_animation$Style_PropertyHelpers$map,
+			fn,
+			function (dynamicColor) {
+				var _p441 = dynamicColor;
+				return A4(
+					_mdgriffith$elm_style_animation$Style_PropertyHelpers$RGBA,
+					fn(_p441._0),
+					fn(_p441._1),
+					fn(_p441._2),
+					fn(_p441._3));
+			},
+			prop);
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$updateFrom = F3(
+	function (fn, prev, prop) {
+		return A4(
+			_mdgriffith$elm_style_animation$Style_PropertyHelpers$map2,
+			fn,
+			F2(
+				function (prevDColor, currentDColor) {
+					var _p442 = prevDColor;
+					var _p443 = currentDColor;
+					return A4(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$RGBA,
+						A2(fn, _p442._0, _p443._0),
+						A2(fn, _p442._1, _p443._1),
+						A2(fn, _p442._2, _p443._2),
+						A2(fn, _p442._3, _p443._3));
+				}),
+			prev,
+			prop);
+	});
+var _mdgriffith$elm_style_animation$Style_PropertyHelpers$updateOver = F4(
+	function (fn, target, prev, prop) {
+		return A5(
+			_mdgriffith$elm_style_animation$Style_PropertyHelpers$map3,
+			fn,
+			F3(
+				function (targetColor, prevColor, currentDColor) {
+					var p = _elm_lang$core$Color$toRgb(prevColor);
+					var t = _elm_lang$core$Color$toRgb(targetColor);
+					var _p444 = currentDColor;
+					return A4(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$RGBA,
+						A3(
+							fn,
+							_elm_lang$core$Basics$toFloat(t.red),
+							_elm_lang$core$Basics$toFloat(p.red),
+							_p444._0),
+						A3(
+							fn,
+							_elm_lang$core$Basics$toFloat(t.green),
+							_elm_lang$core$Basics$toFloat(p.green),
+							_p444._1),
+						A3(
+							fn,
+							_elm_lang$core$Basics$toFloat(t.blue),
+							_elm_lang$core$Basics$toFloat(p.blue),
+							_p444._2),
+						A3(fn, t.alpha, p.alpha, _p444._3));
+				}),
+			target,
+			prev,
+			prop);
+	});

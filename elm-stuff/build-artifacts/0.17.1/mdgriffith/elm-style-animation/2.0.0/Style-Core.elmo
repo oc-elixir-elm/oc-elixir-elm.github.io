@@ -1,0 +1,868 @@
+var _mdgriffith$elm_style_animation$Style_Core$zipWith = F3(
+	function (fn, listA, listB) {
+		return _elm_lang$core$Basics$fst(
+			A3(
+				_elm_lang$core$List$foldl,
+				F2(
+					function (a, _p0) {
+						var _p1 = _p0;
+						var _p2 = A2(
+							_elm_lang$core$List$partition,
+							function (b) {
+								return A2(fn, a, b);
+							},
+							_p1._1);
+						var matching = _p2._0;
+						var unmatching = _p2._1;
+						var maybeB = _elm_lang$core$List$head(matching);
+						var remaining = A2(
+							_elm_lang$core$Maybe$withDefault,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							_elm_lang$core$List$tail(matching));
+						return {
+							ctor: '_Tuple2',
+							_0: A2(
+								_elm_lang$core$Basics_ops['++'],
+								_p1._0,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										{ctor: '_Tuple2', _0: a, _1: maybeB}
+									])),
+							_1: A2(_elm_lang$core$Basics_ops['++'], unmatching, remaining)
+						};
+					}),
+				{
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_List.fromArray(
+						[]),
+					_1: listB
+				},
+				listA));
+	});
+var _mdgriffith$elm_style_animation$Style_Core$fill = F2(
+	function (existing, $new) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (_p3) {
+				var _p4 = _p3;
+				return A2(_elm_lang$core$Maybe$withDefault, _p4._0, _p4._1);
+			},
+			A3(
+				_mdgriffith$elm_style_animation$Style_Core$zipWith,
+				F2(
+					function (a, b) {
+						return _elm_lang$core$Native_Utils.eq(
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(a),
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(b));
+					}),
+				existing,
+				$new));
+	});
+var _mdgriffith$elm_style_animation$Style_Core$bake = F2(
+	function (frame, style) {
+		return A2(
+			_mdgriffith$elm_style_animation$Style_Core$fill,
+			style,
+			A2(
+				_elm_lang$core$List$map,
+				function (prop) {
+					return _mdgriffith$elm_style_animation$Style_PropertyHelpers$toStatic(prop.current);
+				},
+				frame.properties));
+	});
+var _mdgriffith$elm_style_animation$Style_Core$mapTo = F3(
+	function (i, fn, xs) {
+		var update = F2(
+			function (j, x) {
+				return _elm_lang$core$Native_Utils.eq(j, i) ? fn(x) : x;
+			});
+		return A2(_elm_lang$core$List$indexedMap, update, xs);
+	});
+var _mdgriffith$elm_style_animation$Style_Core$velocity = F3(
+	function (oldPos, newPos, dt) {
+		return (newPos - oldPos) / dt;
+	});
+var _mdgriffith$elm_style_animation$Style_Core$applyStep = F5(
+	function (current, dt, target, from, physics) {
+		var _p5 = physics.easing;
+		if (_p5.ctor === 'Nothing') {
+			var newSpring = physics.spring;
+			var targeted = _elm_lang$core$Native_Utils.update(
+				newSpring,
+				{destination: target});
+			var positioned = (_elm_lang$core$Native_Utils.eq(current, 0.0) && _elm_lang$core$Native_Utils.eq(dt, 0.0)) ? {position: from, velocity: physics.physical.velocity} : physics.physical;
+			var finalPhysical = A3(_mdgriffith$elm_style_animation$Style_Spring$update, dt, targeted, positioned);
+			return _elm_lang$core$Native_Utils.update(
+				physics,
+				{physical: finalPhysical, spring: targeted});
+		} else {
+			var _p7 = _p5._0;
+			var counterSpring = function () {
+				var _p6 = _p7.counterForcePhys;
+				if (_p6.ctor === 'Nothing') {
+					return _elm_lang$core$Maybe$Just(_p7);
+				} else {
+					var newCounterSpring = A3(_mdgriffith$elm_style_animation$Style_Spring$update, dt, _p7.counterForce, _p6._0);
+					return A2(_mdgriffith$elm_style_animation$Style_Spring$atRest, _p7.counterForce, newCounterSpring) ? _elm_lang$core$Maybe$Just(
+						_elm_lang$core$Native_Utils.update(
+							_p7,
+							{counterForcePhys: _elm_lang$core$Maybe$Nothing})) : _elm_lang$core$Maybe$Just(
+						_elm_lang$core$Native_Utils.update(
+							_p7,
+							{
+								counterForcePhys: _elm_lang$core$Maybe$Just(newCounterSpring)
+							}));
+				}
+			}();
+			var physical = physics.physical;
+			var eased = (_elm_lang$core$Native_Utils.cmp(_p7.duration, 0) < 1) ? 1.0 : ((_elm_lang$core$Native_Utils.cmp(current, _p7.duration) > 0) ? 1.0 : _p7.ease(current / _p7.duration));
+			var currentPos = ((target - from) * eased) + from;
+			var finalPhysical = _elm_lang$core$Native_Utils.update(
+				physical,
+				{
+					position: currentPos,
+					velocity: A3(_mdgriffith$elm_style_animation$Style_Core$velocity, physics.physical.position, currentPos, dt)
+				});
+			return _elm_lang$core$Native_Utils.update(
+				physics,
+				{physical: finalPhysical, easing: counterSpring});
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_Core$step = F4(
+	function (time, dt, style, frame) {
+		var newProperties = A2(
+			_elm_lang$core$List$map,
+			function (_p8) {
+				var _p9 = _p8;
+				var _p11 = _p9._0;
+				var _p10 = _p9._1;
+				if (_p10.ctor === 'Nothing') {
+					return _p11;
+				} else {
+					return _elm_lang$core$Native_Utils.update(
+						_p11,
+						{
+							current: A4(
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$updateOver,
+								A2(_mdgriffith$elm_style_animation$Style_Core$applyStep, time, dt),
+								_p11.target,
+								_p10._0,
+								_p11.current)
+						});
+				}
+			},
+			A3(
+				_mdgriffith$elm_style_animation$Style_Core$zipWith,
+				F2(
+					function (a, b) {
+						return _elm_lang$core$Native_Utils.eq(
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(a.current),
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(b));
+					}),
+				frame.properties,
+				style));
+		return _elm_lang$core$Native_Utils.update(
+			frame,
+			{properties: newProperties});
+	});
+var _mdgriffith$elm_style_animation$Style_Core$transferVelocityProp = F2(
+	function (old, target) {
+		var newPhys = target.physical;
+		var newV = _elm_lang$core$Native_Utils.update(
+			newPhys,
+			{velocity: old.physical.velocity});
+		var _p12 = target.easing;
+		if (_p12.ctor === 'Nothing') {
+			return _elm_lang$core$Native_Utils.update(
+				target,
+				{physical: newV});
+		} else {
+			var _p13 = _p12._0;
+			var sampleSize = 16.0;
+			var eased = (_elm_lang$core$Native_Utils.cmp(_p13.duration, 0) < 1) ? 1.0 : _p13.ease(sampleSize / _p13.duration);
+			var easeV = A3(_mdgriffith$elm_style_animation$Style_Core$velocity, 0, eased, sampleSize);
+			var deltaV = old.physical.velocity - easeV;
+			var newEasing = _elm_lang$core$Maybe$Just(
+				_elm_lang$core$Native_Utils.update(
+					_p13,
+					{
+						counterForcePhys: _elm_lang$core$Maybe$Just(
+							{position: 0, velocity: deltaV})
+					}));
+			return _elm_lang$core$Native_Utils.update(
+				target,
+				{easing: newEasing, physical: newV});
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_Core$transferVelocity = F2(
+	function (old, $new) {
+		var matched = A3(
+			_mdgriffith$elm_style_animation$Style_Core$zipWith,
+			F2(
+				function (a, b) {
+					return _elm_lang$core$Native_Utils.eq(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(a.current),
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(b.current));
+				}),
+			old.properties,
+			$new.properties);
+		var newProperties = A2(
+			_elm_lang$core$List$map,
+			function (_p14) {
+				var _p15 = _p14;
+				var _p18 = _p15._0;
+				var _p16 = _p15._1;
+				if (_p16.ctor === 'Nothing') {
+					return _p18;
+				} else {
+					var _p17 = _p16._0;
+					var newCurrent = A3(_mdgriffith$elm_style_animation$Style_PropertyHelpers$updateFrom, _mdgriffith$elm_style_animation$Style_Core$transferVelocityProp, _p18.current, _p17.current);
+					return _elm_lang$core$Native_Utils.update(
+						_p17,
+						{current: newCurrent});
+				}
+			},
+			matched);
+		return _elm_lang$core$Native_Utils.update(
+			$new,
+			{properties: newProperties});
+	});
+var _mdgriffith$elm_style_animation$Style_Core$done = F2(
+	function (time, frame) {
+		var finished = function (prop) {
+			var _p19 = prop.easing;
+			if (_p19.ctor === 'Nothing') {
+				return A2(_mdgriffith$elm_style_animation$Style_Spring$atRest, prop.spring, prop.physical);
+			} else {
+				var _p20 = _p19._0;
+				return (_elm_lang$core$Native_Utils.cmp(time, _p20.duration) > -1) && _elm_lang$core$Native_Utils.eq(_p20.counterForcePhys, _elm_lang$core$Maybe$Nothing);
+			}
+		};
+		return A2(
+			_elm_lang$core$List$all,
+			function (p) {
+				return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$is, finished, p.current);
+			},
+			frame.properties);
+	});
+var _mdgriffith$elm_style_animation$Style_Core$matchPoints = F2(
+	function (frame, lastTargetStyle) {
+		var paired = A3(
+			_mdgriffith$elm_style_animation$Style_Core$zipWith,
+			F2(
+				function (a, b) {
+					return _elm_lang$core$Native_Utils.eq(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(a.target),
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(b));
+				}),
+			frame.properties,
+			lastTargetStyle);
+		return _elm_lang$core$Native_Utils.update(
+			frame,
+			{
+				properties: A2(
+					_elm_lang$core$List$map,
+					function (_p21) {
+						var _p22 = _p21;
+						var _p25 = _p22._0;
+						var _p23 = _p22._1;
+						if (_p23.ctor === 'Nothing') {
+							return _p25;
+						} else {
+							var _p24 = _p23._0;
+							return _elm_lang$core$Native_Utils.update(
+								_p25,
+								{
+									target: A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$matchPoints, _p25.target, _p24),
+									current: A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$matchPoints, _p25.current, _p24)
+								});
+						}
+					},
+					paired)
+			});
+	});
+var _mdgriffith$elm_style_animation$Style_Core$getPropCount = F2(
+	function (x, list) {
+		return A3(
+			_elm_lang$core$List$foldl,
+			F2(
+				function (y, acc) {
+					return _elm_lang$core$Native_Utils.eq(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(x),
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(y)) ? (acc + 1) : acc;
+				}),
+			1,
+			list);
+	});
+var _mdgriffith$elm_style_animation$Style_Core$mapWithCount = F2(
+	function (fn, list) {
+		var mapped = A3(
+			_elm_lang$core$List$foldl,
+			F2(
+				function (x, acc) {
+					var count = A2(
+						_mdgriffith$elm_style_animation$Style_Core$getPropCount,
+						_elm_lang$core$Basics$snd(x),
+						acc.past);
+					return {
+						current: A2(
+							_elm_lang$core$Basics_ops['++'],
+							acc.current,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									A2(fn, count, x)
+								])),
+						past: A2(
+							_elm_lang$core$Basics_ops['++'],
+							acc.past,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$core$Basics$snd(x)
+								]))
+					};
+				}),
+			{
+				current: _elm_lang$core$Native_List.fromArray(
+					[]),
+				past: _elm_lang$core$Native_List.fromArray(
+					[])
+			},
+			list);
+		return mapped.current;
+	});
+var _mdgriffith$elm_style_animation$Style_Core$retargetIfNecessary = F2(
+	function (frame, lastTargetStyle) {
+		var _p26 = frame.retarget;
+		if (_p26.ctor === 'Nothing') {
+			return frame;
+		} else {
+			var possiblePairs = A3(
+				_mdgriffith$elm_style_animation$Style_Core$zipWith,
+				F2(
+					function (a, b) {
+						return _elm_lang$core$Native_Utils.eq(
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(a.target),
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(b));
+					}),
+				frame.properties,
+				lastTargetStyle);
+			var pairs = A2(
+				_elm_lang$core$List$filterMap,
+				function (_p27) {
+					var _p28 = _p27;
+					var _p29 = _p28._1;
+					if (_p29.ctor === 'Nothing') {
+						return _elm_lang$core$Maybe$Nothing;
+					} else {
+						return _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: _p28._0, _1: _p29._0});
+					}
+				},
+				possiblePairs);
+			return _elm_lang$core$Native_Utils.update(
+				frame,
+				{
+					properties: A2(
+						_mdgriffith$elm_style_animation$Style_Core$mapWithCount,
+						F2(
+							function (i, _p30) {
+								var _p31 = _p30;
+								return _elm_lang$core$Native_Utils.update(
+									_p31._0,
+									{
+										target: A2(_p26._0, i, _p31._1)
+									});
+							}),
+						pairs)
+				});
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_Core$initializeFrame = F3(
+	function (style, prevTargetStyle, frame) {
+		var retargeted = A2(_mdgriffith$elm_style_animation$Style_Core$retargetIfNecessary, frame, prevTargetStyle);
+		var matched = A3(
+			_mdgriffith$elm_style_animation$Style_Core$zipWith,
+			F2(
+				function (a, b) {
+					return _elm_lang$core$Native_Utils.eq(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$baseName(a.current),
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$baseName(b));
+				}),
+			frame.properties,
+			style);
+		var warnings = A2(
+			_elm_lang$core$List$map,
+			function (_p32) {
+				var _p33 = _p32;
+				var _p36 = _p33._0;
+				var _p34 = _p33._1;
+				if (_p34.ctor === 'Nothing') {
+					var warn = A2(
+						_elm_lang$core$Debug$log,
+						'elm-style-animation',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							'There is no initial value for \'',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(_p36.current),
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'\', though it is queued to be animated.  Define an initial value for \'',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(_p36.current),
+										'\'')))));
+					return _elm_lang$core$Maybe$Just(warn);
+				} else {
+					var _p35 = _p34._0;
+					if (_elm_lang$core$Native_Utils.eq(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(_p36.current),
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(_p35))) {
+						return _elm_lang$core$Maybe$Nothing;
+					} else {
+						var warn = A2(
+							_elm_lang$core$Debug$log,
+							'elm-style-animation',
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'Wrong units provided.  ',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									'An initial value was given as \'',
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(_p35),
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											'\' versus the animation which was given as \'',
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(_p36.current),
+												'\'.'))))));
+						return _elm_lang$core$Maybe$Just(warn);
+					}
+				}
+			},
+			matched);
+		return A4(
+			_mdgriffith$elm_style_animation$Style_Core$step,
+			0.0,
+			0.0,
+			style,
+			A2(_mdgriffith$elm_style_animation$Style_Core$matchPoints, retargeted, prevTargetStyle));
+	});
+var _mdgriffith$elm_style_animation$Style_Core$amend = F2(
+	function (style, frame) {
+		var paired = A3(
+			_mdgriffith$elm_style_animation$Style_Core$zipWith,
+			F2(
+				function (a, b) {
+					return _elm_lang$core$Native_Utils.eq(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(a),
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(b.target));
+				}),
+			style,
+			frame.properties);
+		return A2(
+			_elm_lang$core$List$map,
+			function (_p37) {
+				var _p38 = _p37;
+				var _p40 = _p38._0;
+				var _p39 = _p38._1;
+				if (_p39.ctor === 'Nothing') {
+					return _p40;
+				} else {
+					return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$matchPoints, _p40, _p39._0.target);
+				}
+			},
+			paired);
+	});
+var _mdgriffith$elm_style_animation$Style_Core$getTarget = function (frame) {
+	return A2(
+		_elm_lang$core$List$map,
+		function (prop) {
+			return prop.target;
+		},
+		frame.properties);
+};
+var _mdgriffith$elm_style_animation$Style_Core$interrupt = F4(
+	function (now, model, interruption, remaining) {
+		var _p41 = function () {
+			var _p42 = _elm_lang$core$List$head(model.frames);
+			if (_p42.ctor === 'Nothing') {
+				return {ctor: '_Tuple3', _0: model.previous, _1: model.previous, _2: interruption};
+			} else {
+				var _p43 = _p42._0;
+				return {
+					ctor: '_Tuple3',
+					_0: A2(_mdgriffith$elm_style_animation$Style_Core$bake, _p43, model.previous),
+					_1: _mdgriffith$elm_style_animation$Style_Core$getTarget(_p43),
+					_2: A3(
+						_mdgriffith$elm_style_animation$Style_Core$mapTo,
+						0,
+						function (newFrame) {
+							return A2(_mdgriffith$elm_style_animation$Style_Core$transferVelocity, _p43, newFrame);
+						},
+						interruption)
+				};
+			}
+		}();
+		var previous = _p41._0;
+		var prevTarget = _p41._1;
+		var newFrames = _p41._2;
+		var amended = function () {
+			var _p44 = _elm_lang$core$List$head(newFrames);
+			if (_p44.ctor === 'Nothing') {
+				return previous;
+			} else {
+				return A2(_mdgriffith$elm_style_animation$Style_Core$amend, previous, _p44._0);
+			}
+		}();
+		var amendedTarget = function () {
+			var _p45 = _elm_lang$core$List$head(newFrames);
+			if (_p45.ctor === 'Nothing') {
+				return prevTarget;
+			} else {
+				return A2(_mdgriffith$elm_style_animation$Style_Core$amend, prevTarget, _p45._0);
+			}
+		}();
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{
+				frames: A3(
+					_mdgriffith$elm_style_animation$Style_Core$mapTo,
+					0,
+					A2(_mdgriffith$elm_style_animation$Style_Core$initializeFrame, amended, amendedTarget),
+					newFrames),
+				elapsed: 0.0,
+				start: _elm_lang$core$Maybe$Nothing,
+				previous: amended,
+				interruption: remaining
+			});
+	});
+var _mdgriffith$elm_style_animation$Style_Core$getTimes = F2(
+	function (now, model) {
+		var prelimStart = function () {
+			var _p46 = model.start;
+			if (_p46.ctor === 'Nothing') {
+				return now;
+			} else {
+				return _p46._0;
+			}
+		}();
+		var prelimElapsed = now - prelimStart;
+		var prelimDt = prelimElapsed - model.elapsed;
+		return (_elm_lang$core$Native_Utils.cmp(prelimDt, 300) > 0) ? {ctor: '_Tuple3', _0: now - model.elapsed, _1: model.elapsed, _2: 0} : {ctor: '_Tuple3', _0: prelimStart, _1: prelimElapsed, _2: prelimDt};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$continue = F3(
+	function (model, elapsed, start) {
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{
+				elapsed: elapsed,
+				start: _elm_lang$core$Maybe$Just(start)
+			});
+	});
+var _mdgriffith$elm_style_animation$Style_Core$emptyKeyframe = {
+	properties: _elm_lang$core$Native_List.fromArray(
+		[]),
+	delay: 0.0,
+	retarget: _elm_lang$core$Maybe$Nothing
+};
+var _mdgriffith$elm_style_animation$Style_Core$empty = {
+	elapsed: 0.0,
+	start: _elm_lang$core$Maybe$Nothing,
+	frames: _elm_lang$core$Native_List.fromArray(
+		[]),
+	previous: _elm_lang$core$Native_List.fromArray(
+		[]),
+	interruption: _elm_lang$core$Native_List.fromArray(
+		[]),
+	repeatCache: _elm_lang$core$Maybe$Nothing
+};
+var _mdgriffith$elm_style_animation$Style_Core$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {start: a, elapsed: b, frames: c, previous: d, interruption: e, repeatCache: f};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$Interruption = F2(
+	function (a, b) {
+		return {at: a, frame: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$Keyframe = F3(
+	function (a, b, c) {
+		return {properties: a, delay: b, retarget: c};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$Targeted = F2(
+	function (a, b) {
+		return {current: a, target: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$Tick = function (a) {
+	return {ctor: 'Tick', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Core$QueueRepeat = F2(
+	function (a, b) {
+		return {ctor: 'QueueRepeat', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$Repeat = F2(
+	function (a, b) {
+		return {ctor: 'Repeat', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Core$Interrupt = function (a) {
+	return {ctor: 'Interrupt', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Core$Queue = function (a) {
+	return {ctor: 'Queue', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Core$tick = F6(
+	function (model, current, totalElapsed, dt, start, now) {
+		var elapsed = totalElapsed - current.delay;
+		if (_elm_lang$core$Native_Utils.eq(dt, 0) || (_elm_lang$core$Native_Utils.cmp(elapsed, 0) < 0)) {
+			return A3(_mdgriffith$elm_style_animation$Style_Core$continue, model, totalElapsed, start);
+		} else {
+			if (A2(_mdgriffith$elm_style_animation$Style_Core$done, elapsed, current)) {
+				var interruption = A2(
+					_elm_lang$core$List$map,
+					function (inter) {
+						return _elm_lang$core$Native_Utils.update(
+							inter,
+							{at: inter.at - totalElapsed});
+					},
+					model.interruption);
+				var previous = A2(
+					_mdgriffith$elm_style_animation$Style_Core$bake,
+					A4(_mdgriffith$elm_style_animation$Style_Core$step, elapsed, dt, model.previous, current),
+					model.previous);
+				var frames = A2(_elm_lang$core$List$drop, 1, model.frames);
+				var amended = function () {
+					var _p47 = _elm_lang$core$List$head(frames);
+					if (_p47.ctor === 'Nothing') {
+						return previous;
+					} else {
+						return A2(_mdgriffith$elm_style_animation$Style_Core$amend, previous, _p47._0);
+					}
+				}();
+				var initialized = A3(
+					_mdgriffith$elm_style_animation$Style_Core$mapTo,
+					0,
+					A2(_mdgriffith$elm_style_animation$Style_Core$initializeFrame, amended, amended),
+					frames);
+				var newModel = _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						elapsed: 0.0,
+						start: _elm_lang$core$Maybe$Just(now),
+						previous: amended,
+						frames: initialized,
+						interruption: interruption
+					});
+				if (_elm_lang$core$Native_Utils.eq(
+					_elm_lang$core$List$length(newModel.frames),
+					0)) {
+					var _p48 = newModel.repeatCache;
+					if (_p48.ctor === 'Nothing') {
+						return newModel;
+					} else {
+						var _p49 = _p48._0;
+						var newRepeat = _elm_lang$core$Native_Utils.eq(
+							_elm_lang$core$Basics$fst(_p49),
+							1) ? _elm_lang$core$Maybe$Nothing : _elm_lang$core$Maybe$Just(
+							{
+								ctor: '_Tuple2',
+								_0: _elm_lang$core$Basics$fst(_p49) - 1,
+								_1: _elm_lang$core$Basics$snd(_p49)
+							});
+						return A2(
+							_mdgriffith$elm_style_animation$Style_Core$update,
+							_mdgriffith$elm_style_animation$Style_Core$Queue(
+								_elm_lang$core$Basics$snd(_p49)),
+							_elm_lang$core$Native_Utils.update(
+								newModel,
+								{repeatCache: newRepeat}));
+					}
+				} else {
+					return newModel;
+				}
+			} else {
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						elapsed: elapsed,
+						start: _elm_lang$core$Maybe$Just(start),
+						frames: A3(
+							_mdgriffith$elm_style_animation$Style_Core$mapTo,
+							0,
+							A3(_mdgriffith$elm_style_animation$Style_Core$step, elapsed, dt, model.previous),
+							model.frames)
+					});
+			}
+		}
+	});
+var _mdgriffith$elm_style_animation$Style_Core$update = F2(
+	function (action, model) {
+		update:
+		while (true) {
+			var _p50 = action;
+			switch (_p50.ctor) {
+				case 'Queue':
+					var _p53 = _p50._0;
+					var _p51 = _elm_lang$core$List$head(model.frames);
+					if (_p51.ctor === 'Nothing') {
+						var amended = function () {
+							var _p52 = _elm_lang$core$List$head(_p53);
+							if (_p52.ctor === 'Nothing') {
+								return model.previous;
+							} else {
+								return A2(_mdgriffith$elm_style_animation$Style_Core$amend, model.previous, _p52._0);
+							}
+						}();
+						var initialized = A3(
+							_mdgriffith$elm_style_animation$Style_Core$mapTo,
+							0,
+							A2(_mdgriffith$elm_style_animation$Style_Core$initializeFrame, amended, amended),
+							_p53);
+						return _elm_lang$core$Native_Utils.update(
+							model,
+							{frames: initialized, previous: amended});
+					} else {
+						return _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								frames: A2(_elm_lang$core$Basics_ops['++'], model.frames, _p53)
+							});
+					}
+				case 'Interrupt':
+					var _p58 = _p50._0;
+					var _p54 = _elm_lang$core$List$head(_p58);
+					if (_p54.ctor === 'Nothing') {
+						return model;
+					} else {
+						var _p57 = _p54._0;
+						var last = _elm_lang$core$List$head(
+							_elm_lang$core$List$reverse(model.interruption));
+						var interruptions = function () {
+							var _p55 = last;
+							if (_p55.ctor === 'Nothing') {
+								return _elm_lang$core$Native_List.fromArray(
+									[
+										{
+										at: model.elapsed + _p57.delay,
+										frame: A2(
+											_elm_lang$core$List$map,
+											function (i) {
+												return _elm_lang$core$Native_Utils.update(
+													i,
+													{delay: 0});
+											},
+											_p58)
+									}
+									]);
+							} else {
+								var _p56 = _p55._0;
+								return A2(
+									_elm_lang$core$List_ops['::'],
+									_p56,
+									_elm_lang$core$Native_List.fromArray(
+										[
+											{
+											at: (model.elapsed + _p57.delay) - _p56.at,
+											frame: A2(
+												_elm_lang$core$List$map,
+												function (i) {
+													return _elm_lang$core$Native_Utils.update(
+														i,
+														{delay: 0});
+												},
+												_p58)
+										}
+										]));
+							}
+						}();
+						return _elm_lang$core$Native_Utils.update(
+							model,
+							{interruption: interruptions});
+					}
+				case 'Repeat':
+					var _p60 = _p50._0;
+					var _p59 = _p50._1;
+					if (_elm_lang$core$Native_Utils.cmp(_p60, 0) < 1) {
+						return model;
+					} else {
+						if (_elm_lang$core$Native_Utils.eq(_p60, 1)) {
+							var _v31 = _mdgriffith$elm_style_animation$Style_Core$Interrupt(_p59),
+								_v32 = model;
+							action = _v31;
+							model = _v32;
+							continue update;
+						} else {
+							var newModel = A2(
+								_mdgriffith$elm_style_animation$Style_Core$update,
+								_mdgriffith$elm_style_animation$Style_Core$Interrupt(_p59),
+								model);
+							return _elm_lang$core$Native_Utils.update(
+								newModel,
+								{
+									repeatCache: _elm_lang$core$Maybe$Just(
+										{ctor: '_Tuple2', _0: _p60 - 1, _1: _p59})
+								});
+						}
+					}
+				case 'QueueRepeat':
+					var _p62 = _p50._0;
+					var _p61 = _p50._1;
+					if (_elm_lang$core$Native_Utils.cmp(_p62, 0) < 1) {
+						return model;
+					} else {
+						var repeatCache = (_elm_lang$core$Native_Utils.cmp(_p62, 1) > 0) ? _elm_lang$core$Maybe$Just(
+							{ctor: '_Tuple2', _0: _p62 - 1, _1: _p61}) : _elm_lang$core$Maybe$Nothing;
+						var newModel = A2(
+							_mdgriffith$elm_style_animation$Style_Core$update,
+							_mdgriffith$elm_style_animation$Style_Core$Queue(_p61),
+							model);
+						return _elm_lang$core$Native_Utils.update(
+							newModel,
+							{repeatCache: repeatCache});
+					}
+				default:
+					var _p68 = _p50._0;
+					var _p63 = A2(_mdgriffith$elm_style_animation$Style_Core$getTimes, _p68, model);
+					var start = _p63._0;
+					var elapsed = _p63._1;
+					var dt = _p63._2;
+					var _p64 = _elm_lang$core$List$head(model.interruption);
+					if (_p64.ctor === 'Just') {
+						var _p66 = _p64._0;
+						if (_elm_lang$core$Native_Utils.cmp(elapsed, _p66.at) > -1) {
+							return A4(
+								_mdgriffith$elm_style_animation$Style_Core$interrupt,
+								_p68,
+								model,
+								_p66.frame,
+								A2(_elm_lang$core$List$drop, 1, model.interruption));
+						} else {
+							var _p65 = _elm_lang$core$List$head(model.frames);
+							if (_p65.ctor === 'Nothing') {
+								return A3(_mdgriffith$elm_style_animation$Style_Core$continue, model, elapsed, start);
+							} else {
+								return A6(_mdgriffith$elm_style_animation$Style_Core$tick, model, _p65._0, elapsed, dt, start, _p68);
+							}
+						}
+					} else {
+						var _p67 = _elm_lang$core$List$head(model.frames);
+						if (_p67.ctor === 'Nothing') {
+							return _elm_lang$core$Native_Utils.update(
+								model,
+								{
+									elapsed: 0.0,
+									start: _elm_lang$core$Maybe$Nothing,
+									frames: _elm_lang$core$Native_List.fromArray(
+										[])
+								});
+						} else {
+							return A6(_mdgriffith$elm_style_animation$Style_Core$tick, model, _p67._0, elapsed, dt, start, _p68);
+						}
+					}
+			}
+		}
+	});

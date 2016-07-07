@@ -1,0 +1,401 @@
+var _mdgriffith$elm_style_animation$Style_Properties$alignStartingPoint = function (points) {
+	var sums = A2(
+		_elm_lang$core$List$map,
+		function (_p0) {
+			var _p1 = _p0;
+			return _p1._0 + _p1._1;
+		},
+		points);
+	var maybeMin = _elm_lang$core$List$minimum(sums);
+	var indexOfLowestPoint = function () {
+		var _p2 = maybeMin;
+		if (_p2.ctor === 'Nothing') {
+			return _elm_lang$core$Maybe$Nothing;
+		} else {
+			return _elm_lang$core$List$head(
+				A2(
+					_elm_lang$core$List$filterMap,
+					_elm_lang$core$Basics$identity,
+					A2(
+						_elm_lang$core$List$indexedMap,
+						F2(
+							function (i, val) {
+								return _elm_lang$core$Native_Utils.eq(val, _p2._0) ? _elm_lang$core$Maybe$Just(i) : _elm_lang$core$Maybe$Nothing;
+							}),
+						sums)));
+		}
+	}();
+	var _p3 = indexOfLowestPoint;
+	if (_p3.ctor === 'Nothing') {
+		return points;
+	} else {
+		var _p4 = _p3._0;
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			A2(_elm_lang$core$List$drop, _p4, points),
+			A2(_elm_lang$core$List$take, _p4, points));
+	}
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Stroke = function (a) {
+	return {ctor: 'Stroke', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Fill = function (a) {
+	return {ctor: 'Fill', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Points = function (a) {
+	return {ctor: 'Points', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$D = function (a) {
+	return {ctor: 'D', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Ry = function (a) {
+	return {ctor: 'Ry', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Rx = function (a) {
+	return {ctor: 'Rx', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$R = function (a) {
+	return {ctor: 'R', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Cy = function (a) {
+	return {ctor: 'Cy', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Cx = function (a) {
+	return {ctor: 'Cx', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Y = function (a) {
+	return {ctor: 'Y', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$X = function (a) {
+	return {ctor: 'X', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Perspective = function (a) {
+	return {ctor: 'Perspective', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$SkewY = F2(
+	function (a, b) {
+		return {ctor: 'SkewY', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$SkewX = F2(
+	function (a, b) {
+		return {ctor: 'SkewX', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Skew = F3(
+	function (a, b, c) {
+		return {ctor: 'Skew', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$RotateY = F2(
+	function (a, b) {
+		return {ctor: 'RotateY', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$RotateX = F2(
+	function (a, b) {
+		return {ctor: 'RotateX', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Rotate3d = F5(
+	function (a, b, c, d, e) {
+		return {ctor: 'Rotate3d', _0: a, _1: b, _2: c, _3: d, _4: e};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Rotate = F2(
+	function (a, b) {
+		return {ctor: 'Rotate', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$ScaleZ = function (a) {
+	return {ctor: 'ScaleZ', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$ScaleY = function (a) {
+	return {ctor: 'ScaleY', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$ScaleX = function (a) {
+	return {ctor: 'ScaleX', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Scale3d = F3(
+	function (a, b, c) {
+		return {ctor: 'Scale3d', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Scale = function (a) {
+	return {ctor: 'Scale', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$TranslateY = F2(
+	function (a, b) {
+		return {ctor: 'TranslateY', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$TranslateX = F2(
+	function (a, b) {
+		return {ctor: 'TranslateX', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Translate3d = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Translate3d', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Translate = F3(
+	function (a, b, c) {
+		return {ctor: 'Translate', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Matrix3d = function (a) {
+	return function (b) {
+		return function (c) {
+			return function (d) {
+				return function (e) {
+					return function (f) {
+						return function (g) {
+							return function (h) {
+								return function (i) {
+									return function (j) {
+										return function (k) {
+											return function (l) {
+												return function (m) {
+													return function (n) {
+														return function (o) {
+															return function (p) {
+																return {ctor: 'Matrix3d', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f, _6: g, _7: h, _8: i, _9: j, _10: k, _11: l, _12: m, _13: n, _14: o, _15: p};
+															};
+														};
+													};
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Matrix = F6(
+	function (a, b, c, d, e, f) {
+		return {ctor: 'Matrix', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$TransformOrigin = F4(
+	function (a, b, c, d) {
+		return {ctor: 'TransformOrigin', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderColor = function (a) {
+	return {ctor: 'BorderColor', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$BackgroundColor = function (a) {
+	return {ctor: 'BackgroundColor', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Color = function (a) {
+	return {ctor: 'Color', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$BackgroundPosition = F3(
+	function (a, b, c) {
+		return {ctor: 'BackgroundPosition', _0: a, _1: b, _2: c};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$LineHeight = F2(
+	function (a, b) {
+		return {ctor: 'LineHeight', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$LetterSpacing = F2(
+	function (a, b) {
+		return {ctor: 'LetterSpacing', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderBottomRightRadius = F2(
+	function (a, b) {
+		return {ctor: 'BorderBottomRightRadius', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderBottomLeftRadius = F2(
+	function (a, b) {
+		return {ctor: 'BorderBottomLeftRadius', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderTopRightRadius = F2(
+	function (a, b) {
+		return {ctor: 'BorderTopRightRadius', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderTopLeftRadius = F2(
+	function (a, b) {
+		return {ctor: 'BorderTopLeftRadius', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderRadius = F2(
+	function (a, b) {
+		return {ctor: 'BorderRadius', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$BorderWidth = F2(
+	function (a, b) {
+		return {ctor: 'BorderWidth', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MarginBottom = F2(
+	function (a, b) {
+		return {ctor: 'MarginBottom', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MarginTop = F2(
+	function (a, b) {
+		return {ctor: 'MarginTop', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MarginRight = F2(
+	function (a, b) {
+		return {ctor: 'MarginRight', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MarginLeft = F2(
+	function (a, b) {
+		return {ctor: 'MarginLeft', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Margin = F2(
+	function (a, b) {
+		return {ctor: 'Margin', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$PaddingBottom = F2(
+	function (a, b) {
+		return {ctor: 'PaddingBottom', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$PaddingTop = F2(
+	function (a, b) {
+		return {ctor: 'PaddingTop', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$PaddingRight = F2(
+	function (a, b) {
+		return {ctor: 'PaddingRight', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$PaddingLeft = F2(
+	function (a, b) {
+		return {ctor: 'PaddingLeft', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Padding = F2(
+	function (a, b) {
+		return {ctor: 'Padding', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MinWidth = F2(
+	function (a, b) {
+		return {ctor: 'MinWidth', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MinHeight = F2(
+	function (a, b) {
+		return {ctor: 'MinHeight', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MaxWidth = F2(
+	function (a, b) {
+		return {ctor: 'MaxWidth', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MaxHeight = F2(
+	function (a, b) {
+		return {ctor: 'MaxHeight', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Bottom = F2(
+	function (a, b) {
+		return {ctor: 'Bottom', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Right = F2(
+	function (a, b) {
+		return {ctor: 'Right', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Top = F2(
+	function (a, b) {
+		return {ctor: 'Top', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Left = F2(
+	function (a, b) {
+		return {ctor: 'Left', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Width = F2(
+	function (a, b) {
+		return {ctor: 'Width', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Height = F2(
+	function (a, b) {
+		return {ctor: 'Height', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Opacity = function (a) {
+	return {ctor: 'Opacity', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Display = function (a) {
+	return {ctor: 'Display', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Pc = {ctor: 'Pc'};
+var _mdgriffith$elm_style_animation$Style_Properties$Pt = {ctor: 'Pt'};
+var _mdgriffith$elm_style_animation$Style_Properties$In = {ctor: 'In'};
+var _mdgriffith$elm_style_animation$Style_Properties$Cm = {ctor: 'Cm'};
+var _mdgriffith$elm_style_animation$Style_Properties$Mm = {ctor: 'Mm'};
+var _mdgriffith$elm_style_animation$Style_Properties$Vmax = {ctor: 'Vmax'};
+var _mdgriffith$elm_style_animation$Style_Properties$Vmin = {ctor: 'Vmin'};
+var _mdgriffith$elm_style_animation$Style_Properties$Vw = {ctor: 'Vw'};
+var _mdgriffith$elm_style_animation$Style_Properties$Vh = {ctor: 'Vh'};
+var _mdgriffith$elm_style_animation$Style_Properties$Ch = {ctor: 'Ch'};
+var _mdgriffith$elm_style_animation$Style_Properties$Ex = {ctor: 'Ex'};
+var _mdgriffith$elm_style_animation$Style_Properties$Em = {ctor: 'Em'};
+var _mdgriffith$elm_style_animation$Style_Properties$Rem = {ctor: 'Rem'};
+var _mdgriffith$elm_style_animation$Style_Properties$Percent = {ctor: 'Percent'};
+var _mdgriffith$elm_style_animation$Style_Properties$Px = {ctor: 'Px'};
+var _mdgriffith$elm_style_animation$Style_Properties$Turn = {ctor: 'Turn'};
+var _mdgriffith$elm_style_animation$Style_Properties$Rad = {ctor: 'Rad'};
+var _mdgriffith$elm_style_animation$Style_Properties$Grad = {ctor: 'Grad'};
+var _mdgriffith$elm_style_animation$Style_Properties$Deg = {ctor: 'Deg'};
+var _mdgriffith$elm_style_animation$Style_Properties$ListItem = {ctor: 'ListItem'};
+var _mdgriffith$elm_style_animation$Style_Properties$InlineFlex = {ctor: 'InlineFlex'};
+var _mdgriffith$elm_style_animation$Style_Properties$Flex = {ctor: 'Flex'};
+var _mdgriffith$elm_style_animation$Style_Properties$Block = {ctor: 'Block'};
+var _mdgriffith$elm_style_animation$Style_Properties$InlineBlock = {ctor: 'InlineBlock'};
+var _mdgriffith$elm_style_animation$Style_Properties$Inline = {ctor: 'Inline'};
+var _mdgriffith$elm_style_animation$Style_Properties$None = {ctor: 'None'};
+var _mdgriffith$elm_style_animation$Style_Properties$Close = {ctor: 'Close'};
+var _mdgriffith$elm_style_animation$Style_Properties$LargeArcTo = F4(
+	function (a, b, c, d) {
+		return {ctor: 'LargeArcTo', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$LargeArc = F4(
+	function (a, b, c, d) {
+		return {ctor: 'LargeArc', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$ArcTo = F4(
+	function (a, b, c, d) {
+		return {ctor: 'ArcTo', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Arc = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Arc', _0: a, _1: b, _2: c, _3: d};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$SmoothTo = function (a) {
+	return {ctor: 'SmoothTo', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Smooth = function (a) {
+	return {ctor: 'Smooth', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadraticTo = function (a) {
+	return {ctor: 'SmoothQuadraticTo', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$SmoothQuadratic = function (a) {
+	return {ctor: 'SmoothQuadratic', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$QuadraticTo = function (a) {
+	return {ctor: 'QuadraticTo', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Quadratic = function (a) {
+	return {ctor: 'Quadratic', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$CurveTo = function (a) {
+	return {ctor: 'CurveTo', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Curve = function (a) {
+	return {ctor: 'Curve', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$VerticalTo = function (a) {
+	return {ctor: 'VerticalTo', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Vertical = function (a) {
+	return {ctor: 'Vertical', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$HorizontalTo = function (a) {
+	return {ctor: 'HorizontalTo', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$Horizontal = function (a) {
+	return {ctor: 'Horizontal', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style_Properties$LineTo = F2(
+	function (a, b) {
+		return {ctor: 'LineTo', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Line = F2(
+	function (a, b) {
+		return {ctor: 'Line', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$MoveTo = F2(
+	function (a, b) {
+		return {ctor: 'MoveTo', _0: a, _1: b};
+	});
+var _mdgriffith$elm_style_animation$Style_Properties$Move = F2(
+	function (a, b) {
+		return {ctor: 'Move', _0: a, _1: b};
+	});

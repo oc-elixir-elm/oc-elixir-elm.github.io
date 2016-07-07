@@ -1,0 +1,356 @@
+var _mdgriffith$elm_style_animation$Style$renderAttr = function (_p0) {
+	var _p1 = _p0;
+	var _p3 = _p1._0;
+	var _p2 = _elm_lang$core$List$head(_p3.frames);
+	if (_p2.ctor === 'Nothing') {
+		return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderAttr(_p3.previous);
+	} else {
+		return _mdgriffith$elm_style_animation$Style_PropertyHelpers$renderAttr(
+			A2(_mdgriffith$elm_style_animation$Style_Core$bake, _p2._0, _p3.previous));
+	}
+};
+var _mdgriffith$elm_style_animation$Style$render = function (_p4) {
+	var _p5 = _p4;
+	var _p7 = _p5._0;
+	var _p6 = _elm_lang$core$List$head(_p7.frames);
+	if (_p6.ctor === 'Nothing') {
+		return _mdgriffith$elm_style_animation$Style_PropertyHelpers$render(_p7.previous);
+	} else {
+		return _mdgriffith$elm_style_animation$Style_PropertyHelpers$render(
+			A2(_mdgriffith$elm_style_animation$Style_Core$bake, _p6._0, _p7.previous));
+	}
+};
+var _mdgriffith$elm_style_animation$Style$applyKeyframeOptions = function (options) {
+	var applyOpt = function (prop) {
+		var addOptions = function (a) {
+			var withEase = A2(
+				_elm_lang$core$Maybe$map,
+				function (ease) {
+					return _elm_lang$core$Native_Utils.update(
+						_mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyEasing,
+						{ease: ease});
+				},
+				options.easing);
+			var withDuration = function () {
+				var _p8 = options.duration;
+				if (_p8.ctor === 'Nothing') {
+					return withEase;
+				} else {
+					var _p10 = _p8._0;
+					var _p9 = withEase;
+					if (_p9.ctor === 'Nothing') {
+						return _elm_lang$core$Maybe$Just(
+							_elm_lang$core$Native_Utils.update(
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$emptyEasing,
+								{duration: _p10}));
+					} else {
+						return _elm_lang$core$Maybe$Just(
+							_elm_lang$core$Native_Utils.update(
+								_p9._0,
+								{duration: _p10}));
+					}
+				}
+			}();
+			var newSpring = function () {
+				var _p11 = options.spring;
+				if (_p11.ctor === 'Nothing') {
+					return a.spring;
+				} else {
+					var _p12 = _p11._0;
+					var oldSpring = a.spring;
+					return _elm_lang$core$Native_Utils.update(
+						oldSpring,
+						{stiffness: _p12.stiffness, damping: _p12.damping});
+				}
+			}();
+			return _elm_lang$core$Native_Utils.update(
+				a,
+				{spring: newSpring, easing: withDuration});
+		};
+		return _elm_lang$core$Native_Utils.update(
+			prop,
+			{
+				current: A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$update, addOptions, prop.current)
+			});
+	};
+	var frame = options.frame;
+	var newProperties = A2(_elm_lang$core$List$map, applyOpt, frame.properties);
+	return _elm_lang$core$Native_Utils.update(
+		frame,
+		{properties: newProperties});
+};
+var _mdgriffith$elm_style_animation$Style$queueRepeat = function (i) {
+	return {
+		frames: _elm_lang$core$Native_List.fromArray(
+			[]),
+		action: _mdgriffith$elm_style_animation$Style_Core$QueueRepeat(i)
+	};
+};
+var _mdgriffith$elm_style_animation$Style$repeat = function (i) {
+	return {
+		frames: _elm_lang$core$Native_List.fromArray(
+			[]),
+		action: _mdgriffith$elm_style_animation$Style_Core$Repeat(i)
+	};
+};
+var _mdgriffith$elm_style_animation$Style$queue = {
+	frames: _elm_lang$core$Native_List.fromArray(
+		[]),
+	action: _mdgriffith$elm_style_animation$Style_Core$Queue
+};
+var _mdgriffith$elm_style_animation$Style$animate = {
+	frames: _elm_lang$core$Native_List.fromArray(
+		[]),
+	action: _mdgriffith$elm_style_animation$Style_Core$Interrupt
+};
+var _mdgriffith$elm_style_animation$Style$convertToRetargetFn = F3(
+	function (changes, i, prop) {
+		var dynamicProp = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$drop,
+				i - 1,
+				A2(
+					_elm_lang$core$List$filter,
+					function (chng) {
+						return _elm_lang$core$Native_Utils.eq(
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(chng),
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(prop));
+					},
+					changes)));
+		var _p13 = dynamicProp;
+		if (_p13.ctor === 'Nothing') {
+			return prop;
+		} else {
+			return A2(_mdgriffith$elm_style_animation$Style_PropertyHelpers$apply, _p13._0, prop);
+		}
+	});
+var _mdgriffith$elm_style_animation$Style$forever = 1 / 0;
+var _mdgriffith$elm_style_animation$Style$emptyKeyframeWithOptions = {frame: _mdgriffith$elm_style_animation$Style_Core$emptyKeyframe, duration: _elm_lang$core$Maybe$Nothing, easing: _elm_lang$core$Maybe$Nothing, spring: _elm_lang$core$Maybe$Nothing};
+var _mdgriffith$elm_style_animation$Style$andThen = function (preaction) {
+	return _elm_lang$core$Native_Utils.update(
+		preaction,
+		{
+			frames: A2(
+				_elm_lang$core$Basics_ops['++'],
+				preaction.frames,
+				_elm_lang$core$Native_List.fromArray(
+					[_mdgriffith$elm_style_animation$Style$emptyKeyframeWithOptions]))
+		});
+};
+var _mdgriffith$elm_style_animation$Style$updateOrCreate = F2(
+	function (preaction, fn) {
+		return _elm_lang$core$Native_Utils.update(
+			preaction,
+			{
+				frames: function () {
+					var _p14 = _elm_lang$core$List$reverse(preaction.frames);
+					if (_p14.ctor === '[]') {
+						return _elm_lang$core$Native_List.fromArray(
+							[
+								fn(_mdgriffith$elm_style_animation$Style$emptyKeyframeWithOptions)
+							]);
+					} else {
+						return _elm_lang$core$List$reverse(
+							A2(
+								_elm_lang$core$List_ops['::'],
+								fn(_p14._0),
+								_p14._1));
+					}
+				}()
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$spring = F2(
+	function (spring, action) {
+		var newSpring = _elm_lang$core$Maybe$Just(
+			{destination: 1.0, damping: spring.damping, stiffness: spring.stiffness});
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			action,
+			function (a) {
+				return _elm_lang$core$Native_Utils.update(
+					a,
+					{spring: newSpring});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$update = F2(
+	function (dynamicUpdate, action) {
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			action,
+			function (kfWithOptions) {
+				var frame = kfWithOptions.frame;
+				var updatedFrame = _elm_lang$core$Native_Utils.update(
+					frame,
+					{
+						retarget: _elm_lang$core$Maybe$Just(
+							_mdgriffith$elm_style_animation$Style$convertToRetargetFn(dynamicUpdate)),
+						properties: A2(
+							_elm_lang$core$List$map,
+							function (prop) {
+								var empty = _mdgriffith$elm_style_animation$Style_PropertyHelpers$vacate(prop);
+								return {
+									target: empty,
+									current: _mdgriffith$elm_style_animation$Style_PropertyHelpers$toDynamic(empty)
+								};
+							},
+							dynamicUpdate)
+					});
+				return _elm_lang$core$Native_Utils.update(
+					kfWithOptions,
+					{frame: updatedFrame});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$duration = F2(
+	function (dur, action) {
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			action,
+			function (a) {
+				return _elm_lang$core$Native_Utils.update(
+					a,
+					{
+						duration: _elm_lang$core$Maybe$Just(dur)
+					});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$delay = F2(
+	function (delay, action) {
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			action,
+			function (a) {
+				var frame = a.frame;
+				var updatedFrame = _elm_lang$core$Native_Utils.update(
+					frame,
+					{delay: delay});
+				return _elm_lang$core$Native_Utils.update(
+					a,
+					{frame: updatedFrame});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$easing = F2(
+	function (ease, action) {
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			action,
+			function (a) {
+				return _elm_lang$core$Native_Utils.update(
+					a,
+					{
+						easing: _elm_lang$core$Maybe$Just(ease)
+					});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$to = F2(
+	function (sty, action) {
+		var deduped = A3(
+			_elm_lang$core$List$foldr,
+			F2(
+				function (x, acc) {
+					return A2(
+						_elm_lang$core$List$any,
+						function (y) {
+							return _elm_lang$core$Native_Utils.eq(
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(x),
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(y)) && (!_elm_lang$core$Native_Utils.eq(
+								_mdgriffith$elm_style_animation$Style_PropertyHelpers$name(x),
+								'transform'));
+						},
+						acc) ? acc : A2(_elm_lang$core$List_ops['::'], x, acc);
+				}),
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			sty);
+		var dynamicProperties = A2(
+			_elm_lang$core$List$map,
+			function (prop) {
+				return {
+					target: prop,
+					current: _mdgriffith$elm_style_animation$Style_PropertyHelpers$toDynamic(prop)
+				};
+			},
+			deduped);
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			action,
+			function (kfWithOptions) {
+				var frame = kfWithOptions.frame;
+				var updatedFrame = _elm_lang$core$Native_Utils.update(
+					frame,
+					{properties: dynamicProperties});
+				return _elm_lang$core$Native_Utils.update(
+					kfWithOptions,
+					{frame: updatedFrame});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$set = F2(
+	function (staticProps, action) {
+		var actionWithProps = A2(_mdgriffith$elm_style_animation$Style$to, staticProps, action);
+		return A2(
+			_mdgriffith$elm_style_animation$Style$updateOrCreate,
+			actionWithProps,
+			function (kfWithOpts) {
+				return _elm_lang$core$Native_Utils.update(
+					kfWithOpts,
+					{
+						duration: _elm_lang$core$Maybe$Just(0),
+						easing: _elm_lang$core$Maybe$Just(
+							function (x) {
+								return x;
+							})
+					});
+			});
+	});
+var _mdgriffith$elm_style_animation$Style$KeyframeWithOptions = F4(
+	function (a, b, c, d) {
+		return {frame: a, duration: b, easing: c, spring: d};
+	});
+var _mdgriffith$elm_style_animation$Style$PreAction = F2(
+	function (a, b) {
+		return {frames: a, action: b};
+	});
+var _mdgriffith$elm_style_animation$Style$A = function (a) {
+	return {ctor: 'A', _0: a};
+};
+var _mdgriffith$elm_style_animation$Style$init = function (sty) {
+	var empty = _mdgriffith$elm_style_animation$Style_Core$empty;
+	var deduped = A3(
+		_elm_lang$core$List$foldr,
+		F2(
+			function (x, acc) {
+				return A2(
+					_elm_lang$core$List$any,
+					function (y) {
+						return _elm_lang$core$Native_Utils.eq(
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(x),
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$id(y)) && (!_elm_lang$core$Native_Utils.eq(
+							_mdgriffith$elm_style_animation$Style_PropertyHelpers$name(x),
+							'transform'));
+					},
+					acc) ? acc : A2(_elm_lang$core$List_ops['::'], x, acc);
+			}),
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		sty);
+	return _mdgriffith$elm_style_animation$Style$A(
+		_elm_lang$core$Native_Utils.update(
+			empty,
+			{previous: deduped}));
+};
+var _mdgriffith$elm_style_animation$Style$on = F2(
+	function (_p15, preaction) {
+		var _p16 = _p15;
+		var action = preaction.action(
+			A2(_elm_lang$core$List$map, _mdgriffith$elm_style_animation$Style$applyKeyframeOptions, preaction.frames));
+		return _mdgriffith$elm_style_animation$Style$A(
+			A2(_mdgriffith$elm_style_animation$Style_Core$update, action, _p16._0));
+	});
+var _mdgriffith$elm_style_animation$Style$tick = F2(
+	function (time, _p17) {
+		var _p18 = _p17;
+		return _mdgriffith$elm_style_animation$Style$A(
+			A2(
+				_mdgriffith$elm_style_animation$Style_Core$update,
+				_mdgriffith$elm_style_animation$Style_Core$Tick(time),
+				_p18._0));
+	});

@@ -1,0 +1,54 @@
+var _mdgriffith$elm_style_animation$Style_Spring$vTolerance = 0.1;
+var _mdgriffith$elm_style_animation$Style_Spring$tolerance = 1.0e-2;
+var _mdgriffith$elm_style_animation$Style_Spring$update = F3(
+	function (dtms, spring, phys) {
+		var fdamper = (0 - spring.damping) * phys.velocity;
+		var fspring = (0 - spring.stiffness) * (phys.position - spring.destination);
+		var a = fspring + fdamper;
+		var dt = dtms / 1000;
+		var newV = phys.velocity + (a * dt);
+		var newX = phys.position + (newV * dt);
+		return ((_elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$Basics$abs(spring.destination - newX),
+			_mdgriffith$elm_style_animation$Style_Spring$tolerance) < 0) && (_elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$Basics$abs(newV),
+			_mdgriffith$elm_style_animation$Style_Spring$vTolerance) < 0)) ? _elm_lang$core$Native_Utils.update(
+			phys,
+			{position: spring.destination, velocity: 0.0}) : _elm_lang$core$Native_Utils.update(
+			phys,
+			{position: newX, velocity: newV});
+	});
+var _mdgriffith$elm_style_animation$Style_Spring$atRest = F2(
+	function (spring, physical) {
+		return (_elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$Basics$abs(spring.destination - physical.position),
+			_mdgriffith$elm_style_animation$Style_Spring$tolerance) < 0) && (_elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$Basics$abs(physical.velocity),
+			_mdgriffith$elm_style_animation$Style_Spring$vTolerance) < 0);
+	});
+var _mdgriffith$elm_style_animation$Style_Spring$duration = F2(
+	function (spring, phys) {
+		return _elm_lang$core$Basics$snd(
+			A3(
+				_elm_lang$core$List$foldl,
+				F2(
+					function (t, _p0) {
+						var _p1 = _p0;
+						var _p2 = _p1._0;
+						return A2(_mdgriffith$elm_style_animation$Style_Spring$atRest, spring, _p2) ? {ctor: '_Tuple2', _0: _p2, _1: _p1._1} : {
+							ctor: '_Tuple2',
+							_0: A3(_mdgriffith$elm_style_animation$Style_Spring$update, 1, spring, _p2),
+							_1: t
+						};
+					}),
+				{ctor: '_Tuple2', _0: phys, _1: 0},
+				_elm_lang$core$Native_List.range(1, 10000)));
+	});
+var _mdgriffith$elm_style_animation$Style_Spring$Model = F3(
+	function (a, b, c) {
+		return {stiffness: a, damping: b, destination: c};
+	});
+var _mdgriffith$elm_style_animation$Style_Spring$Physical = F2(
+	function (a, b) {
+		return {position: a, velocity: b};
+	});
